@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lietou.mapper.UserMapper">
+	<resultMap id="UserLoginMap" type="com.lietou.dto.LoginDto">
+	    <id column="id" jdbcType="BIGINT" property="id" />
+	    <result column="name" jdbcType="VARCHAR" property="username" />
+	    <result column="freeze_flag" jdbcType="BIT" property="freezeFlag" />
+	</resultMap>
+	<select id="getByLoginNameAndPassword" parameterType="com.lietou.model.User" resultMap="UserLoginMap">
+	    select  id,name,freeze_flag
+	    from t_user
+	    where login_name = #{loginName}  and password = #{password}
+	</select>
+</mapper>

@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lietou.mapper.DictAreaMapper">
+  <resultMap id="BaseResultMap" type="com.lietou.model.DictArea">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="pid" jdbcType="BIGINT" property="pid" />
+    <result column="shortname" jdbcType="VARCHAR" property="shortname" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="merger_name" jdbcType="VARCHAR" property="mergerName" />
+    <result column="level" jdbcType="INTEGER" property="level" />
+    <result column="pinyin" jdbcType="VARCHAR" property="pinyin" />
+    <result column="code" jdbcType="VARCHAR" property="code" />
+    <result column="zip_code" jdbcType="VARCHAR" property="zipCode" />
+    <result column="first" jdbcType="VARCHAR" property="first" />
+    <result column="lng" jdbcType="VARCHAR" property="lng" />
+    <result column="lat" jdbcType="VARCHAR" property="lat" />
+    <result column="straight_flag" jdbcType="BIT" property="straightFlag" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, pid, shortname, name, merger_name, level, pinyin, code, zip_code, first, lng, 
+    lat, straight_flag
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_dict_area
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from t_dict_area
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.lietou.model.DictArea">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into t_dict_area (pid, shortname, name, 
+      merger_name, level, pinyin, 
+      code, zip_code, first, 
+      lng, lat, straight_flag)
+    values (#{pid,jdbcType=BIGINT}, #{shortname,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
+      #{mergerName,jdbcType=VARCHAR}, #{level,jdbcType=INTEGER}, #{pinyin,jdbcType=VARCHAR}, 
+      #{code,jdbcType=VARCHAR}, #{zipCode,jdbcType=VARCHAR}, #{first,jdbcType=VARCHAR}, 
+      #{lng,jdbcType=VARCHAR}, #{lat,jdbcType=VARCHAR}, #{straightFlag,jdbcType=BIT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.lietou.model.DictArea">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into t_dict_area
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="pid != null">
+        pid,
+      </if>
+      <if test="shortname != null">
+        shortname,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="mergerName != null">
+        merger_name,
+      </if>
+      <if test="level != null">
+        level,
+      </if>
+      <if test="pinyin != null">
+        pinyin,
+      </if>
+      <if test="code != null">
+        code,
+      </if>
+      <if test="zipCode != null">
+        zip_code,
+      </if>
+      <if test="first != null">
+        first,
+      </if>
+      <if test="lng != null">
+        lng,
+      </if>
+      <if test="lat != null">
+        lat,
+      </if>
+      <if test="straightFlag != null">
+        straight_flag,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="pid != null">
+        #{pid,jdbcType=BIGINT},
+      </if>
+      <if test="shortname != null">
+        #{shortname,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="mergerName != null">
+        #{mergerName,jdbcType=VARCHAR},
+      </if>
+      <if test="level != null">
+        #{level,jdbcType=INTEGER},
+      </if>
+      <if test="pinyin != null">
+        #{pinyin,jdbcType=VARCHAR},
+      </if>
+      <if test="code != null">
+        #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="zipCode != null">
+        #{zipCode,jdbcType=VARCHAR},
+      </if>
+      <if test="first != null">
+        #{first,jdbcType=VARCHAR},
+      </if>
+      <if test="lng != null">
+        #{lng,jdbcType=VARCHAR},
+      </if>
+      <if test="lat != null">
+        #{lat,jdbcType=VARCHAR},
+      </if>
+      <if test="straightFlag != null">
+        #{straightFlag,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lietou.model.DictArea">
+    update t_dict_area
+    <set>
+      <if test="pid != null">
+        pid = #{pid,jdbcType=BIGINT},
+      </if>
+      <if test="shortname != null">
+        shortname = #{shortname,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="mergerName != null">
+        merger_name = #{mergerName,jdbcType=VARCHAR},
+      </if>
+      <if test="level != null">
+        level = #{level,jdbcType=INTEGER},
+      </if>
+      <if test="pinyin != null">
+        pinyin = #{pinyin,jdbcType=VARCHAR},
+      </if>
+      <if test="code != null">
+        code = #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="zipCode != null">
+        zip_code = #{zipCode,jdbcType=VARCHAR},
+      </if>
+      <if test="first != null">
+        first = #{first,jdbcType=VARCHAR},
+      </if>
+      <if test="lng != null">
+        lng = #{lng,jdbcType=VARCHAR},
+      </if>
+      <if test="lat != null">
+        lat = #{lat,jdbcType=VARCHAR},
+      </if>
+      <if test="straightFlag != null">
+        straight_flag = #{straightFlag,jdbcType=BIT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lietou.model.DictArea">
+    update t_dict_area
+    set pid = #{pid,jdbcType=BIGINT},
+      shortname = #{shortname,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
+      merger_name = #{mergerName,jdbcType=VARCHAR},
+      level = #{level,jdbcType=INTEGER},
+      pinyin = #{pinyin,jdbcType=VARCHAR},
+      code = #{code,jdbcType=VARCHAR},
+      zip_code = #{zipCode,jdbcType=VARCHAR},
+      first = #{first,jdbcType=VARCHAR},
+      lng = #{lng,jdbcType=VARCHAR},
+      lat = #{lat,jdbcType=VARCHAR},
+      straight_flag = #{straightFlag,jdbcType=BIT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

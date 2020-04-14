@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lietou.mapper.CustomContactMapper">
+
+	<resultMap type="com.lietou.dto.CustomContactDto" id="DtoMap" extends="BaseResultMap">
+	</resultMap>
+	
+	<resultMap type="com.lietou.dto.CustomContactDto" id="ListDtoMap" extends="BaseResultMap">
+		<collection property="contactRecordList" ofType="com.lietou.dto.CustomContactRecordDto" column="id" select="getContactRecord"/>
+	</resultMap>
+	
+	<select id="getById" resultMap="DtoMap" parameterType="com.lietou.vo.CustomContactVo">
+		SELECT * FROM t_custom_contact a where id=#{id} 
+		<if test="cId != null">
+			and c_id=#{cId}
+		</if>
+	</select>
+	
+	<select id="getList" resultMap="ListDtoMap" parameterType="com.lietou.vo.CustomContactVo">
+		SELECT * FROM t_custom_contact a 
+		where a.customer_id =#{customerId}
+		<if test="cId != null">
+			and a.c_id=#{cId}
+		</if>
+		order by a.create_time desc
+		limit #{pageStartSize},#{pageSize}
+	</select>
+	<select id="countList" resultType="int" parameterType="com.lietou.vo.CustomContactVo">
+		SELECT count(1) FROM t_custom_contact
+		where customer_id =#{customerId}
+		<if test="cId != null">
+			and c_id=#{cId}
+		</if>
+	</select>
+	
+	<delete id="deleteByIds" parameterType="com.lietou.vo.CustomContactVo">
+		delete from t_custom_contact
+	    where customer_id =#{customerId} 
+	    <if test="cId != null">
+			and c_id=#{cId}
+		</if>
+	    and id in
+		<foreach collection="ids" item="item" index="index" open="(" separator="," close=")">
+			#{item}
+		</foreach>
+	</delete>
+	
+	<select id="getContactRecord" resultType="com.lietou.dto.CustomContactRecordDto">
+		SELECT a.id,a.custom_contact_id customContactId,a.contact_remark contactRemark,a.next_time nextTime
+			,a.creater_id createrId,a.create_time createTime,b.name createrName
+	    FROM  t_custom_contact_record a
+		LEFT JOIN t_user b ON a.creater_id=b.id
+		where a.custom_contact_id=#{id}
+	</select>
+	
+	<update id="resetContactCount" parameterType="com.lietou.model.ResetBO">
+		update t_custom 
+		set contact_count = (select count(1) from t_custom_contact where customer_id=#{businessId} 
+		<if test="cId != null">
+			and c_id=#{cId}
+		</if>
+		) 
+		where id= #{businessId}
+	</update>
+</mapper>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lietou.mapper.RemarkMapper">
+	<resultMap id="ListDtoMap" type="com.lietou.dto.RemarkDto" extends="BaseResultMap">
+		<result column="name" jdbcType="VARCHAR" property="createrName" />
+	</resultMap>
+	
+  	<select id="getAllRemark" resultMap="ListDtoMap" parameterType="com.lietou.vo.RemarkVo">
+  		select a.*,b.name from t_remark a
+  		left join t_user b ON a.creater_id=b.id
+  		where a.business_id =#{businessId} and a.business_type =#{businessType}
+	    <if test="cId != null">
+			and a.c_id=#{cId}
+		</if>
+		order by a.id desc
+  	</select>
+  	
+  	<select id="getById" resultMap="ListDtoMap" parameterType="com.lietou.vo.RemarkVo">
+		SELECT * FROM t_remark where id=#{id} 
+		<if test="cId != null">
+			and c_id=#{cId}
+		</if>
+	</select>
+	
+	<delete id="deleteByIds" parameterType="com.lietou.vo.RemarkVo">
+		delete from t_remark
+	    where business_id =#{businessId} and business_type =#{businessType}
+	    <if test="cId != null">
+			and c_id=#{cId}
+		</if>
+	    and id in
+		<foreach collection="ids" item="item" index="index" open="(" separator="," close=")">
+			#{item}
+		</foreach>
+	</delete>
+	
+	<update id="modify" parameterType="com.lietou.model.Remark">
+	    update t_remark
+	    set remark1 = #{remark1,jdbcType=VARCHAR},
+	      remark2 = #{remark2,jdbcType=VARCHAR},
+	      remark3 = #{remark3,jdbcType=VARCHAR},
+	      remark4 = #{remark4,jdbcType=VARCHAR},
+	      remark5 = #{remark5,jdbcType=VARCHAR},
+	      remark6 = #{remark6,jdbcType=VARCHAR},
+	      reminded_or = #{remindedOr,jdbcType=VARCHAR}
+	    where id = #{id,jdbcType=BIGINT} and business_type = #{businessType,jdbcType=VARCHAR}
+	    <if test="cId != null">
+			and c_id=#{cId}
+		</if>
+	</update>
+  	
+</mapper>

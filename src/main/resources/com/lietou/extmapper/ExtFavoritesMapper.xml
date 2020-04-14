@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lietou.mapper.FavoritesMapper">
+	<insert id="voInsert" parameterType="com.lietou.vo.FavoritesVo">
+		<selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+			SELECT
+			LAST_INSERT_ID()
+		</selectKey>
+		insert into t_favorites (parent_id, name, business_type,creater_id,
+			create_time, business_count,label, remark, c_id)
+		values
+		(#{parentId,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR},
+		#{businessType,jdbcType=VARCHAR},
+		#{createrId,jdbcType=BIGINT},
+		#{createTime,jdbcType=VARCHAR}, #{businessCount,jdbcType=INTEGER},
+		#{label,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, #{cId,jdbcType=BIGINT})
+	</insert>
+
+	<update id="voUpdate" parameterType="com.lietou.vo.FavoritesVo">
+		update t_favorites
+		set name = #{name,jdbcType=VARCHAR},
+			label = #{label,jdbcType=VARCHAR},
+			remark = #{remark,jdbcType=VARCHAR}
+		where id = #{id,jdbcType=BIGINT}
+		<if test="cId != null">
+			and c_id=#{cId}
+		</if>
+		<if test="businessType != null">
+			and business_type=#{businessType}
+		</if>
+	</update>
+	
+	<select id="checkHaveChildren" parameterType="java.lang.Long" resultType="int">
+		select count(1) from t_favorites where parent_id = #{parentId}
+	</select>
+	
+	<delete id="deleteMainByFavorites" parameterType="com.lietou.vo.FavoritesVo">
+		delete from t_favorites where id=#{id,jdbcType=BIGINT}
+		<if test="cId != null">
+			and c_id=#{cId}
+		</if>
+	</delete>
+	
+	<delete id="deleteSubByFavorites" parameterType="com.lietou.vo.FavoritesVo">
+		delete from t_favorites_share where favorites_id = #{id,jdbcType=BIGINT};
+		delete from t_favorites_business where favorites_id = #{id,jdbcType=BIGINT};
+	</delete>
+	
+	<resultMap type="com.lietou.dto.FavoritesDto" id="NoShareDtoMap" extends="BaseResultMap">
+		<collection property="children" select="getSubUserNoShareDto" column="{id=id, favoritesIdsStr=favoritesIdsStr,createrId=creater_id,businessType=business_type}" ofType="com.lietou.dto.FavoritesDto"/>
+	</resultMap>
+	<select id="getUserNoShareDto" parameterType="com.lietou.queryvo.FavoritesQueryVo" resultMap="NoShareDtoMap">
+		select a.*,case when ('${favoritesIdsStr}' != '') then '${favoritesIdsStr}' else '' end as favoritesIdsStr from t_favorites a
+		where business_type=#{businessType,jdbcType=VARCHAR} and parent_id = 0
+		<if test="cId != null">
+			and c_id=#{cId}
+		</if>
+		and (creater_id=#{createrId} 
+		<if test="favoritesIdsStr != null and favoritesIdsStr != '' ">
+			or id in (${favoritesIdsStr})
+		</if>)
+	</select>
+	<select id="getSubUserNoShareDto" resultMap="NoShareDtoMap">
+		select a.*,case when ('${favoritesIdsStr}' != '') then '${favoritesIdsStr}' else '' end as favoritesIdsStr from t_favorites a
+		where business_type=#{businessType,jdbcType=VARCHAR} and parent_id = #{id} 
+		<if test="cId != null">
+			and c_id=#{cId}
+		</if>
+		and (creater_id=#{createrId} 
+		<if test="favoritesIdsStr != null and favoritesIdsStr != '' ">
+			or id in (${favoritesIdsStr})
+		</if>)
+	</select>
+	
+	
+	<resultMap type="com.lietou.dto.FavoritesDto" id="HaveShareDtoMap" extends="BaseResultMap">
+		<collection property="children" select="getSubUserHaveShareDto" column="{id=id,favoritesIdsStr=favoritesIdsStr,createrId=creater_id,businessType=business_type}" ofType="com.lietou.dto.FavoritesDto"/>
+		<collection property="share" select="getShare" column="id" ofType="com.lietou.model.FavoritesShare"/>
+	</resultMap>
+	<select id="getUserHaveShareDto" parameterType="com.lietou.queryvo.FavoritesQueryVo" resultMap="HaveShareDtoMap">
+		select a.*,case when ('${favoritesIdsStr}' != '') then '${favoritesIdsStr}' else '' end as favoritesIdsStr from t_favorites a
+		where business_type=#{businessType,jdbcType=VARCHAR} and parent_id = 0
+		<if test="cId != null">
+			and c_id=#{cId}
+		</if>
+		and (creater_id=#{createrId} 
+		<if test="favoritesIdsStr != null and favoritesIdsStr != '' ">
+			or id in (${favoritesIdsStr})
+		</if>)
+	</select>
+	<select id="getSubUserHaveShareDto" resultMap="HaveShareDtoMap">
+		select a.*,case when ('${favoritesIdsStr}' != '') then '${favoritesIdsStr}' else '' end as favoritesIdsStr from t_favorites a
+		where   parent_id = #{id} and business_type=#{businessType,jdbcType=VARCHAR}
+		<if test="cId != null">
+			and c_id=#{cId}
+		</if>
+		and (creater_id=#{createrId} 
+		<if test="favoritesIdsStr != null and favoritesIdsStr != '' ">
+			or id in (${favoritesIdsStr})
+		</if>)
+	</select>
+	<select id="getShare" resultType="com.lietou.model.FavoritesShare">
+		select id id,share_type shareType,share_id shareId  from t_favorites_share where favorites_id = #{id}
+	</select>
+	
+	
+	<update id="restBusinessCount" parameterType="java.lang.Long">
+		update t_favorites set business_count = (select count(1) from t_favorites_business where favorites_id = #{id} )
+		where id = #{id}
+	</update>
+	
+</mapper>

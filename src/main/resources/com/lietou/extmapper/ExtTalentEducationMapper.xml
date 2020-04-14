@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lietou.mapper.TalentEducationMapper">
+	<insert id="batchAddEducation" parameterType="com.lietou.vo.TalentVo">
+		insert into t_talent_education (talent_id, start_date, end_date,school_name, professional, education,
+			description, f1, f2, f3
+		)
+	    values 
+	    <foreach collection="educationList" item="item" index="index"
+			separator=",">
+			(#{id,jdbcType=BIGINT}, #{item.startDate,jdbcType=VARCHAR},
+			#{item.endDate,jdbcType=VARCHAR},
+			#{item.schoolName,jdbcType=VARCHAR}, #{item.professional,jdbcType=VARCHAR}, #{item.education,jdbcType=VARCHAR},
+			#{item.description,jdbcType=VARCHAR}, #{item.f1,jdbcType=BIT},#{item.f2,jdbcType=BIT}, #{item.f3,jdbcType=BIT}
+			)
+	    </foreach>
+	</insert>
+	
+	<delete id="deleteByTalentId" parameterType="java.lang.Long">
+		delete from t_talent_experiences where talent_id = #{talentId,jdbcType=BIGINT}
+	</delete>
+</mapper>

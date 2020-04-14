@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lietou.mapper.AssignDetailMapper">
+  <resultMap id="BaseResultMap" type="com.lietou.model.AssignDetail">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="assign_id" jdbcType="BIGINT" property="assignId" />
+    <result column="assign_type" jdbcType="VARCHAR" property="assignType" />
+    <result column="performance_percent" jdbcType="INTEGER" property="performancePercent" />
+    <result column="assign_percent" jdbcType="INTEGER" property="assignPercent" />
+    <result column="create_time" jdbcType="VARCHAR" property="createTime" />
+    <result column="creater_id" jdbcType="BIGINT" property="createrId" />
+    <result column="performance_amount" jdbcType="DECIMAL" property="performanceAmount" />
+    <result column="assign_amount" jdbcType="DECIMAL" property="assignAmount" />
+    <result column="assigneder_id" jdbcType="BIGINT" property="assignederId" />
+    <result column="send_flag" jdbcType="BIT" property="sendFlag" />
+    <result column="assigneder_name" jdbcType="VARCHAR" property="assignederName" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, assign_id, assign_type, performance_percent, assign_percent, create_time, creater_id, 
+    performance_amount, assign_amount, assigneder_id, send_flag, assigneder_name
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_assign_detail
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from t_assign_detail
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.lietou.model.AssignDetail">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into t_assign_detail (assign_id, assign_type, performance_percent, 
+      assign_percent, create_time, creater_id, 
+      performance_amount, assign_amount, assigneder_id, 
+      send_flag, assigneder_name)
+    values (#{assignId,jdbcType=BIGINT}, #{assignType,jdbcType=VARCHAR}, #{performancePercent,jdbcType=INTEGER}, 
+      #{assignPercent,jdbcType=INTEGER}, #{createTime,jdbcType=VARCHAR}, #{createrId,jdbcType=BIGINT}, 
+      #{performanceAmount,jdbcType=DECIMAL}, #{assignAmount,jdbcType=DECIMAL}, #{assignederId,jdbcType=BIGINT}, 
+      #{sendFlag,jdbcType=BIT}, #{assignederName,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.lietou.model.AssignDetail">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into t_assign_detail
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="assignId != null">
+        assign_id,
+      </if>
+      <if test="assignType != null">
+        assign_type,
+      </if>
+      <if test="performancePercent != null">
+        performance_percent,
+      </if>
+      <if test="assignPercent != null">
+        assign_percent,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="createrId != null">
+        creater_id,
+      </if>
+      <if test="performanceAmount != null">
+        performance_amount,
+      </if>
+      <if test="assignAmount != null">
+        assign_amount,
+      </if>
+      <if test="assignederId != null">
+        assigneder_id,
+      </if>
+      <if test="sendFlag != null">
+        send_flag,
+      </if>
+      <if test="assignederName != null">
+        assigneder_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="assignId != null">
+        #{assignId,jdbcType=BIGINT},
+      </if>
+      <if test="assignType != null">
+        #{assignType,jdbcType=VARCHAR},
+      </if>
+      <if test="performancePercent != null">
+        #{performancePercent,jdbcType=INTEGER},
+      </if>
+      <if test="assignPercent != null">
+        #{assignPercent,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=VARCHAR},
+      </if>
+      <if test="createrId != null">
+        #{createrId,jdbcType=BIGINT},
+      </if>
+      <if test="performanceAmount != null">
+        #{performanceAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="assignAmount != null">
+        #{assignAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="assignederId != null">
+        #{assignederId,jdbcType=BIGINT},
+      </if>
+      <if test="sendFlag != null">
+        #{sendFlag,jdbcType=BIT},
+      </if>
+      <if test="assignederName != null">
+        #{assignederName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lietou.model.AssignDetail">
+    update t_assign_detail
+    <set>
+      <if test="assignId != null">
+        assign_id = #{assignId,jdbcType=BIGINT},
+      </if>
+      <if test="assignType != null">
+        assign_type = #{assignType,jdbcType=VARCHAR},
+      </if>
+      <if test="performancePercent != null">
+        performance_percent = #{performancePercent,jdbcType=INTEGER},
+      </if>
+      <if test="assignPercent != null">
+        assign_percent = #{assignPercent,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=VARCHAR},
+      </if>
+      <if test="createrId != null">
+        creater_id = #{createrId,jdbcType=BIGINT},
+      </if>
+      <if test="performanceAmount != null">
+        performance_amount = #{performanceAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="assignAmount != null">
+        assign_amount = #{assignAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="assignederId != null">
+        assigneder_id = #{assignederId,jdbcType=BIGINT},
+      </if>
+      <if test="sendFlag != null">
+        send_flag = #{sendFlag,jdbcType=BIT},
+      </if>
+      <if test="assignederName != null">
+        assigneder_name = #{assignederName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lietou.model.AssignDetail">
+    update t_assign_detail
+    set assign_id = #{assignId,jdbcType=BIGINT},
+      assign_type = #{assignType,jdbcType=VARCHAR},
+      performance_percent = #{performancePercent,jdbcType=INTEGER},
+      assign_percent = #{assignPercent,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=VARCHAR},
+      creater_id = #{createrId,jdbcType=BIGINT},
+      performance_amount = #{performanceAmount,jdbcType=DECIMAL},
+      assign_amount = #{assignAmount,jdbcType=DECIMAL},
+      assigneder_id = #{assignederId,jdbcType=BIGINT},
+      send_flag = #{sendFlag,jdbcType=BIT},
+      assigneder_name = #{assignederName,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lietou.mapper.TalentEducationMapper">
+  <resultMap id="BaseResultMap" type="com.lietou.model.TalentEducation">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="talent_id" jdbcType="BIGINT" property="talentId" />
+    <result column="start_date" jdbcType="VARCHAR" property="startDate" />
+    <result column="end_date" jdbcType="VARCHAR" property="endDate" />
+    <result column="school_name" jdbcType="VARCHAR" property="schoolName" />
+    <result column="professional" jdbcType="VARCHAR" property="professional" />
+    <result column="education" jdbcType="VARCHAR" property="education" />
+    <result column="description" jdbcType="VARCHAR" property="description" />
+    <result column="f1" jdbcType="BIT" property="f1" />
+    <result column="f2" jdbcType="BIT" property="f2" />
+    <result column="f3" jdbcType="BIT" property="f3" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, talent_id, start_date, end_date, school_name, professional, education, description, 
+    f1, f2, f3
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_talent_education
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from t_talent_education
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.lietou.model.TalentEducation">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into t_talent_education (talent_id, start_date, end_date, 
+      school_name, professional, education, 
+      description, f1, f2, f3
+      )
+    values (#{talentId,jdbcType=BIGINT}, #{startDate,jdbcType=VARCHAR}, #{endDate,jdbcType=VARCHAR}, 
+      #{schoolName,jdbcType=VARCHAR}, #{professional,jdbcType=VARCHAR}, #{education,jdbcType=VARCHAR}, 
+      #{description,jdbcType=VARCHAR}, #{f1,jdbcType=BIT}, #{f2,jdbcType=BIT}, #{f3,jdbcType=BIT}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.lietou.model.TalentEducation">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into t_talent_education
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="talentId != null">
+        talent_id,
+      </if>
+      <if test="startDate != null">
+        start_date,
+      </if>
+      <if test="endDate != null">
+        end_date,
+      </if>
+      <if test="schoolName != null">
+        school_name,
+      </if>
+      <if test="professional != null">
+        professional,
+      </if>
+      <if test="education != null">
+        education,
+      </if>
+      <if test="description != null">
+        description,
+      </if>
+      <if test="f1 != null">
+        f1,
+      </if>
+      <if test="f2 != null">
+        f2,
+      </if>
+      <if test="f3 != null">
+        f3,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="talentId != null">
+        #{talentId,jdbcType=BIGINT},
+      </if>
+      <if test="startDate != null">
+        #{startDate,jdbcType=VARCHAR},
+      </if>
+      <if test="endDate != null">
+        #{endDate,jdbcType=VARCHAR},
+      </if>
+      <if test="schoolName != null">
+        #{schoolName,jdbcType=VARCHAR},
+      </if>
+      <if test="professional != null">
+        #{professional,jdbcType=VARCHAR},
+      </if>
+      <if test="education != null">
+        #{education,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null">
+        #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="f1 != null">
+        #{f1,jdbcType=BIT},
+      </if>
+      <if test="f2 != null">
+        #{f2,jdbcType=BIT},
+      </if>
+      <if test="f3 != null">
+        #{f3,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lietou.model.TalentEducation">
+    update t_talent_education
+    <set>
+      <if test="talentId != null">
+        talent_id = #{talentId,jdbcType=BIGINT},
+      </if>
+      <if test="startDate != null">
+        start_date = #{startDate,jdbcType=VARCHAR},
+      </if>
+      <if test="endDate != null">
+        end_date = #{endDate,jdbcType=VARCHAR},
+      </if>
+      <if test="schoolName != null">
+        school_name = #{schoolName,jdbcType=VARCHAR},
+      </if>
+      <if test="professional != null">
+        professional = #{professional,jdbcType=VARCHAR},
+      </if>
+      <if test="education != null">
+        education = #{education,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null">
+        description = #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="f1 != null">
+        f1 = #{f1,jdbcType=BIT},
+      </if>
+      <if test="f2 != null">
+        f2 = #{f2,jdbcType=BIT},
+      </if>
+      <if test="f3 != null">
+        f3 = #{f3,jdbcType=BIT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lietou.model.TalentEducation">
+    update t_talent_education
+    set talent_id = #{talentId,jdbcType=BIGINT},
+      start_date = #{startDate,jdbcType=VARCHAR},
+      end_date = #{endDate,jdbcType=VARCHAR},
+      school_name = #{schoolName,jdbcType=VARCHAR},
+      professional = #{professional,jdbcType=VARCHAR},
+      education = #{education,jdbcType=VARCHAR},
+      description = #{description,jdbcType=VARCHAR},
+      f1 = #{f1,jdbcType=BIT},
+      f2 = #{f2,jdbcType=BIT},
+      f3 = #{f3,jdbcType=BIT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

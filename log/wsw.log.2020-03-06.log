@@ -1,0 +1,424 @@
+2020-03-06 08:53:39,637 [INFO] [main] com.lietou.LietouApplication [StartupInfoLogger.java : 55] Starting LietouApplication on DESKTOP-97L64NN with PID 11252 (started by zhanjia in E:\新建文件夹 (2)\lietou\headhunters)
+2020-03-06 08:53:39,656 [INFO] [main] com.lietou.LietouApplication [SpringApplication.java : 651] No active profile set, falling back to default profiles: default
+2020-03-06 08:53:41,754 [INFO] [main] o.s.data.repository.config.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 249] Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-03-06 08:53:41,759 [INFO] [main] o.s.data.repository.config.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 127] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-03-06 08:53:41,817 [INFO] [main] o.s.data.repository.config.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 187] Finished Spring Data repository scanning in 38ms. Found 0 Redis repository interfaces.
+2020-03-06 08:53:42,008 [INFO] [main] o.s.context.annotation.ConfigurationClassPostProcessor [ConfigurationClassPostProcessor.java : 403] Cannot enhance @Configuration bean definition 'myBatisMapperScannerConfig' since its singleton instance has been created too early. The typical cause is a non-static @Bean method with a BeanDefinitionRegistryPostProcessor return type: Consider declaring such methods as 'static'.
+2020-03-06 08:53:42,332 [INFO] [main] o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [PostProcessorRegistrationDelegate.java : 330] Bean 'asyncConfig' of type [com.lietou.AsyncConfig$$EnhancerBySpringCGLIB$$7ffaf1ce] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-03-06 08:53:42,408 [INFO] [main] o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [PostProcessorRegistrationDelegate.java : 330] Bean 'org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Generic' of type [org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Generic] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-03-06 08:53:42,455 [INFO] [main] o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [PostProcessorRegistrationDelegate.java : 330] Bean 'spring.datasource-org.springframework.boot.autoconfigure.jdbc.DataSourceProperties' of type [org.springframework.boot.autoconfigure.jdbc.DataSourceProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-03-06 08:53:42,589 [INFO] [main] o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [PostProcessorRegistrationDelegate.java : 330] Bean 'dataSource' of type [com.alibaba.druid.pool.DruidDataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-03-06 08:53:42,599 [INFO] [main] o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [PostProcessorRegistrationDelegate.java : 330] Bean 'org.springframework.boot.autoconfigure.jdbc.DataSourceInitializerInvoker' of type [org.springframework.boot.autoconfigure.jdbc.DataSourceInitializerInvoker] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-03-06 08:53:42,625 [INFO] [main] o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [PostProcessorRegistrationDelegate.java : 330] Bean 'myBatisConfig' of type [com.lietou.MyBatisConfig$$EnhancerBySpringCGLIB$$c5f59b65] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-03-06 08:53:42,648 [INFO] [main] o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [PostProcessorRegistrationDelegate.java : 330] Bean 'annotationDrivenTransactionManager' of type [org.springframework.jdbc.datasource.DataSourceTransactionManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-03-06 08:53:42,651 [INFO] [main] o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [PostProcessorRegistrationDelegate.java : 330] Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-03-06 08:53:43,590 [INFO] [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [TomcatWebServer.java : 92] Tomcat initialized with port(s): 8080 (http)
+2020-03-06 08:53:43,604 [INFO] [main] org.apache.catalina.core.StandardService [DirectJDKLog.java : 173] Starting service [Tomcat]
+2020-03-06 08:53:43,605 [INFO] [main] org.apache.catalina.core.StandardEngine [DirectJDKLog.java : 173] Starting Servlet engine: [Apache Tomcat/9.0.30]
+2020-03-06 08:53:43,710 [INFO] [main] o.a.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [DirectJDKLog.java : 173] Initializing Spring embedded WebApplicationContext
+2020-03-06 08:53:43,710 [INFO] [main] org.springframework.web.context.ContextLoader [ServletWebServerApplicationContext.java : 284] Root WebApplicationContext: initialization completed in 4008 ms
+2020-03-06 08:53:47,518 [INFO] [main] o.s.scheduling.concurrent.ThreadPoolTaskExecutor [ExecutorConfigurationSupport.java : 171] Initializing ExecutorService 'applicationTaskExecutor'
+2020-03-06 08:53:47,958 [INFO] [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [TomcatWebServer.java : 204] Tomcat started on port(s): 8080 (http) with context path ''
+2020-03-06 08:53:47,963 [INFO] [main] com.lietou.LietouApplication [StartupInfoLogger.java : 61] Started LietouApplication in 8.939 seconds (JVM running for 12.344)
+2020-03-06 08:54:37,689 [INFO] [http-nio-8080-exec-2] o.a.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [DirectJDKLog.java : 173] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-03-06 08:54:37,690 [INFO] [http-nio-8080-exec-2] org.springframework.web.servlet.DispatcherServlet [FrameworkServlet.java : 525] Initializing Servlet 'dispatcherServlet'
+2020-03-06 08:54:37,700 [INFO] [http-nio-8080-exec-2] org.springframework.web.servlet.DispatcherServlet [FrameworkServlet.java : 547] Completed initialization in 10 ms
+2020-03-06 08:54:37,710 [INFO] [http-nio-8080-exec-2] com.lietou.filter.AuthenticationFilter [AuthenticationFilter.java : 58] /talent/add
+2020-03-06 08:54:37,822 [WARN] [http-nio-8080-exec-2] o.s.web.servlet.mvc.support.DefaultHandlerExceptionResolver [AbstractHandlerExceptionResolver.java : 199] Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize value of type `java.lang.Long` from String "中国": not a valid Long value; nested exception is com.fasterxml.jackson.databind.exc.InvalidFormatException: Cannot deserialize value of type `java.lang.Long` from String "中国": not a valid Long value
+ at [Source: (PushbackInputStream); line: 15, column: 17] (through reference chain: com.lietou.vo.TalentVo["nationality"])]
+2020-03-06 08:55:31,331 [INFO] [http-nio-8080-exec-3] com.lietou.filter.AuthenticationFilter [AuthenticationFilter.java : 58] /talent/add
+2020-03-06 08:55:31,474 [INFO] [http-nio-8080-exec-3] com.alibaba.druid.pool.DruidDataSource [DruidDataSource.java : 930] {dataSource-1} inited
+2020-03-06 08:55:32,079 [DEBUG] [http-nio-8080-exec-3] com.lietou.mapper.TalentMapper.voInsert [BaseJdbcLogger.java : 143] ==>  Preparing: insert into t_talent (type, mfc, chinese_name, english_name, industry, function, mobile, email, birthday, location, city, annualSalary, sex, nationality, school, education, english_level, linkedin, qq, weixin, marrysituation, account, address, tags, source_from, folder_id, share_flag, remark, attachments, create_time, creater_id, c_id, update_time, status, focus_str, project_experience, advantage, recommend) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) 
+2020-03-06 08:55:32,114 [DEBUG] [http-nio-8080-exec-3] com.lietou.mapper.TalentMapper.voInsert [BaseJdbcLogger.java : 143] ==> Parameters: candidate(String), false(Boolean), 中文名(String), 英文名(String), 行业(String), 职能(String), 18000000000;18000000001(String), 邮箱(String), 19900101(String), 31(Long), 意向城市1;意向城市2(String), null, 男(String), 1(Long), 学校(String), 第一学历(String), null, (String), qq(String), 微信(String), 婚育情况(String), 户口(String), 地址(String), 标签1,标签2(String), 来源(String), null, true(Boolean), 备注(String), 附件1,附件2(String), 20200306085532(String), 1(Long), 1(Long), 20200306085532(String), NoStatus(String), (String), 项目经历(String), 自我评价(String), 技能(String)
+2020-03-06 08:55:32,317 [ERROR] [http-nio-8080-exec-3] o.a.c.c.C.[Tomcat].[localhost].[/].[dispatcherServlet] [DirectJDKLog.java : 175] Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.dao.DataIntegrityViolationException: 
+### Error updating database.  Cause: java.sql.SQLException: Field 'id' doesn't have a default value
+### The error may exist in file [E:\新建文件夹 (2)\lietou\headhunters\target\classes\com\lietou\extmapper\ExtTalentMapper.xml]
+### The error may involve com.lietou.mapper.TalentMapper.voInsert-Inline
+### The error occurred while setting parameters
+### SQL: insert into t_talent (type, mfc, chinese_name,   english_name, industry, function,   mobile, email, birthday,   location, city, annualSalary,   sex, nationality, school,   education, english_level, linkedin,   qq, weixin, marrysituation,   account, address, tags,   source_from, folder_id, share_flag,   remark, attachments, create_time, creater_id,   c_id, update_time, status,   focus_str, project_experience, advantage,   recommend)   values (?, ?,   ?,   ?, ?, ?,   ?, ?,   ?,   ?, ?, ?,   ?, ?,   ?,   ?, ?, ?,   ?, ?,   ?,   ?, ?, ?,   ?, ?,   ?,   ?, ?, ?,   ?,   ?, ?, ?,   ?,   ?,   ?,   ?)
+### Cause: java.sql.SQLException: Field 'id' doesn't have a default value
+; Field 'id' doesn't have a default value; nested exception is java.sql.SQLException: Field 'id' doesn't have a default value] with root cause
+java.sql.SQLException: Field 'id' doesn't have a default value
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:129)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:953)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.execute(ClientPreparedStatement.java:370)
+	at com.alibaba.druid.pool.DruidPooledPreparedStatement.execute(DruidPooledPreparedStatement.java:498)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.ibatis.logging.jdbc.PreparedStatementLogger.invoke(PreparedStatementLogger.java:59)
+	at com.sun.proxy.$Proxy100.execute(Unknown Source)
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.update(PreparedStatementHandler.java:47)
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.update(RoutingStatementHandler.java:74)
+	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:50)
+	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:117)
+	at org.apache.ibatis.executor.CachingExecutor.update(CachingExecutor.java:76)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:197)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.insert(DefaultSqlSession.java:184)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:426)
+	at com.sun.proxy.$Proxy67.insert(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate.insert(SqlSessionTemplate.java:271)
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:62)
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:93)
+	at com.sun.proxy.$Proxy85.voInsert(Unknown Source)
+	at com.lietou.service.impl.TalentServiceImpl.add(TalentServiceImpl.java:90)
+	at com.lietou.service.impl.TalentServiceImpl$$FastClassBySpringCGLIB$$c350b5c3.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:769)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:747)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:366)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:99)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:747)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:689)
+	at com.lietou.service.impl.TalentServiceImpl$$EnhancerBySpringCGLIB$$4f0392e5.add(<generated>)
+	at com.lietou.controller.TalentController.add(TalentController.java:33)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:190)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:106)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:888)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:793)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:660)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at com.lietou.filter.AuthenticationFilter.doFilter(AuthenticationFilter.java:82)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:367)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:860)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1598)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+2020-03-06 08:56:49,147 [INFO] [http-nio-8080-exec-6] com.lietou.filter.AuthenticationFilter [AuthenticationFilter.java : 58] /talent/add
+2020-03-06 08:56:49,191 [DEBUG] [http-nio-8080-exec-6] com.lietou.mapper.TalentMapper.voInsert [BaseJdbcLogger.java : 143] ==>  Preparing: insert into t_talent (type, mfc, chinese_name, english_name, industry, function, mobile, email, birthday, location, city, annualSalary, sex, nationality, school, education, english_level, linkedin, qq, weixin, marrysituation, account, address, tags, source_from, folder_id, share_flag, remark, attachments, create_time, creater_id, c_id, update_time, status, focus_str, project_experience, advantage, recommend) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) 
+2020-03-06 08:56:49,193 [DEBUG] [http-nio-8080-exec-6] com.lietou.mapper.TalentMapper.voInsert [BaseJdbcLogger.java : 143] ==> Parameters: candidate(String), false(Boolean), 中文名(String), 英文名(String), 行业(String), 职能(String), 18000000000;18000000001(String), 邮箱(String), 19900101(String), 31(Long), 意向城市1;意向城市2(String), null, 男(String), 1(Long), 学校(String), 第一学历(String), null, (String), qq(String), 微信(String), 婚育情况(String), 户口(String), 地址(String), 标签1,标签2(String), 来源(String), null, true(Boolean), 备注(String), 附件1,附件2(String), 20200306085649(String), 1(Long), 1(Long), 20200306085649(String), NoStatus(String), (String), 项目经历(String), 自我评价(String), 技能(String)
+2020-03-06 08:56:49,224 [DEBUG] [http-nio-8080-exec-6] com.lietou.mapper.TalentMapper.voInsert [BaseJdbcLogger.java : 143] <==    Updates: 1
+2020-03-06 08:56:49,228 [DEBUG] [http-nio-8080-exec-6] com.lietou.mapper.TalentMapper.voInsert!selectKey [BaseJdbcLogger.java : 143] ==>  Preparing: SELECT LAST_INSERT_ID() 
+2020-03-06 08:56:49,230 [DEBUG] [http-nio-8080-exec-6] com.lietou.mapper.TalentMapper.voInsert!selectKey [BaseJdbcLogger.java : 143] ==> Parameters: 
+2020-03-06 08:56:49,272 [DEBUG] [http-nio-8080-exec-6] com.lietou.mapper.TalentMapper.voInsert!selectKey [BaseJdbcLogger.java : 143] <==      Total: 1
+2020-03-06 08:56:49,474 [ERROR] [http-nio-8080-exec-6] o.a.c.c.C.[Tomcat].[localhost].[/].[dispatcherServlet] [DirectJDKLog.java : 175] Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.mybatis.spring.MyBatisSystemException: nested exception is org.apache.ibatis.reflection.ReflectionException: There is no getter for property named 'assignDetailList' in 'class com.lietou.vo.TalentVo'] with root cause
+org.apache.ibatis.reflection.ReflectionException: There is no getter for property named 'assignDetailList' in 'class com.lietou.vo.TalentVo'
+	at org.apache.ibatis.reflection.Reflector.getGetInvoker(Reflector.java:373)
+	at org.apache.ibatis.reflection.MetaClass.getGetInvoker(MetaClass.java:163)
+	at org.apache.ibatis.reflection.wrapper.BeanWrapper.getBeanProperty(BeanWrapper.java:162)
+	at org.apache.ibatis.reflection.wrapper.BeanWrapper.get(BeanWrapper.java:49)
+	at org.apache.ibatis.reflection.MetaObject.getValue(MetaObject.java:122)
+	at org.apache.ibatis.scripting.xmltags.DynamicContext$ContextMap.get(DynamicContext.java:102)
+	at org.apache.ibatis.scripting.xmltags.DynamicContext$ContextAccessor.getProperty(DynamicContext.java:113)
+	at org.apache.ibatis.ognl.OgnlRuntime.getProperty(OgnlRuntime.java:2719)
+	at org.apache.ibatis.ognl.ASTProperty.getValueBody(ASTProperty.java:114)
+	at org.apache.ibatis.ognl.SimpleNode.evaluateGetValueBody(SimpleNode.java:212)
+	at org.apache.ibatis.ognl.SimpleNode.getValue(SimpleNode.java:258)
+	at org.apache.ibatis.ognl.Ognl.getValue(Ognl.java:493)
+	at org.apache.ibatis.ognl.Ognl.getValue(Ognl.java:457)
+	at org.apache.ibatis.scripting.xmltags.OgnlCache.getValue(OgnlCache.java:46)
+	at org.apache.ibatis.scripting.xmltags.ExpressionEvaluator.evaluateIterable(ExpressionEvaluator.java:43)
+	at org.apache.ibatis.scripting.xmltags.ForEachSqlNode.apply(ForEachSqlNode.java:54)
+	at org.apache.ibatis.scripting.xmltags.MixedSqlNode.lambda$apply$0(MixedSqlNode.java:32)
+	at java.util.ArrayList.forEach(ArrayList.java:1257)
+	at org.apache.ibatis.scripting.xmltags.MixedSqlNode.apply(MixedSqlNode.java:32)
+	at org.apache.ibatis.scripting.xmltags.DynamicSqlSource.getBoundSql(DynamicSqlSource.java:39)
+	at org.apache.ibatis.mapping.MappedStatement.getBoundSql(MappedStatement.java:297)
+	at org.apache.ibatis.executor.statement.BaseStatementHandler.<init>(BaseStatementHandler.java:64)
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.<init>(PreparedStatementHandler.java:41)
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.<init>(RoutingStatementHandler.java:46)
+	at org.apache.ibatis.session.Configuration.newStatementHandler(Configuration.java:592)
+	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:48)
+	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:117)
+	at org.apache.ibatis.executor.CachingExecutor.update(CachingExecutor.java:76)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:197)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.insert(DefaultSqlSession.java:184)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:426)
+	at com.sun.proxy.$Proxy67.insert(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate.insert(SqlSessionTemplate.java:271)
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:62)
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:93)
+	at com.sun.proxy.$Proxy86.batchAddExperiences(Unknown Source)
+	at com.lietou.service.impl.TalentServiceImpl.add(TalentServiceImpl.java:91)
+	at com.lietou.service.impl.TalentServiceImpl$$FastClassBySpringCGLIB$$c350b5c3.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:769)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:747)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:366)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:99)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:747)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:689)
+	at com.lietou.service.impl.TalentServiceImpl$$EnhancerBySpringCGLIB$$4f0392e5.add(<generated>)
+	at com.lietou.controller.TalentController.add(TalentController.java:33)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:190)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:106)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:888)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:793)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:660)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at com.lietou.filter.AuthenticationFilter.doFilter(AuthenticationFilter.java:82)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:367)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:860)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1598)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+2020-03-06 08:57:57,989 [INFO] [main] com.lietou.LietouApplication [StartupInfoLogger.java : 55] Starting LietouApplication on DESKTOP-97L64NN with PID 3904 (started by zhanjia in E:\新建文件夹 (2)\lietou\headhunters)
+2020-03-06 08:57:57,995 [INFO] [main] com.lietou.LietouApplication [SpringApplication.java : 651] No active profile set, falling back to default profiles: default
+2020-03-06 08:57:58,826 [INFO] [main] o.s.data.repository.config.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 249] Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-03-06 08:57:58,830 [INFO] [main] o.s.data.repository.config.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 127] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-03-06 08:57:58,878 [INFO] [main] o.s.data.repository.config.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java : 187] Finished Spring Data repository scanning in 34ms. Found 0 Redis repository interfaces.
+2020-03-06 08:57:59,028 [INFO] [main] o.s.context.annotation.ConfigurationClassPostProcessor [ConfigurationClassPostProcessor.java : 403] Cannot enhance @Configuration bean definition 'myBatisMapperScannerConfig' since its singleton instance has been created too early. The typical cause is a non-static @Bean method with a BeanDefinitionRegistryPostProcessor return type: Consider declaring such methods as 'static'.
+2020-03-06 08:57:59,283 [INFO] [main] o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [PostProcessorRegistrationDelegate.java : 330] Bean 'asyncConfig' of type [com.lietou.AsyncConfig$$EnhancerBySpringCGLIB$$1dd8b4aa] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-03-06 08:57:59,344 [INFO] [main] o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [PostProcessorRegistrationDelegate.java : 330] Bean 'org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Generic' of type [org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Generic] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-03-06 08:57:59,374 [INFO] [main] o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [PostProcessorRegistrationDelegate.java : 330] Bean 'spring.datasource-org.springframework.boot.autoconfigure.jdbc.DataSourceProperties' of type [org.springframework.boot.autoconfigure.jdbc.DataSourceProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-03-06 08:57:59,437 [INFO] [main] o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [PostProcessorRegistrationDelegate.java : 330] Bean 'dataSource' of type [com.alibaba.druid.pool.DruidDataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-03-06 08:57:59,448 [INFO] [main] o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [PostProcessorRegistrationDelegate.java : 330] Bean 'org.springframework.boot.autoconfigure.jdbc.DataSourceInitializerInvoker' of type [org.springframework.boot.autoconfigure.jdbc.DataSourceInitializerInvoker] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-03-06 08:57:59,473 [INFO] [main] o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [PostProcessorRegistrationDelegate.java : 330] Bean 'myBatisConfig' of type [com.lietou.MyBatisConfig$$EnhancerBySpringCGLIB$$63d35e41] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-03-06 08:57:59,491 [INFO] [main] o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [PostProcessorRegistrationDelegate.java : 330] Bean 'annotationDrivenTransactionManager' of type [org.springframework.jdbc.datasource.DataSourceTransactionManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-03-06 08:57:59,495 [INFO] [main] o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [PostProcessorRegistrationDelegate.java : 330] Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-03-06 08:58:00,269 [INFO] [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [TomcatWebServer.java : 92] Tomcat initialized with port(s): 8080 (http)
+2020-03-06 08:58:00,279 [INFO] [main] org.apache.catalina.core.StandardService [DirectJDKLog.java : 173] Starting service [Tomcat]
+2020-03-06 08:58:00,279 [INFO] [main] org.apache.catalina.core.StandardEngine [DirectJDKLog.java : 173] Starting Servlet engine: [Apache Tomcat/9.0.30]
+2020-03-06 08:58:00,358 [INFO] [main] o.a.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [DirectJDKLog.java : 173] Initializing Spring embedded WebApplicationContext
+2020-03-06 08:58:00,359 [INFO] [main] org.springframework.web.context.ContextLoader [ServletWebServerApplicationContext.java : 284] Root WebApplicationContext: initialization completed in 2299 ms
+2020-03-06 08:58:02,169 [INFO] [main] o.s.scheduling.concurrent.ThreadPoolTaskExecutor [ExecutorConfigurationSupport.java : 171] Initializing ExecutorService 'applicationTaskExecutor'
+2020-03-06 08:58:02,623 [INFO] [main] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [TomcatWebServer.java : 204] Tomcat started on port(s): 8080 (http) with context path ''
+2020-03-06 08:58:02,627 [INFO] [main] com.lietou.LietouApplication [StartupInfoLogger.java : 61] Started LietouApplication in 5.003 seconds (JVM running for 5.515)
+2020-03-06 08:58:22,310 [INFO] [http-nio-8080-exec-2] o.a.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [DirectJDKLog.java : 173] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-03-06 08:58:22,311 [INFO] [http-nio-8080-exec-2] org.springframework.web.servlet.DispatcherServlet [FrameworkServlet.java : 525] Initializing Servlet 'dispatcherServlet'
+2020-03-06 08:58:22,325 [INFO] [http-nio-8080-exec-2] org.springframework.web.servlet.DispatcherServlet [FrameworkServlet.java : 547] Completed initialization in 14 ms
+2020-03-06 08:58:22,334 [INFO] [http-nio-8080-exec-2] com.lietou.filter.AuthenticationFilter [AuthenticationFilter.java : 58] /talent/add
+2020-03-06 08:58:22,556 [INFO] [http-nio-8080-exec-2] com.alibaba.druid.pool.DruidDataSource [DruidDataSource.java : 930] {dataSource-1} inited
+2020-03-06 08:58:22,918 [DEBUG] [http-nio-8080-exec-2] com.lietou.mapper.TalentMapper.voInsert [BaseJdbcLogger.java : 143] ==>  Preparing: insert into t_talent (type, mfc, chinese_name, english_name, industry, function, mobile, email, birthday, location, city, annualSalary, sex, nationality, school, education, english_level, linkedin, qq, weixin, marrysituation, account, address, tags, source_from, folder_id, share_flag, remark, attachments, create_time, creater_id, c_id, update_time, status, focus_str, project_experience, advantage, recommend) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) 
+2020-03-06 08:58:22,948 [DEBUG] [http-nio-8080-exec-2] com.lietou.mapper.TalentMapper.voInsert [BaseJdbcLogger.java : 143] ==> Parameters: candidate(String), false(Boolean), 中文名(String), 英文名(String), 行业(String), 职能(String), 18000000000;18000000001(String), 邮箱(String), 19900101(String), 31(Long), 意向城市1;意向城市2(String), null, 男(String), 1(Long), 学校(String), 第一学历(String), null, (String), qq(String), 微信(String), 婚育情况(String), 户口(String), 地址(String), 标签1,标签2(String), 来源(String), null, true(Boolean), 备注(String), 附件1,附件2(String), 20200306085822(String), 1(Long), 1(Long), 20200306085822(String), NoStatus(String), (String), 项目经历(String), 自我评价(String), 技能(String)
+2020-03-06 08:58:22,983 [DEBUG] [http-nio-8080-exec-2] com.lietou.mapper.TalentMapper.voInsert [BaseJdbcLogger.java : 143] <==    Updates: 1
+2020-03-06 08:58:22,985 [DEBUG] [http-nio-8080-exec-2] com.lietou.mapper.TalentMapper.voInsert!selectKey [BaseJdbcLogger.java : 143] ==>  Preparing: SELECT LAST_INSERT_ID() 
+2020-03-06 08:58:22,985 [DEBUG] [http-nio-8080-exec-2] com.lietou.mapper.TalentMapper.voInsert!selectKey [BaseJdbcLogger.java : 143] ==> Parameters: 
+2020-03-06 08:58:23,032 [DEBUG] [http-nio-8080-exec-2] com.lietou.mapper.TalentMapper.voInsert!selectKey [BaseJdbcLogger.java : 143] <==      Total: 1
+2020-03-06 08:58:23,060 [DEBUG] [http-nio-8080-exec-2] c.lietou.mapper.TalentExperiencesMapper.batchAddExperiences [BaseJdbcLogger.java : 143] ==>  Preparing: insert into t_talent_experiences (talent_id, current_flag, company_name, company_position, company_city, dept, start_date, end_date, description ) values (?, ?, ?, ?, ?, ?, ?, ?, ? ) , (?, ?, ?, ?, ?, ?, ?, ?, ? ) 
+2020-03-06 08:58:23,063 [DEBUG] [http-nio-8080-exec-2] c.lietou.mapper.TalentExperiencesMapper.batchAddExperiences [BaseJdbcLogger.java : 143] ==> Parameters: 2(Long), true(Boolean), 公司名称(String), 职位(String), 上海(String), 部门(String), 20200306(String), 20200307(String), null, 2(Long), false(Boolean), 公司名称2(String), 职位2(String), 上海(String), 部门(String), 20200306(String), 20200307(String), null
+2020-03-06 08:58:23,102 [DEBUG] [http-nio-8080-exec-2] c.lietou.mapper.TalentExperiencesMapper.batchAddExperiences [BaseJdbcLogger.java : 143] <==    Updates: 2
+2020-03-06 08:58:23,103 [DEBUG] [http-nio-8080-exec-2] com.lietou.mapper.TalentEducationMapper.batchAddEducation [BaseJdbcLogger.java : 143] ==>  Preparing: insert into t_talent_education (talent_id, start_date, end_date,school_name, professional, education, description, f1, f2, f3 ) values (?, ?, ?, ?, ?, ?, ?, ?,?, ? ) 
+2020-03-06 08:58:23,104 [DEBUG] [http-nio-8080-exec-2] com.lietou.mapper.TalentEducationMapper.batchAddEducation [BaseJdbcLogger.java : 143] ==> Parameters: 2(Long), 20200306(String), 20200307(String), 学校名称(String), 专业(String), 学历(String), 描述(String), true(Boolean), false(Boolean), false(Boolean)
+2020-03-06 08:58:23,137 [DEBUG] [http-nio-8080-exec-2] com.lietou.mapper.TalentEducationMapper.batchAddEducation [BaseJdbcLogger.java : 143] <==    Updates: 1
+2020-03-06 09:11:44,498 [INFO] [http-nio-8080-exec-4] com.lietou.filter.AuthenticationFilter [AuthenticationFilter.java : 58] /talent//getById/2
+2020-03-06 09:11:45,858 [DEBUG] [http-nio-8080-exec-4] com.lietou.mapper.TalentMapper.getDetailById [BaseJdbcLogger.java : 143] ==>  Preparing: select * from t_talent where id = ? and c_id=? 
+2020-03-06 09:11:45,861 [DEBUG] [http-nio-8080-exec-4] com.lietou.mapper.TalentMapper.getDetailById [BaseJdbcLogger.java : 143] ==> Parameters: 2(Long), 1(Long)
+2020-03-06 09:11:45,893 [DEBUG] [http-nio-8080-exec-4] com.lietou.mapper.TalentMapper.getEducation [BaseJdbcLogger.java : 143] ====>  Preparing: select id, talent_id talentId, start_date startDate, end_date endDate, school_name schoolName, professional , education, description, f1, f2, f3 from t_talent_education where talent_id = ? 
+2020-03-06 09:11:45,894 [DEBUG] [http-nio-8080-exec-4] com.lietou.mapper.TalentMapper.getEducation [BaseJdbcLogger.java : 143] ====> Parameters: 2(Long)
+2020-03-06 09:11:45,912 [DEBUG] [http-nio-8080-exec-4] com.lietou.mapper.TalentMapper.getEducation [BaseJdbcLogger.java : 143] <====      Total: 1
+2020-03-06 09:11:45,913 [DEBUG] [http-nio-8080-exec-4] com.lietou.mapper.TalentMapper.getExperiences [BaseJdbcLogger.java : 143] ====>  Preparing: select id, talent_id talentId, current_flag currentFlag, company_name companyName , company_position companyPosition, company_city companyCity, dept, start_date startDate, end_date endDate, description from t_talent_experiences where talent_id = ? 
+2020-03-06 09:11:45,913 [DEBUG] [http-nio-8080-exec-4] com.lietou.mapper.TalentMapper.getExperiences [BaseJdbcLogger.java : 143] ====> Parameters: 2(Long)
+2020-03-06 09:11:45,935 [DEBUG] [http-nio-8080-exec-4] com.lietou.mapper.TalentMapper.getExperiences [BaseJdbcLogger.java : 143] <====      Total: 2
+2020-03-06 09:11:45,936 [DEBUG] [http-nio-8080-exec-4] com.lietou.mapper.TalentMapper.getDetailById [BaseJdbcLogger.java : 143] <==      Total: 1
+2020-03-06 09:17:41,274 [INFO] [http-nio-8080-exec-9] com.lietou.filter.AuthenticationFilter [AuthenticationFilter.java : 58] /talent/modify
+2020-03-06 09:17:42,457 [DEBUG] [http-nio-8080-exec-9] com.lietou.mapper.TalentMapper.voModify [BaseJdbcLogger.java : 143] ==>  Preparing: update t_talent set type = ?, mfc = ?, chinese_name = ?, english_name = ?, industry = ?, function = ?, mobile = ?, email = ?, birthday = ?, location = ?, city = ?, annualSalary = ?, sex = ?, nationality = ?, school = ?, education = ?, english_level = ?, linkedin = ?, qq = ?, weixin = ?, marrysituation = ?, account = ?, address = ?, tags = ?, source_from = ?, folder_id = ?, share_flag = ?, remark = ?, attachments = ?, update_time = ?, project_experience = ?, advantage = ?, recommend = ? where id = ? and c_id=? 
+2020-03-06 09:17:42,460 [DEBUG] [http-nio-8080-exec-9] com.lietou.mapper.TalentMapper.voModify [BaseJdbcLogger.java : 143] ==> Parameters: candidate(String), false(Boolean), 中文名1(String), 英文名(String), 行业1(String), 职能1(String), 18000000002;18000000001(String), 邮箱1(String), 19900101(String), 31(Long), 意向城市1;意向城市2(String), null, 男(String), 1(Long), 学校(String), 第一学历(String), 语言能力(String), (String), qq(String), 微信(String), 婚育情况(String), 户口(String), 地址(String), 标签1,标签2(String), 来源(String), 22(Long), true(Boolean), 备注(String), 附件1,附件2(String), 20200306091742(String), 项目经历(String), 自我评价(String), 技能(String), 2(Long), 1(Long)
+2020-03-06 09:17:42,520 [DEBUG] [http-nio-8080-exec-9] com.lietou.mapper.TalentMapper.voModify [BaseJdbcLogger.java : 143] <==    Updates: 1
+2020-03-06 09:17:42,521 [DEBUG] [http-nio-8080-exec-9] com.lietou.mapper.TalentExperiencesMapper.deleteByTalentId [BaseJdbcLogger.java : 143] ==>  Preparing: delete from t_talent_experiences where talent_id = ? 
+2020-03-06 09:17:42,522 [DEBUG] [http-nio-8080-exec-9] com.lietou.mapper.TalentExperiencesMapper.deleteByTalentId [BaseJdbcLogger.java : 143] ==> Parameters: 2(Long)
+2020-03-06 09:17:42,557 [DEBUG] [http-nio-8080-exec-9] com.lietou.mapper.TalentExperiencesMapper.deleteByTalentId [BaseJdbcLogger.java : 143] <==    Updates: 2
+2020-03-06 09:17:42,558 [DEBUG] [http-nio-8080-exec-9] com.lietou.mapper.TalentEducationMapper.deleteByTalentId [BaseJdbcLogger.java : 143] ==>  Preparing: delete from t_talent_experiences where talent_id = ? 
+2020-03-06 09:17:42,559 [DEBUG] [http-nio-8080-exec-9] com.lietou.mapper.TalentEducationMapper.deleteByTalentId [BaseJdbcLogger.java : 143] ==> Parameters: 2(Long)
+2020-03-06 09:17:42,585 [DEBUG] [http-nio-8080-exec-9] com.lietou.mapper.TalentEducationMapper.deleteByTalentId [BaseJdbcLogger.java : 143] <==    Updates: 0
+2020-03-06 09:17:42,587 [DEBUG] [http-nio-8080-exec-9] c.lietou.mapper.TalentExperiencesMapper.batchAddExperiences [BaseJdbcLogger.java : 143] ==>  Preparing: insert into t_talent_experiences (talent_id, current_flag, company_name, company_position, company_city, dept, start_date, end_date, description ) values (?, ?, ?, ?, ?, ?, ?, ?, ? ) , (?, ?, ?, ?, ?, ?, ?, ?, ? ) 
+2020-03-06 09:17:42,589 [DEBUG] [http-nio-8080-exec-9] c.lietou.mapper.TalentExperiencesMapper.batchAddExperiences [BaseJdbcLogger.java : 143] ==> Parameters: 2(Long), true(Boolean), 公司名称3(String), 职位3(String), 上海(String), 部门(String), 20200306(String), 20200307(String), 职责描述(String), 2(Long), false(Boolean), 公司名称4(String), 职位4(String), 上海(String), 部门(String), 20200306(String), 20200307(String), 职责描述(String)
+2020-03-06 09:17:42,626 [DEBUG] [http-nio-8080-exec-9] c.lietou.mapper.TalentExperiencesMapper.batchAddExperiences [BaseJdbcLogger.java : 143] <==    Updates: 2
+2020-03-06 09:17:42,629 [DEBUG] [http-nio-8080-exec-9] com.lietou.mapper.TalentEducationMapper.batchAddEducation [BaseJdbcLogger.java : 143] ==>  Preparing: insert into t_talent_education (talent_id, start_date, end_date,school_name, professional, education, description, f1, f2, f3 ) values (?, ?, ?, ?, ?, ?, ?, ?,?, ? ) 
+2020-03-06 09:17:42,631 [DEBUG] [http-nio-8080-exec-9] com.lietou.mapper.TalentEducationMapper.batchAddEducation [BaseJdbcLogger.java : 143] ==> Parameters: 2(Long), 20200306(String), 20200307(String), 学校名称1(String), 专业1(String), 学历1(String), 描述1(String), true(Boolean), false(Boolean), false(Boolean)
+2020-03-06 09:17:42,659 [DEBUG] [http-nio-8080-exec-9] com.lietou.mapper.TalentEducationMapper.batchAddEducation [BaseJdbcLogger.java : 143] <==    Updates: 1
+2020-03-06 09:20:29,636 [INFO] [http-nio-8080-exec-1] com.lietou.filter.AuthenticationFilter [AuthenticationFilter.java : 58] /talent/modify
+2020-03-06 09:20:29,673 [DEBUG] [http-nio-8080-exec-1] com.lietou.mapper.TalentMapper.voModify [BaseJdbcLogger.java : 143] ==>  Preparing: update t_talent set type = ?, mfc = ?, chinese_name = ?, english_name = ?, industry = ?, function = ?, mobile = ?, email = ?, birthday = ?, location = ?, city = ?, annualSalary = ?, sex = ?, nationality = ?, school = ?, education = ?, english_level = ?, linkedin = ?, qq = ?, weixin = ?, marrysituation = ?, account = ?, address = ?, tags = ?, source_from = ?, folder_id = ?, share_flag = ?, remark = ?, attachments = ?, update_time = ?, project_experience = ?, advantage = ?, recommend = ? where id = ? and c_id=? 
+2020-03-06 09:20:29,675 [DEBUG] [http-nio-8080-exec-1] com.lietou.mapper.TalentMapper.voModify [BaseJdbcLogger.java : 143] ==> Parameters: candidate(String), false(Boolean), 中文名1(String), 英文名(String), 行业1(String), 职能1(String), 18000000002;18000000001(String), 邮箱1(String), 19900101(String), 31(Long), 意向城市1;意向城市2(String), 0.0(Float), 男(String), 1(Long), 学校(String), 第一学历(String), 语言能力(String), (String), qq(String), 微信(String), 婚育情况(String), 户口(String), 地址(String), 标签1,标签2(String), 来源(String), 22(Long), true(Boolean), 备注(String), 附件1,附件2(String), 20200306092029(String), 项目经历(String), 自我评价(String), 技能(String), 2(Long), 1(Long)
+2020-03-06 09:20:29,728 [DEBUG] [http-nio-8080-exec-1] com.lietou.mapper.TalentMapper.voModify [BaseJdbcLogger.java : 143] <==    Updates: 1
+2020-03-06 09:20:29,729 [DEBUG] [http-nio-8080-exec-1] com.lietou.mapper.TalentExperiencesMapper.deleteByTalentId [BaseJdbcLogger.java : 143] ==>  Preparing: delete from t_talent_experiences where talent_id = ? 
+2020-03-06 09:20:29,730 [DEBUG] [http-nio-8080-exec-1] com.lietou.mapper.TalentExperiencesMapper.deleteByTalentId [BaseJdbcLogger.java : 143] ==> Parameters: 2(Long)
+2020-03-06 09:20:29,758 [DEBUG] [http-nio-8080-exec-1] com.lietou.mapper.TalentExperiencesMapper.deleteByTalentId [BaseJdbcLogger.java : 143] <==    Updates: 2
+2020-03-06 09:20:29,760 [DEBUG] [http-nio-8080-exec-1] com.lietou.mapper.TalentEducationMapper.deleteByTalentId [BaseJdbcLogger.java : 143] ==>  Preparing: delete from t_talent_experiences where talent_id = ? 
+2020-03-06 09:20:29,761 [DEBUG] [http-nio-8080-exec-1] com.lietou.mapper.TalentEducationMapper.deleteByTalentId [BaseJdbcLogger.java : 143] ==> Parameters: 2(Long)
+2020-03-06 09:20:29,790 [DEBUG] [http-nio-8080-exec-1] com.lietou.mapper.TalentEducationMapper.deleteByTalentId [BaseJdbcLogger.java : 143] <==    Updates: 0
+2020-03-06 09:20:29,798 [DEBUG] [http-nio-8080-exec-1] c.lietou.mapper.TalentExperiencesMapper.batchAddExperiences [BaseJdbcLogger.java : 143] ==>  Preparing: insert into t_talent_experiences (talent_id, current_flag, company_name, company_position, company_city, dept, start_date, end_date, description ) values (?, ?, ?, ?, ?, ?, ?, ?, ? ) , (?, ?, ?, ?, ?, ?, ?, ?, ? ) 
+2020-03-06 09:20:29,799 [DEBUG] [http-nio-8080-exec-1] c.lietou.mapper.TalentExperiencesMapper.batchAddExperiences [BaseJdbcLogger.java : 143] ==> Parameters: 2(Long), true(Boolean), 公司名称3(String), 职位3(String), 上海(String), 部门(String), 20200306(String), 20200307(String), 职责描述(String), 2(Long), false(Boolean), 公司名称4(String), 职位4(String), 上海(String), 部门(String), 20200306(String), 20200307(String), 职责描述(String)
+2020-03-06 09:20:29,829 [DEBUG] [http-nio-8080-exec-1] c.lietou.mapper.TalentExperiencesMapper.batchAddExperiences [BaseJdbcLogger.java : 143] <==    Updates: 2
+2020-03-06 09:20:29,831 [DEBUG] [http-nio-8080-exec-1] com.lietou.mapper.TalentEducationMapper.batchAddEducation [BaseJdbcLogger.java : 143] ==>  Preparing: insert into t_talent_education (talent_id, start_date, end_date,school_name, professional, education, description, f1, f2, f3 ) values (?, ?, ?, ?, ?, ?, ?, ?,?, ? ) 
+2020-03-06 09:20:29,832 [DEBUG] [http-nio-8080-exec-1] com.lietou.mapper.TalentEducationMapper.batchAddEducation [BaseJdbcLogger.java : 143] ==> Parameters: 2(Long), 20200306(String), 20200307(String), 学校名称1(String), 专业1(String), 学历1(String), 描述1(String), true(Boolean), false(Boolean), false(Boolean)
+2020-03-06 09:20:29,858 [DEBUG] [http-nio-8080-exec-1] com.lietou.mapper.TalentEducationMapper.batchAddEducation [BaseJdbcLogger.java : 143] <==    Updates: 1
+2020-03-06 09:22:31,380 [INFO] [http-nio-8080-exec-6] com.lietou.filter.AuthenticationFilter [AuthenticationFilter.java : 58] /talent/getList
+2020-03-06 09:22:31,397 [WARN] [http-nio-8080-exec-6] o.s.web.servlet.mvc.support.DefaultHandlerExceptionResolver [AbstractHandlerExceptionResolver.java : 199] Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize value of type `java.lang.Long` from String "意向城市1;意向城市2": not a valid Long value; nested exception is com.fasterxml.jackson.databind.exc.InvalidFormatException: Cannot deserialize value of type `java.lang.Long` from String "意向城市1;意向城市2": not a valid Long value
+ at [Source: (PushbackInputStream); line: 12, column: 10] (through reference chain: com.lietou.queryvo.TalentQueryVo["city"])]
+2020-03-06 09:23:17,943 [INFO] [http-nio-8080-exec-7] com.lietou.filter.AuthenticationFilter [AuthenticationFilter.java : 58] /talent/getList
+2020-03-06 09:23:17,970 [DEBUG] [http-nio-8080-exec-7] com.lietou.mapper.TalentMapper.countList [BaseJdbcLogger.java : 143] ==>  Preparing: SELECT count(1) FROM t_talent where delete_flag = 0 and (creater_id =? or share_flag =1 ) and c_id=? 
+2020-03-06 09:23:17,972 [DEBUG] [http-nio-8080-exec-7] com.lietou.mapper.TalentMapper.countList [BaseJdbcLogger.java : 143] ==> Parameters: 1(Long), 1(Long)
+2020-03-06 09:23:17,998 [DEBUG] [http-nio-8080-exec-7] com.lietou.mapper.TalentMapper.countList [BaseJdbcLogger.java : 143] <==      Total: 1
+2020-03-06 09:23:18,000 [DEBUG] [http-nio-8080-exec-7] com.lietou.mapper.TalentMapper.getList [BaseJdbcLogger.java : 143] ==>  Preparing: SELECT a.id, a.type, a.mfc, a.chinese_name, a.english_name, a.industry, a.function, a.mobile, a.email, a.birthday, a.location, a.city, a.annualSalary, a.sex, a.nationality, a.school, a.education, a.english_level, a.linkedin, a.qq, a.weixin, a.marrysituation, a.account, a.address, a.tags, a.source_from, a.folder_id, a.share_flag, a.remark, attachments, a.attachment_count, a.email_count, a.favorites_count, a.remark_count, a.shortlist_count, a.todo_count, a.floating_in_count, a.floating_out_count, a.create_time, a.creater_id, a.c_id, a.update_time, a.status, a.focus_str FROM t_talent a where a.delete_flag = 0 and (a.creater_id =? or a.share_flag =1) and c_id=? order by a.update_time desc limit ?,? 
+2020-03-06 09:23:18,002 [DEBUG] [http-nio-8080-exec-7] com.lietou.mapper.TalentMapper.getList [BaseJdbcLogger.java : 143] ==> Parameters: 1(Long), 1(Long), 0(Integer), 10(Integer)
+2020-03-06 09:23:18,034 [DEBUG] [http-nio-8080-exec-7] com.lietou.mapper.TalentMapper.getEducation [BaseJdbcLogger.java : 143] ====>  Preparing: select id, talent_id talentId, start_date startDate, end_date endDate, school_name schoolName, professional , education, description, f1, f2, f3 from t_talent_education where talent_id = ? 
+2020-03-06 09:23:18,035 [DEBUG] [http-nio-8080-exec-7] com.lietou.mapper.TalentMapper.getEducation [BaseJdbcLogger.java : 143] ====> Parameters: 2(Long)
+2020-03-06 09:23:18,051 [DEBUG] [http-nio-8080-exec-7] com.lietou.mapper.TalentMapper.getEducation [BaseJdbcLogger.java : 143] <====      Total: 3
+2020-03-06 09:23:18,052 [DEBUG] [http-nio-8080-exec-7] com.lietou.mapper.TalentMapper.getExperiences [BaseJdbcLogger.java : 143] ====>  Preparing: select id, talent_id talentId, current_flag currentFlag, company_name companyName , company_position companyPosition, company_city companyCity, dept, start_date startDate, end_date endDate, description from t_talent_experiences where talent_id = ? 
+2020-03-06 09:23:18,053 [DEBUG] [http-nio-8080-exec-7] com.lietou.mapper.TalentMapper.getExperiences [BaseJdbcLogger.java : 143] ====> Parameters: 2(Long)
+2020-03-06 09:23:18,068 [DEBUG] [http-nio-8080-exec-7] com.lietou.mapper.TalentMapper.getExperiences [BaseJdbcLogger.java : 143] <====      Total: 2
+2020-03-06 09:23:18,071 [DEBUG] [http-nio-8080-exec-7] com.lietou.mapper.TalentMapper.getList [BaseJdbcLogger.java : 143] <==      Total: 1
+2020-03-06 09:39:03,913 [INFO] [http-nio-8080-exec-8] com.lietou.filter.AuthenticationFilter [AuthenticationFilter.java : 58] /talent/focus
+2020-03-06 09:39:05,099 [DEBUG] [http-nio-8080-exec-8] com.lietou.mapper.FocusMapper.checkFocus [BaseJdbcLogger.java : 143] ==>  Preparing: select count(1) from t_focus where business_type=? and business_id=? and creater_id=? 
+2020-03-06 09:39:05,100 [DEBUG] [http-nio-8080-exec-8] com.lietou.mapper.FocusMapper.checkFocus [BaseJdbcLogger.java : 143] ==> Parameters: talent(String), 2(Long), 1(Long)
+2020-03-06 09:39:05,117 [DEBUG] [http-nio-8080-exec-8] com.lietou.mapper.FocusMapper.checkFocus [BaseJdbcLogger.java : 143] <==      Total: 1
+2020-03-06 09:39:05,120 [DEBUG] [http-nio-8080-exec-8] com.lietou.mapper.FocusMapper.insertSelective [BaseJdbcLogger.java : 143] ==>  Preparing: insert into t_focus ( business_type, business_id, create_time, creater_id ) values ( ?, ?, ?, ? ) 
+2020-03-06 09:39:05,121 [DEBUG] [http-nio-8080-exec-8] com.lietou.mapper.FocusMapper.insertSelective [BaseJdbcLogger.java : 143] ==> Parameters: talent(String), 2(Long), 20200306093905(String), 1(Long)
+2020-03-06 09:39:05,155 [DEBUG] [http-nio-8080-exec-8] com.lietou.mapper.FocusMapper.insertSelective [BaseJdbcLogger.java : 143] <==    Updates: 1
+2020-03-06 09:39:05,155 [DEBUG] [http-nio-8080-exec-8] com.lietou.mapper.FocusMapper.insertSelective!selectKey [BaseJdbcLogger.java : 143] ==>  Preparing: SELECT LAST_INSERT_ID() 
+2020-03-06 09:39:05,157 [DEBUG] [http-nio-8080-exec-8] com.lietou.mapper.FocusMapper.insertSelective!selectKey [BaseJdbcLogger.java : 143] ==> Parameters: 
+2020-03-06 09:39:05,170 [DEBUG] [http-nio-8080-exec-8] com.lietou.mapper.FocusMapper.insertSelective!selectKey [BaseJdbcLogger.java : 143] <==      Total: 1
+2020-03-06 09:39:05,170 [DEBUG] [http-nio-8080-exec-8] com.lietou.mapper.TalentMapper.modifyFocusStr [BaseJdbcLogger.java : 143] ==>  Preparing: update t_talent set focus_str = CONCAT(focus_str,?) where id=? and c_id=? 
+2020-03-06 09:39:05,171 [DEBUG] [http-nio-8080-exec-8] com.lietou.mapper.TalentMapper.modifyFocusStr [BaseJdbcLogger.java : 143] ==> Parameters: 1;(String), 2(Long), 1(Long)
+2020-03-06 09:39:05,206 [DEBUG] [http-nio-8080-exec-8] com.lietou.mapper.TalentMapper.modifyFocusStr [BaseJdbcLogger.java : 143] <==    Updates: 1
+2020-03-06 09:40:24,841 [INFO] [http-nio-8080-exec-2] com.lietou.filter.AuthenticationFilter [AuthenticationFilter.java : 58] /talent/unFocus
+2020-03-06 09:40:24,876 [DEBUG] [http-nio-8080-exec-2] com.lietou.mapper.FocusMapper.removeFocus [BaseJdbcLogger.java : 143] ==>  Preparing: delete from t_focus where business_type=? and business_id=? and creater_id=? 
+2020-03-06 09:40:24,877 [DEBUG] [http-nio-8080-exec-2] com.lietou.mapper.FocusMapper.removeFocus [BaseJdbcLogger.java : 143] ==> Parameters: talent(String), 2(Long), 1(Long)
+2020-03-06 09:40:24,907 [DEBUG] [http-nio-8080-exec-2] com.lietou.mapper.FocusMapper.removeFocus [BaseJdbcLogger.java : 143] <==    Updates: 1
+2020-03-06 09:40:24,908 [DEBUG] [http-nio-8080-exec-2] com.lietou.mapper.TalentMapper.unFocusStr [BaseJdbcLogger.java : 143] ==>  Preparing: update t_talent set focus_str = replace(focus_str,?,"") where id=? and c_id=? 
+2020-03-06 09:40:24,909 [DEBUG] [http-nio-8080-exec-2] com.lietou.mapper.TalentMapper.unFocusStr [BaseJdbcLogger.java : 143] ==> Parameters: 1;(String), 2(Long), 1(Long)
+2020-03-06 09:40:24,938 [DEBUG] [http-nio-8080-exec-2] com.lietou.mapper.TalentMapper.unFocusStr [BaseJdbcLogger.java : 143] <==    Updates: 1
+2020-03-06 09:40:40,869 [INFO] [http-nio-8080-exec-3] com.lietou.filter.AuthenticationFilter [AuthenticationFilter.java : 58] /talent/focus
+2020-03-06 09:40:40,885 [DEBUG] [http-nio-8080-exec-3] com.lietou.mapper.FocusMapper.checkFocus [BaseJdbcLogger.java : 143] ==>  Preparing: select count(1) from t_focus where business_type=? and business_id=? and creater_id=? 
+2020-03-06 09:40:40,886 [DEBUG] [http-nio-8080-exec-3] com.lietou.mapper.FocusMapper.checkFocus [BaseJdbcLogger.java : 143] ==> Parameters: talent(String), 2(Long), 1(Long)
+2020-03-06 09:40:40,900 [DEBUG] [http-nio-8080-exec-3] com.lietou.mapper.FocusMapper.checkFocus [BaseJdbcLogger.java : 143] <==      Total: 1
+2020-03-06 09:40:40,901 [DEBUG] [http-nio-8080-exec-3] com.lietou.mapper.FocusMapper.insertSelective [BaseJdbcLogger.java : 143] ==>  Preparing: insert into t_focus ( business_type, business_id, create_time, creater_id ) values ( ?, ?, ?, ? ) 
+2020-03-06 09:40:40,902 [DEBUG] [http-nio-8080-exec-3] com.lietou.mapper.FocusMapper.insertSelective [BaseJdbcLogger.java : 143] ==> Parameters: talent(String), 2(Long), 20200306094040(String), 1(Long)
+2020-03-06 09:40:40,928 [DEBUG] [http-nio-8080-exec-3] com.lietou.mapper.FocusMapper.insertSelective [BaseJdbcLogger.java : 143] <==    Updates: 1
+2020-03-06 09:40:40,928 [DEBUG] [http-nio-8080-exec-3] com.lietou.mapper.FocusMapper.insertSelective!selectKey [BaseJdbcLogger.java : 143] ==>  Preparing: SELECT LAST_INSERT_ID() 
+2020-03-06 09:40:40,929 [DEBUG] [http-nio-8080-exec-3] com.lietou.mapper.FocusMapper.insertSelective!selectKey [BaseJdbcLogger.java : 143] ==> Parameters: 
+2020-03-06 09:40:40,947 [DEBUG] [http-nio-8080-exec-3] com.lietou.mapper.FocusMapper.insertSelective!selectKey [BaseJdbcLogger.java : 143] <==      Total: 1
+2020-03-06 09:40:40,948 [DEBUG] [http-nio-8080-exec-3] com.lietou.mapper.TalentMapper.modifyFocusStr [BaseJdbcLogger.java : 143] ==>  Preparing: update t_talent set focus_str = CONCAT(focus_str,?) where id=? and c_id=? 
+2020-03-06 09:40:40,949 [DEBUG] [http-nio-8080-exec-3] com.lietou.mapper.TalentMapper.modifyFocusStr [BaseJdbcLogger.java : 143] ==> Parameters: 1;(String), 2(Long), 1(Long)
+2020-03-06 09:40:40,983 [DEBUG] [http-nio-8080-exec-3] com.lietou.mapper.TalentMapper.modifyFocusStr [BaseJdbcLogger.java : 143] <==    Updates: 1
+2020-03-06 09:41:57,998 [INFO] [http-nio-8080-exec-7] com.lietou.filter.AuthenticationFilter [AuthenticationFilter.java : 58] /talent/updateStatus
+2020-03-06 09:41:58,025 [DEBUG] [http-nio-8080-exec-7] com.lietou.mapper.TalentMapper.updateStatus [BaseJdbcLogger.java : 143] ==>  Preparing: update t_talent set status = ? where id=? and c_id=? 
+2020-03-06 09:41:58,026 [DEBUG] [http-nio-8080-exec-7] com.lietou.mapper.TalentMapper.updateStatus [BaseJdbcLogger.java : 143] ==> Parameters: Interview(String), 2(Long), 1(Long)
+2020-03-06 09:41:58,057 [DEBUG] [http-nio-8080-exec-7] com.lietou.mapper.TalentMapper.updateStatus [BaseJdbcLogger.java : 143] <==    Updates: 1
+2020-03-06 09:50:16,168 [INFO] [http-nio-8080-exec-8] com.lietou.filter.AuthenticationFilter [AuthenticationFilter.java : 58] /talent/addRemark
+2020-03-06 09:50:17,489 [DEBUG] [http-nio-8080-exec-8] com.lietou.mapper.RemarkMapper.insertSelective [BaseJdbcLogger.java : 143] ==>  Preparing: insert into t_remark ( business_id, business_type, category, remark1, remark2, remark3, remark4, remark5, create_time, creater_id, c_id ) values ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? ) 
+2020-03-06 09:50:17,490 [DEBUG] [http-nio-8080-exec-8] com.lietou.mapper.RemarkMapper.insertSelective [BaseJdbcLogger.java : 143] ==> Parameters: 2(Long), talent(String), candidateCall(String), remark1(String), remark2(String), remark3(String), remark4(String), remark5(String), 20200306095017(String), 1(Long), 1(Long)
+2020-03-06 09:50:17,534 [DEBUG] [http-nio-8080-exec-8] com.lietou.mapper.RemarkMapper.insertSelective [BaseJdbcLogger.java : 143] <==    Updates: 1
+2020-03-06 09:50:17,534 [DEBUG] [http-nio-8080-exec-8] com.lietou.mapper.RemarkMapper.insertSelective!selectKey [BaseJdbcLogger.java : 143] ==>  Preparing: SELECT LAST_INSERT_ID() 
+2020-03-06 09:50:17,534 [DEBUG] [http-nio-8080-exec-8] com.lietou.mapper.RemarkMapper.insertSelective!selectKey [BaseJdbcLogger.java : 143] ==> Parameters: 
+2020-03-06 09:50:17,552 [DEBUG] [http-nio-8080-exec-8] com.lietou.mapper.RemarkMapper.insertSelective!selectKey [BaseJdbcLogger.java : 143] <==      Total: 1
+2020-03-06 09:50:17,555 [DEBUG] [http-nio-8080-exec-8] com.lietou.mapper.TalentMapper.resetRemarkCount [BaseJdbcLogger.java : 143] ==>  Preparing: update t_talent set remark_count = (select count(1) from t_remark where business_id=? and business_type=? and c_id=? ) where id= ? 
+2020-03-06 09:50:17,556 [DEBUG] [http-nio-8080-exec-8] com.lietou.mapper.TalentMapper.resetRemarkCount [BaseJdbcLogger.java : 143] ==> Parameters: 2(Long), talent(String), 1(Long), 2(Long)
+2020-03-06 09:50:17,603 [DEBUG] [http-nio-8080-exec-8] com.lietou.mapper.TalentMapper.resetRemarkCount [BaseJdbcLogger.java : 143] <==    Updates: 1
+2020-03-06 09:50:44,266 [INFO] [http-nio-8080-exec-10] com.lietou.filter.AuthenticationFilter [AuthenticationFilter.java : 58] /talent/addRemark
+2020-03-06 09:50:44,330 [DEBUG] [http-nio-8080-exec-10] com.lietou.mapper.RemarkMapper.insertSelective [BaseJdbcLogger.java : 143] ==>  Preparing: insert into t_remark ( business_id, business_type, category, remark1, remark2, remark3, remark4, remark5, create_time, creater_id, c_id ) values ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? ) 
+2020-03-06 09:50:44,331 [DEBUG] [http-nio-8080-exec-10] com.lietou.mapper.RemarkMapper.insertSelective [BaseJdbcLogger.java : 143] ==> Parameters: 2(Long), talent(String), candidateInterview2(String), remark1(String), remark2(String), remark3(String), remark4(String), remark5(String), 20200306095044(String), 1(Long), 1(Long)
+2020-03-06 09:50:44,368 [DEBUG] [http-nio-8080-exec-10] com.lietou.mapper.RemarkMapper.insertSelective [BaseJdbcLogger.java : 143] <==    Updates: 1
+2020-03-06 09:50:44,369 [DEBUG] [http-nio-8080-exec-10] com.lietou.mapper.RemarkMapper.insertSelective!selectKey [BaseJdbcLogger.java : 143] ==>  Preparing: SELECT LAST_INSERT_ID() 
+2020-03-06 09:50:44,370 [DEBUG] [http-nio-8080-exec-10] com.lietou.mapper.RemarkMapper.insertSelective!selectKey [BaseJdbcLogger.java : 143] ==> Parameters: 
+2020-03-06 09:50:44,390 [DEBUG] [http-nio-8080-exec-10] com.lietou.mapper.RemarkMapper.insertSelective!selectKey [BaseJdbcLogger.java : 143] <==      Total: 1
+2020-03-06 09:50:44,391 [DEBUG] [http-nio-8080-exec-10] com.lietou.mapper.TalentMapper.resetRemarkCount [BaseJdbcLogger.java : 143] ==>  Preparing: update t_talent set remark_count = (select count(1) from t_remark where business_id=? and business_type=? and c_id=? ) where id= ? 
+2020-03-06 09:50:44,392 [DEBUG] [http-nio-8080-exec-10] com.lietou.mapper.TalentMapper.resetRemarkCount [BaseJdbcLogger.java : 143] ==> Parameters: 2(Long), talent(String), 1(Long), 2(Long)
+2020-03-06 09:50:44,423 [DEBUG] [http-nio-8080-exec-10] com.lietou.mapper.TalentMapper.resetRemarkCount [BaseJdbcLogger.java : 143] <==    Updates: 1
+2020-03-06 09:53:17,744 [INFO] [http-nio-8080-exec-3] com.lietou.filter.AuthenticationFilter [AuthenticationFilter.java : 58] /talent/getRemarkById/7
+2020-03-06 09:53:17,775 [DEBUG] [http-nio-8080-exec-3] com.lietou.mapper.RemarkMapper.getById [BaseJdbcLogger.java : 143] ==>  Preparing: SELECT * FROM t_remark where id=? and c_id=? 
+2020-03-06 09:53:17,776 [DEBUG] [http-nio-8080-exec-3] com.lietou.mapper.RemarkMapper.getById [BaseJdbcLogger.java : 143] ==> Parameters: 7(Long), 1(Long)
+2020-03-06 09:53:17,795 [DEBUG] [http-nio-8080-exec-3] com.lietou.mapper.RemarkMapper.getById [BaseJdbcLogger.java : 143] <==      Total: 1
+2020-03-06 09:54:35,291 [INFO] [http-nio-8080-exec-7] com.lietou.filter.AuthenticationFilter [AuthenticationFilter.java : 58] /talent/modifyRemark
+2020-03-06 09:54:35,317 [DEBUG] [http-nio-8080-exec-7] com.lietou.mapper.RemarkMapper.modify [BaseJdbcLogger.java : 143] ==>  Preparing: update t_remark set remark1 = ?, remark2 = ?, remark3 = ?, remark4 = ?, remark5 = ?, remark6 = ?, reminded_or = ? where id = ? and business_type = ? and c_id=? 
+2020-03-06 09:54:35,319 [DEBUG] [http-nio-8080-exec-7] com.lietou.mapper.RemarkMapper.modify [BaseJdbcLogger.java : 143] ==> Parameters: remark修改1(String), remark2(String), remark3(String), remark4(String), remark5(String), null, null, 7(Long), talent(String), 1(Long)
+2020-03-06 09:54:35,359 [DEBUG] [http-nio-8080-exec-7] com.lietou.mapper.RemarkMapper.modify [BaseJdbcLogger.java : 143] <==    Updates: 1
+2020-03-06 09:55:47,165 [INFO] [http-nio-8080-exec-8] com.lietou.filter.AuthenticationFilter [AuthenticationFilter.java : 58] /talent/getAllRemark
+2020-03-06 09:55:47,245 [DEBUG] [http-nio-8080-exec-8] com.lietou.mapper.RemarkMapper.getAllRemark [BaseJdbcLogger.java : 143] ==>  Preparing: select a.*,b.name from t_remark a left join t_user b ON a.creater_id=b.id where a.business_id =? and a.business_type =? and a.c_id=? order by a.id desc 
+2020-03-06 09:55:47,245 [DEBUG] [http-nio-8080-exec-8] com.lietou.mapper.RemarkMapper.getAllRemark [BaseJdbcLogger.java : 143] ==> Parameters: 2(Long), talent(String), 1(Long)
+2020-03-06 09:55:47,268 [DEBUG] [http-nio-8080-exec-8] com.lietou.mapper.RemarkMapper.getAllRemark [BaseJdbcLogger.java : 143] <==      Total: 2
+2020-03-06 09:57:53,310 [INFO] [http-nio-8080-exec-2] com.lietou.filter.AuthenticationFilter [AuthenticationFilter.java : 58] /talent/deleteRemark
+2020-03-06 09:57:53,361 [DEBUG] [http-nio-8080-exec-2] com.lietou.mapper.RemarkMapper.deleteByIds [BaseJdbcLogger.java : 143] ==>  Preparing: delete from t_remark where business_id =? and business_type =? and c_id=? and id in ( ? ) 
+2020-03-06 09:57:53,361 [DEBUG] [http-nio-8080-exec-2] com.lietou.mapper.RemarkMapper.deleteByIds [BaseJdbcLogger.java : 143] ==> Parameters: 2(Long), talent(String), 1(Long), 7(Long)
+2020-03-06 09:57:53,400 [DEBUG] [http-nio-8080-exec-2] com.lietou.mapper.RemarkMapper.deleteByIds [BaseJdbcLogger.java : 143] <==    Updates: 1
+2020-03-06 09:57:53,401 [DEBUG] [http-nio-8080-exec-2] com.lietou.mapper.TalentMapper.resetRemarkCount [BaseJdbcLogger.java : 143] ==>  Preparing: update t_talent set remark_count = (select count(1) from t_remark where business_id=? and business_type=? and c_id=? ) where id= ? 
+2020-03-06 09:57:53,401 [DEBUG] [http-nio-8080-exec-2] com.lietou.mapper.TalentMapper.resetRemarkCount [BaseJdbcLogger.java : 143] ==> Parameters: 2(Long), talent(String), 1(Long), 2(Long)
+2020-03-06 09:57:53,436 [DEBUG] [http-nio-8080-exec-2] com.lietou.mapper.TalentMapper.resetRemarkCount [BaseJdbcLogger.java : 143] <==    Updates: 1

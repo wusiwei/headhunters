@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lietou.mapper.CustomContactRecordMapper">
+  <resultMap id="BaseResultMap" type="com.lietou.model.CustomContactRecord">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="custom_contact_id" jdbcType="BIGINT" property="customContactId" />
+    <result column="contact_remark" jdbcType="VARCHAR" property="contactRemark" />
+    <result column="next_time" jdbcType="VARCHAR" property="nextTime" />
+    <result column="creater_id" jdbcType="BIGINT" property="createrId" />
+    <result column="create_time" jdbcType="VARCHAR" property="createTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, custom_contact_id, contact_remark, next_time, creater_id, create_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_custom_contact_record
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from t_custom_contact_record
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.lietou.model.CustomContactRecord">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into t_custom_contact_record (custom_contact_id, contact_remark, next_time, 
+      creater_id, create_time)
+    values (#{customContactId,jdbcType=BIGINT}, #{contactRemark,jdbcType=VARCHAR}, #{nextTime,jdbcType=VARCHAR}, 
+      #{createrId,jdbcType=BIGINT}, #{createTime,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.lietou.model.CustomContactRecord">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into t_custom_contact_record
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="customContactId != null">
+        custom_contact_id,
+      </if>
+      <if test="contactRemark != null">
+        contact_remark,
+      </if>
+      <if test="nextTime != null">
+        next_time,
+      </if>
+      <if test="createrId != null">
+        creater_id,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="customContactId != null">
+        #{customContactId,jdbcType=BIGINT},
+      </if>
+      <if test="contactRemark != null">
+        #{contactRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="nextTime != null">
+        #{nextTime,jdbcType=VARCHAR},
+      </if>
+      <if test="createrId != null">
+        #{createrId,jdbcType=BIGINT},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lietou.model.CustomContactRecord">
+    update t_custom_contact_record
+    <set>
+      <if test="customContactId != null">
+        custom_contact_id = #{customContactId,jdbcType=BIGINT},
+      </if>
+      <if test="contactRemark != null">
+        contact_remark = #{contactRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="nextTime != null">
+        next_time = #{nextTime,jdbcType=VARCHAR},
+      </if>
+      <if test="createrId != null">
+        creater_id = #{createrId,jdbcType=BIGINT},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lietou.model.CustomContactRecord">
+    update t_custom_contact_record
+    set custom_contact_id = #{customContactId,jdbcType=BIGINT},
+      contact_remark = #{contactRemark,jdbcType=VARCHAR},
+      next_time = #{nextTime,jdbcType=VARCHAR},
+      creater_id = #{createrId,jdbcType=BIGINT},
+      create_time = #{createTime,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

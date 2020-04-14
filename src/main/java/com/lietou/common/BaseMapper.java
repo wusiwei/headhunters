@@ -1,0 +1,17 @@
+package com.lietou.common;
+
+
+public interface BaseMapper<T> {
+
+	int insert(T t);
+	
+	int deleteByPrimaryKey(Long id);
+	
+    int insertSelective(T t);
+
+    T selectByPrimaryKey(Long id);
+    
+    int updateByPrimaryKeySelective(T t);
+
+    int updateByPrimaryKey(T t);
+}

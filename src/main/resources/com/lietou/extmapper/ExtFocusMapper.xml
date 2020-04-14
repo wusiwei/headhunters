@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lietou.mapper.FocusMapper">
+	<select id="checkFocus" parameterType="com.lietou.model.Focus" resultType="int">
+		select count(1) from t_focus where business_type=#{businessType} and business_id=#{businessId} and creater_id=#{createrId}
+	</select>
+	
+	<delete id="removeFocus" parameterType="com.lietou.model.Focus">
+		delete from t_focus where business_type=#{businessType} and business_id=#{businessId} and creater_id=#{createrId}
+	</delete>
+</mapper>

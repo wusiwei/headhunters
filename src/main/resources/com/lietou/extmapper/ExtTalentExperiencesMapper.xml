@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lietou.mapper.TalentExperiencesMapper">
+	
+	<insert id="batchAddExperiences" parameterType="com.lietou.vo.TalentVo">
+		insert into t_talent_experiences (talent_id, current_flag,
+			company_name,
+			company_position, company_city, dept,
+			start_date, end_date, description
+		)
+	    values 
+	    <foreach collection="experiencesList" item="item" index="index"
+			separator=",">
+		(#{id,jdbcType=BIGINT}, #{item.currentFlag,jdbcType=BIT},
+			#{item.companyName,jdbcType=VARCHAR},
+			#{item.companyPosition,jdbcType=VARCHAR}, #{item.companyCity,jdbcType=VARCHAR}, #{item.dept,jdbcType=VARCHAR},
+			#{item.startDate,jdbcType=VARCHAR}, #{item.endDate,jdbcType=VARCHAR},
+			#{item.description,jdbcType=VARCHAR}
+		)
+	    </foreach>
+	</insert>
+	
+	<delete id="deleteByTalentId" parameterType="java.lang.Long">
+		delete from t_talent_experiences where talent_id = #{talentId,jdbcType=BIGINT}
+	</delete>
+</mapper>

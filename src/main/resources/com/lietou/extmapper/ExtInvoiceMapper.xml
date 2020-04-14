@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lietou.mapper.InvoiceMapper">
+	<update id="midify" parameterType="com.lietou.model.Invoice">
+		update t_invoice
+		set cost_type = #{costType,jdbcType=INTEGER},
+		invoice_type = #{invoiceType,jdbcType=INTEGER},
+		invoice_number = #{invoiceNumber,jdbcType=VARCHAR},
+		money = #{money,jdbcType=INTEGER},
+		tax_number = #{taxNumber,jdbcType=VARCHAR},
+		remark = #{remark,jdbcType=VARCHAR},
+		expect_time = #{expectTime,jdbcType=VARCHAR},
+		title = #{title,jdbcType=VARCHAR},
+		content = #{content,jdbcType=VARCHAR},
+		version = version + 1,
+		update_time = #{updateTime,jdbcType=VARCHAR},
+		reminded_or = #{remindedOr,jdbcType=VARCHAR}
+		where id = #{id,jdbcType=BIGINT} and c_id = #{cId,jdbcType=BIGINT} and version =#{version,jdbcType=INTEGER}
+	</update>
+	
+	<resultMap type="com.lietou.dto.InvoiceDto" id="ListDtoMap" extends="BaseResultMap">
+		<collection property="recordList" column="id" ofType="com.lietou.dto.InvoiceRecordDto" select="getRecordById"/>
+	</resultMap>
+	
+	<select id="getList" resultMap="ListDtoMap" parameterType="com.lietou.vo.ContractVo">
+		SELECT * FROM t_invoice a
+		where a.customer_id =#{customerId}
+		<if test="cId != null">
+			and a.c_id=#{cId}
+		</if>
+		order by a.create_time desc
+		limit #{pageStartSize},#{pageSize}
+	</select>
+	<select id="countList" resultType="int" parameterType="com.lietou.vo.ContractVo">
+		SELECT count(1) FROM t_invoice
+		where customer_id =#{customerId}
+		<if test="cId != null">
+			and c_id=#{cId}
+		</if>
+	</select>
+
+	<select id="getRecordById" resultType="com.lietou.dto.InvoiceRecordDto">
+		SELECT a.id ,a.invoice_id invoiceId,a.remark ,a.create_time createTime
+		   ,a.creater_id createrId,a.operation_type operationType
+		   ,a.operation_type_label operationTypeLabel,b.name createrName
+		FROM t_invoice_record a
+		left join t_user b on b.id=a.creater_id 
+		where a.invoice_id=#{id}
+	</select>
+	
+	<select id="getById" resultMap="BaseResultMap" parameterType="com.lietou.vo.ContractVo">
+		SELECT * FROM t_invoice a where id=#{id}
+		<if test="cId != null">
+			and c_id=#{cId}
+		</if>
+	</select>
+
+	<delete id="deleteByIds" parameterType="com.lietou.vo.ContractVo">
+		delete from t_invoice
+		where customer_id =#{customerId}
+		<if test="cId != null">
+			and c_id=#{cId}
+		</if>
+		and id in
+		<foreach collection="ids" item="item" index="index" open="("
+			separator="," close=")">
+			#{item}
+		</foreach>
+	</delete>
+
+	<update id="resetInvoiceCount" parameterType="com.lietou.model.ResetBO">
+		update t_custom
+		set invoice_count = (select count(1) from t_invoice where
+		customer_id=#{businessId}
+		<if test="cId != null">
+			and c_id=#{cId}
+		</if>
+		)
+		where id= #{businessId}
+	</update>
+	
+	
+	<select id="getByIdAndVersion" parameterType="com.lietou.vo.InvoiceOperationVo" resultMap="BaseResultMap">
+	    select * from t_invoice
+		where id= #{invoiceId} and version= #{version}
+		<if test="cId != null">
+			and c_id=#{cId}
+		</if>
+	</select>
+	
+	<update id="invoiceOperation" parameterType="com.lietou.model.Invoice">
+		update t_invoice
+	    set expect_time = #{expectTime,jdbcType=VARCHAR},
+	      status = #{status,jdbcType=INTEGER},
+	      title = #{title,jdbcType=VARCHAR},
+	      charged = #{charged,jdbcType=INTEGER},
+	      make_date = #{makeDate,jdbcType=VARCHAR},
+	      collection_date = #{collectionDate,jdbcType=VARCHAR},
+	      last_charged_date = #{lastChargedDate,jdbcType=VARCHAR},
+	      version = version + 1,
+	      refund_money = #{refundMoney,jdbcType=INTEGER},
+	      assign_id = #{assignId,jdbcType=BIGINT},
+	      performance_flag = #{performanceFlag,jdbcType=BIT},
+	      update_time = #{updateTime,jdbcType=VARCHAR}
+		where id= #{id} and version= #{version}
+		<if test="cId != null">
+			and c_id=#{cId}
+		</if>
+	</update>
+</mapper>

@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lietou.mapper.AssignMapper">
+  <resultMap id="BaseResultMap" type="com.lietou.model.Assign">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="customer_id" jdbcType="BIGINT" property="customerId" />
+    <result column="project_id" jdbcType="BIGINT" property="projectId" />
+    <result column="candidate_id" jdbcType="BIGINT" property="candidateId" />
+    <result column="invoice_id" jdbcType="BIGINT" property="invoiceId" />
+    <result column="invoice_amount" jdbcType="INTEGER" property="invoiceAmount" />
+    <result column="fee_charge" jdbcType="INTEGER" property="feeCharge" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="cost_type" jdbcType="INTEGER" property="costType" />
+    <result column="create_time" jdbcType="VARCHAR" property="createTime" />
+    <result column="creater_id" jdbcType="BIGINT" property="createrId" />
+    <result column="assign_money" jdbcType="INTEGER" property="assignMoney" />
+    <result column="send_flag" jdbcType="BIT" property="sendFlag" />
+    <result column="c_id" jdbcType="BIGINT" property="cId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, customer_id, project_id, candidate_id, invoice_id, invoice_amount, fee_charge, 
+    remark, cost_type, create_time, creater_id, assign_money, send_flag, c_id
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_assign
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from t_assign
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.lietou.model.Assign">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into t_assign (customer_id, project_id, candidate_id, 
+      invoice_id, invoice_amount, fee_charge, 
+      remark, cost_type, create_time, 
+      creater_id, assign_money, send_flag, 
+      c_id)
+    values (#{customerId,jdbcType=BIGINT}, #{projectId,jdbcType=BIGINT}, #{candidateId,jdbcType=BIGINT}, 
+      #{invoiceId,jdbcType=BIGINT}, #{invoiceAmount,jdbcType=INTEGER}, #{feeCharge,jdbcType=INTEGER}, 
+      #{remark,jdbcType=VARCHAR}, #{costType,jdbcType=INTEGER}, #{createTime,jdbcType=VARCHAR}, 
+      #{createrId,jdbcType=BIGINT}, #{assignMoney,jdbcType=INTEGER}, #{sendFlag,jdbcType=BIT}, 
+      #{cId,jdbcType=BIGINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.lietou.model.Assign">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into t_assign
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="customerId != null">
+        customer_id,
+      </if>
+      <if test="projectId != null">
+        project_id,
+      </if>
+      <if test="candidateId != null">
+        candidate_id,
+      </if>
+      <if test="invoiceId != null">
+        invoice_id,
+      </if>
+      <if test="invoiceAmount != null">
+        invoice_amount,
+      </if>
+      <if test="feeCharge != null">
+        fee_charge,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+      <if test="costType != null">
+        cost_type,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="createrId != null">
+        creater_id,
+      </if>
+      <if test="assignMoney != null">
+        assign_money,
+      </if>
+      <if test="sendFlag != null">
+        send_flag,
+      </if>
+      <if test="cId != null">
+        c_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="customerId != null">
+        #{customerId,jdbcType=BIGINT},
+      </if>
+      <if test="projectId != null">
+        #{projectId,jdbcType=BIGINT},
+      </if>
+      <if test="candidateId != null">
+        #{candidateId,jdbcType=BIGINT},
+      </if>
+      <if test="invoiceId != null">
+        #{invoiceId,jdbcType=BIGINT},
+      </if>
+      <if test="invoiceAmount != null">
+        #{invoiceAmount,jdbcType=INTEGER},
+      </if>
+      <if test="feeCharge != null">
+        #{feeCharge,jdbcType=INTEGER},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="costType != null">
+        #{costType,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=VARCHAR},
+      </if>
+      <if test="createrId != null">
+        #{createrId,jdbcType=BIGINT},
+      </if>
+      <if test="assignMoney != null">
+        #{assignMoney,jdbcType=INTEGER},
+      </if>
+      <if test="sendFlag != null">
+        #{sendFlag,jdbcType=BIT},
+      </if>
+      <if test="cId != null">
+        #{cId,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lietou.model.Assign">
+    update t_assign
+    <set>
+      <if test="customerId != null">
+        customer_id = #{customerId,jdbcType=BIGINT},
+      </if>
+      <if test="projectId != null">
+        project_id = #{projectId,jdbcType=BIGINT},
+      </if>
+      <if test="candidateId != null">
+        candidate_id = #{candidateId,jdbcType=BIGINT},
+      </if>
+      <if test="invoiceId != null">
+        invoice_id = #{invoiceId,jdbcType=BIGINT},
+      </if>
+      <if test="invoiceAmount != null">
+        invoice_amount = #{invoiceAmount,jdbcType=INTEGER},
+      </if>
+      <if test="feeCharge != null">
+        fee_charge = #{feeCharge,jdbcType=INTEGER},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="costType != null">
+        cost_type = #{costType,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=VARCHAR},
+      </if>
+      <if test="createrId != null">
+        creater_id = #{createrId,jdbcType=BIGINT},
+      </if>
+      <if test="assignMoney != null">
+        assign_money = #{assignMoney,jdbcType=INTEGER},
+      </if>
+      <if test="sendFlag != null">
+        send_flag = #{sendFlag,jdbcType=BIT},
+      </if>
+      <if test="cId != null">
+        c_id = #{cId,jdbcType=BIGINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lietou.model.Assign">
+    update t_assign
+    set customer_id = #{customerId,jdbcType=BIGINT},
+      project_id = #{projectId,jdbcType=BIGINT},
+      candidate_id = #{candidateId,jdbcType=BIGINT},
+      invoice_id = #{invoiceId,jdbcType=BIGINT},
+      invoice_amount = #{invoiceAmount,jdbcType=INTEGER},
+      fee_charge = #{feeCharge,jdbcType=INTEGER},
+      remark = #{remark,jdbcType=VARCHAR},
+      cost_type = #{costType,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=VARCHAR},
+      creater_id = #{createrId,jdbcType=BIGINT},
+      assign_money = #{assignMoney,jdbcType=INTEGER},
+      send_flag = #{sendFlag,jdbcType=BIT},
+      c_id = #{cId,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

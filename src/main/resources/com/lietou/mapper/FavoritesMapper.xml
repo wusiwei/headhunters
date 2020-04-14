@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lietou.mapper.FavoritesMapper">
+  <resultMap id="BaseResultMap" type="com.lietou.model.Favorites">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="parent_id" jdbcType="BIGINT" property="parentId" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="business_type" jdbcType="VARCHAR" property="businessType" />
+    <result column="creater_id" jdbcType="BIGINT" property="createrId" />
+    <result column="create_time" jdbcType="VARCHAR" property="createTime" />
+    <result column="business_count" jdbcType="INTEGER" property="businessCount" />
+    <result column="label" jdbcType="VARCHAR" property="label" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="c_id" jdbcType="BIGINT" property="cId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, parent_id, name, business_type, creater_id, create_time, business_count, label, 
+    remark, c_id
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_favorites
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from t_favorites
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.lietou.model.Favorites">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into t_favorites (parent_id, name, business_type, 
+      creater_id, create_time, business_count, 
+      label, remark, c_id)
+    values (#{parentId,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, #{businessType,jdbcType=VARCHAR}, 
+      #{createrId,jdbcType=BIGINT}, #{createTime,jdbcType=VARCHAR}, #{businessCount,jdbcType=INTEGER}, 
+      #{label,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, #{cId,jdbcType=BIGINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.lietou.model.Favorites">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into t_favorites
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="parentId != null">
+        parent_id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="businessType != null">
+        business_type,
+      </if>
+      <if test="createrId != null">
+        creater_id,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="businessCount != null">
+        business_count,
+      </if>
+      <if test="label != null">
+        label,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+      <if test="cId != null">
+        c_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="parentId != null">
+        #{parentId,jdbcType=BIGINT},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="businessType != null">
+        #{businessType,jdbcType=VARCHAR},
+      </if>
+      <if test="createrId != null">
+        #{createrId,jdbcType=BIGINT},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=VARCHAR},
+      </if>
+      <if test="businessCount != null">
+        #{businessCount,jdbcType=INTEGER},
+      </if>
+      <if test="label != null">
+        #{label,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="cId != null">
+        #{cId,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lietou.model.Favorites">
+    update t_favorites
+    <set>
+      <if test="parentId != null">
+        parent_id = #{parentId,jdbcType=BIGINT},
+      </if>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="businessType != null">
+        business_type = #{businessType,jdbcType=VARCHAR},
+      </if>
+      <if test="createrId != null">
+        creater_id = #{createrId,jdbcType=BIGINT},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=VARCHAR},
+      </if>
+      <if test="businessCount != null">
+        business_count = #{businessCount,jdbcType=INTEGER},
+      </if>
+      <if test="label != null">
+        label = #{label,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="cId != null">
+        c_id = #{cId,jdbcType=BIGINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lietou.model.Favorites">
+    update t_favorites
+    set parent_id = #{parentId,jdbcType=BIGINT},
+      name = #{name,jdbcType=VARCHAR},
+      business_type = #{businessType,jdbcType=VARCHAR},
+      creater_id = #{createrId,jdbcType=BIGINT},
+      create_time = #{createTime,jdbcType=VARCHAR},
+      business_count = #{businessCount,jdbcType=INTEGER},
+      label = #{label,jdbcType=VARCHAR},
+      remark = #{remark,jdbcType=VARCHAR},
+      c_id = #{cId,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

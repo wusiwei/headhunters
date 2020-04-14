@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lietou.mapper.AssignMapper">
+	<resultMap type="com.lietou.dto.AssignDto" id="DtoMap" extends="BaseResultMap">
+		<collection property="assignDetailList" ofType="com.lietou.model.AssignDetail" column="id" select="getAssignDetails"/>
+	</resultMap>
+	
+	<resultMap id="AssignDetailMap" type="com.lietou.model.AssignDetail">
+	    <id column="id" jdbcType="BIGINT" property="id" />
+	    <result column="assign_id" jdbcType="BIGINT" property="assignId" />
+	    <result column="assign_type" jdbcType="VARCHAR" property="assignType" />
+	    <result column="performance_percent" jdbcType="INTEGER" property="performancePercent" />
+	    <result column="assign_percent" jdbcType="INTEGER" property="assignPercent" />
+	    <result column="create_time" jdbcType="VARCHAR" property="createTime" />
+	    <result column="creater_id" jdbcType="BIGINT" property="createrId" />
+	    <result column="performance_amount" jdbcType="DECIMAL" property="performanceAmount" />
+	    <result column="assign_amount" jdbcType="DECIMAL" property="assignAmount" />
+	    <result column="assigneder_id" jdbcType="BIGINT" property="assignederId" />
+	    <result column="send_flag" jdbcType="BIT" property="sendFlag" />
+	    <result column="assigneder_name" jdbcType="VARCHAR" property="assignederName" />
+	</resultMap>
+	
+	<select id="getAssignById" resultMap="DtoMap" parameterType="com.lietou.vo.AssignVo">
+		select * from t_assign where id = #{id}
+		<if test="cId != null">
+			and c_id=#{cId}
+		</if>
+	</select>
+	
+	<select id="getAssignDetails" resultMap="AssignDetailMap">
+		select * from t_assign_detail where assign_id=#{id};
+	</select>
+	
+	<update id="updateSendFlag" parameterType="com.lietou.vo.AssignVo">
+		update t_assign set send_flag=#{sendFlag} where id=#{id};
+		update t_assign_detail set send_flag=#{sendFlag} where assign_id=#{id};
+	</update>
+</mapper>

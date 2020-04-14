@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lietou.mapper.TalentMapper">
+
+	<insert id="voInsert" parameterType="com.lietou.vo.TalentVo">
+		<selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+			SELECT LAST_INSERT_ID()
+		</selectKey>
+		insert into t_talent (type, mfc, chinese_name,
+		english_name, industry, function,
+		mobile, email, birthday,
+		location, city, annualSalary,
+		sex, nationality, school,
+		education, english_level, linkedin,
+		qq, weixin, marrysituation,
+		account, address, tags,
+		source_from, folder_id, share_flag,
+		remark, attachments, create_time, creater_id,
+		c_id, update_time, status,
+		focus_str, project_experience, advantage,
+		recommend)
+		values (#{type,jdbcType=VARCHAR}, #{mfc,jdbcType=BIT},
+		#{chineseName,jdbcType=VARCHAR},
+		#{englishName,jdbcType=VARCHAR}, #{industry,jdbcType=VARCHAR}, #{function,jdbcType=VARCHAR},
+		#{mobile,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR},
+		#{birthday,jdbcType=VARCHAR},
+		#{location,jdbcType=BIGINT}, #{city,jdbcType=VARCHAR}, #{annualsalary,jdbcType=REAL},
+		#{sex,jdbcType=VARCHAR}, #{nationality,jdbcType=BIGINT},
+		#{school,jdbcType=VARCHAR},
+		#{education,jdbcType=VARCHAR}, #{englishLevel,jdbcType=VARCHAR}, #{linkedin,jdbcType=VARCHAR},
+		#{qq,jdbcType=VARCHAR}, #{weixin,jdbcType=VARCHAR},
+		#{marrysituation,jdbcType=VARCHAR},
+		#{account,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, #{tags,jdbcType=VARCHAR},
+		#{sourceFrom,jdbcType=VARCHAR}, #{folderId,jdbcType=BIGINT},
+		#{shareFlag,jdbcType=BIT},
+		#{remark,jdbcType=VARCHAR}, #{attachments,jdbcType=VARCHAR}, #{createTime,jdbcType=VARCHAR},
+		#{createrId,jdbcType=BIGINT},
+		#{cId,jdbcType=BIGINT}, #{updateTime,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR},
+		#{focusStr,jdbcType=VARCHAR},
+		#{projectExperience,jdbcType=LONGVARCHAR},
+		#{advantage,jdbcType=LONGVARCHAR},
+		#{recommend,jdbcType=LONGVARCHAR})
+	</insert>
+	<update id="voModify" parameterType="com.lietou.vo.TalentVo">
+		update t_talent
+		set type = #{type,jdbcType=VARCHAR},
+		mfc = #{mfc,jdbcType=BIT},
+		chinese_name = #{chineseName,jdbcType=VARCHAR},
+		english_name = #{englishName,jdbcType=VARCHAR},
+		industry = #{industry,jdbcType=VARCHAR},
+		function = #{function,jdbcType=VARCHAR},
+		mobile = #{mobile,jdbcType=VARCHAR},
+		email = #{email,jdbcType=VARCHAR},
+		birthday = #{birthday,jdbcType=VARCHAR},
+		location = #{location,jdbcType=BIGINT},
+		city = #{city,jdbcType=VARCHAR},
+		annualSalary = #{annualsalary,jdbcType=REAL},
+		sex = #{sex,jdbcType=VARCHAR},
+		nationality = #{nationality,jdbcType=BIGINT},
+		school = #{school,jdbcType=VARCHAR},
+		education = #{education,jdbcType=VARCHAR},
+		english_level = #{englishLevel,jdbcType=VARCHAR},
+		linkedin = #{linkedin,jdbcType=VARCHAR},
+		qq = #{qq,jdbcType=VARCHAR},
+		weixin = #{weixin,jdbcType=VARCHAR},
+		marrysituation = #{marrysituation,jdbcType=VARCHAR},
+		account = #{account,jdbcType=VARCHAR},
+		address = #{address,jdbcType=VARCHAR},
+		tags = #{tags,jdbcType=VARCHAR},
+		source_from = #{sourceFrom,jdbcType=VARCHAR},
+		folder_id = #{folderId,jdbcType=BIGINT},
+		share_flag = #{shareFlag,jdbcType=BIT},
+		remark = #{remark,jdbcType=VARCHAR},
+		attachments = #{attachments,jdbcType=VARCHAR},
+		update_time = #{updateTime,jdbcType=VARCHAR},
+		project_experience = #{projectExperience,jdbcType=LONGVARCHAR},
+		advantage = #{advantage,jdbcType=LONGVARCHAR},
+		recommend = #{recommend,jdbcType=LONGVARCHAR}
+		where id = #{id,jdbcType=BIGINT}
+		<if test="cId != null">
+			and c_id=#{cId}
+		</if>
+	</update>
+	
+	<resultMap extends="ResultMapWithBLOBs" id="DtoMap" type="com.lietou.dto.TalentDto">
+		<collection property="educationList" ofType="com.lietou.model.TalentEducation" column="id" select="getEducation"/>
+		<collection property="experiencesList" ofType="com.lietou.model.TalentExperiences" column="id" select="getExperiences"/>
+	</resultMap>
+	
+	<select id="getEducation" resultType="com.lietou.model.TalentEducation">
+		select id, talent_id talentId, start_date startDate, end_date endDate, school_name schoolName, professional
+				, education, description, f1, f2, f3 
+    	from t_talent_education where talent_id = #{talentId,jdbcType=BIGINT}
+	</select>
+	
+	<select id="getExperiences" resultType="com.lietou.model.TalentExperiences">
+		select id, talent_id talentId, current_flag currentFlag, company_name companyName
+			   , company_position companyPosition, company_city companyCity, dept, 
+    		   start_date startDate, end_date endDate, description
+ 		from t_talent_experiences where talent_id = #{talentId,jdbcType=BIGINT}
+	</select>
+	
+	<select id="getDetailById" parameterType="com.lietou.queryvo.TalentQueryVo" resultMap="DtoMap">
+		select * from t_talent
+		where id = #{id,jdbcType=BIGINT}
+		<if test="cId != null">
+			and c_id=#{cId}
+		</if>
+	</select>
+	
+	
+	<sql id="BaseList_Column_List">
+	    a.id, a.type, a.mfc, a.chinese_name, a.english_name, a.industry, a.function, a.mobile, a.email, a.birthday, 
+	    a.location, a.city, a.annualSalary, a.sex, a.nationality, a.school, a.education, a.english_level, 
+	    a.linkedin, a.qq, a.weixin, a.marrysituation, a.account, a.address, a.tags, a.source_from, a.folder_id, 
+	    a.share_flag, a.remark, attachments, a.attachment_count, a.email_count, a.favorites_count, 
+	    a.remark_count, a.shortlist_count, a.todo_count, a.floating_in_count, a.floating_out_count, 
+	    a.create_time, a.creater_id, a.c_id, a.update_time, a.status, a.focus_str
+	</sql>
+	<select id="getList" resultMap="DtoMap" parameterType="com.lietou.queryvo.TalentQueryVo">
+		SELECT 
+		<include refid="BaseList_Column_List" />
+		FROM t_talent a 
+		where a.delete_flag = 0 and (a.creater_id =#{createrId} or a.share_flag =1)
+			<if test="city !=null">
+				and a.city=#{city}
+			</if>
+			<if test="chineseName !=null and chineseName !='' ">
+				and a.chinese_name LIKE concat('%',#{chineseName},'%')
+			</if>
+			<if test="cId != null">
+				and c_id=#{cId}
+			</if>
+		order by a.update_time desc
+		limit #{pageStartSize},#{pageSize}
+	</select>
+	<select id="countList" resultType="int" parameterType="com.lietou.queryvo.TalentQueryVo">
+		SELECT count(1)
+		FROM t_talent
+		where delete_flag = 0 and (creater_id =#{createrId} or share_flag =1 )
+			<if test="city !=null">
+				and city=#{city}
+			</if>
+			<if test="chineseName !=null and chineseName !='' ">
+				and chinese_name LIKE concat('%',#{chineseName},'%')
+			</if>
+			<if test="cId != null">
+				and c_id=#{cId}
+			</if>
+	</select>
+	
+	<update id="updateStatus" parameterType="com.lietou.queryvo.TalentQueryVo">
+		update t_talent set status = #{status,jdbcType=VARCHAR} where id=#{id}
+		<if test="cId != null">
+			and c_id=#{cId}
+		</if>
+	</update>
+	
+	<update id="modifyFocusStr" parameterType="com.lietou.queryvo.TalentQueryVo">
+		update t_talent set focus_str = CONCAT(focus_str,#{focusStr,jdbcType=VARCHAR}) where id=#{id}
+		<if test="cId != null">
+			and c_id=#{cId}
+		</if>
+	</update>
+	
+	<update id="unFocusStr" parameterType="com.lietou.queryvo.TalentQueryVo">
+		update t_talent set focus_str = replace(focus_str,#{focusStr},"") where id=#{id}
+		<if test="cId != null">
+			and c_id=#{cId}
+		</if>
+	</update>
+	
+	<update id="resetRemarkCount" parameterType="com.lietou.model.ResetBO">
+		update t_talent 
+		set remark_count = (select count(1) from t_remark where business_id=#{businessId} and business_type=#{businessType}
+		<if test="cId != null">
+			and c_id=#{cId}
+		</if>
+		) 
+		where id= #{businessId}
+	</update>
+	
+	<update id="updateTags" parameterType="com.lietou.queryvo.TalentQueryVo">
+		update t_talent set tags = #{tags,jdbcType=VARCHAR} where id=#{id}
+		<if test="cId != null">
+			and c_id=#{cId}
+		</if>
+	</update>
+</mapper>

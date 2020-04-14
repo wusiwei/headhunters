@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lietou.mapper.ContractMapper">
+	
+	<select id="getList" resultMap="BaseResultMap" parameterType="com.lietou.vo.ContractVo">
+		SELECT * FROM t_contract a 
+		where a.customer_id =#{customerId}
+		<if test="cId != null">
+			and a.c_id=#{cId}
+		</if>
+		order by a.create_time desc
+		limit #{pageStartSize},#{pageSize}
+	</select>
+	<select id="countList" resultType="int" parameterType="com.lietou.vo.ContractVo">
+		SELECT count(1) FROM t_contract
+		where customer_id =#{customerId}
+		<if test="cId != null">
+			and c_id=#{cId}
+		</if>
+	</select>
+	
+	<select id="getById" resultMap="BaseResultMap" parameterType="com.lietou.vo.ContractVo">
+		SELECT * FROM t_contract a where id=#{id} 
+		<if test="cId != null">
+			and c_id=#{cId}
+		</if>
+	</select>
+	
+	<delete id="deleteByIds" parameterType="com.lietou.vo.ContractVo">
+		delete from t_contract
+	    where customer_id =#{customerId} 
+	    <if test="cId != null">
+			and c_id=#{cId}
+		</if>
+	    and id in
+		<foreach collection="ids" item="item" index="index" open="(" separator="," close=")">
+			#{item}
+		</foreach>
+	</delete>
+	
+	<update id="resetContractCount" parameterType="com.lietou.model.ResetBO">
+		update t_custom 
+		set contract_count = (select count(1) from t_contract where customer_id=#{businessId} 
+		<if test="cId != null">
+			and c_id=#{cId}
+		</if>
+		) 
+		where id= #{businessId}
+	</update>
+</mapper>

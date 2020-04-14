@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lietou.mapper.ContractMapper">
+  <resultMap id="BaseResultMap" type="com.lietou.model.Contract">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="customer_id" jdbcType="BIGINT" property="customerId" />
+    <result column="start_date" jdbcType="VARCHAR" property="startDate" />
+    <result column="end_date" jdbcType="VARCHAR" property="endDate" />
+    <result column="invoice_title" jdbcType="VARCHAR" property="invoiceTitle" />
+    <result column="fee_structure" jdbcType="VARCHAR" property="feeStructure" />
+    <result column="probation" jdbcType="VARCHAR" property="probation" />
+    <result column="contract_name" jdbcType="VARCHAR" property="contractName" />
+    <result column="contract_number" jdbcType="VARCHAR" property="contractNumber" />
+    <result column="attachment_count" jdbcType="INTEGER" property="attachmentCount" />
+    <result column="create_time" jdbcType="VARCHAR" property="createTime" />
+    <result column="creater_id" jdbcType="BIGINT" property="createrId" />
+    <result column="reminded_or" jdbcType="VARCHAR" property="remindedOr" />
+    <result column="reminded_type" jdbcType="VARCHAR" property="remindedType" />
+    <result column="c_id" jdbcType="BIGINT" property="cId" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, customer_id, start_date, end_date, invoice_title, fee_structure, probation, contract_name, 
+    contract_number, attachment_count, create_time, creater_id, reminded_or, reminded_type, 
+    c_id, remark
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_contract
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from t_contract
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.lietou.model.Contract">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into t_contract (customer_id, start_date, end_date, 
+      invoice_title, fee_structure, probation, 
+      contract_name, contract_number, attachment_count, 
+      create_time, creater_id, reminded_or, 
+      reminded_type, c_id, remark
+      )
+    values (#{customerId,jdbcType=BIGINT}, #{startDate,jdbcType=VARCHAR}, #{endDate,jdbcType=VARCHAR}, 
+      #{invoiceTitle,jdbcType=VARCHAR}, #{feeStructure,jdbcType=VARCHAR}, #{probation,jdbcType=VARCHAR}, 
+      #{contractName,jdbcType=VARCHAR}, #{contractNumber,jdbcType=VARCHAR}, #{attachmentCount,jdbcType=INTEGER}, 
+      #{createTime,jdbcType=VARCHAR}, #{createrId,jdbcType=BIGINT}, #{remindedOr,jdbcType=VARCHAR}, 
+      #{remindedType,jdbcType=VARCHAR}, #{cId,jdbcType=BIGINT}, #{remark,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.lietou.model.Contract">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into t_contract
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="customerId != null">
+        customer_id,
+      </if>
+      <if test="startDate != null">
+        start_date,
+      </if>
+      <if test="endDate != null">
+        end_date,
+      </if>
+      <if test="invoiceTitle != null">
+        invoice_title,
+      </if>
+      <if test="feeStructure != null">
+        fee_structure,
+      </if>
+      <if test="probation != null">
+        probation,
+      </if>
+      <if test="contractName != null">
+        contract_name,
+      </if>
+      <if test="contractNumber != null">
+        contract_number,
+      </if>
+      <if test="attachmentCount != null">
+        attachment_count,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="createrId != null">
+        creater_id,
+      </if>
+      <if test="remindedOr != null">
+        reminded_or,
+      </if>
+      <if test="remindedType != null">
+        reminded_type,
+      </if>
+      <if test="cId != null">
+        c_id,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="customerId != null">
+        #{customerId,jdbcType=BIGINT},
+      </if>
+      <if test="startDate != null">
+        #{startDate,jdbcType=VARCHAR},
+      </if>
+      <if test="endDate != null">
+        #{endDate,jdbcType=VARCHAR},
+      </if>
+      <if test="invoiceTitle != null">
+        #{invoiceTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="feeStructure != null">
+        #{feeStructure,jdbcType=VARCHAR},
+      </if>
+      <if test="probation != null">
+        #{probation,jdbcType=VARCHAR},
+      </if>
+      <if test="contractName != null">
+        #{contractName,jdbcType=VARCHAR},
+      </if>
+      <if test="contractNumber != null">
+        #{contractNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="attachmentCount != null">
+        #{attachmentCount,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=VARCHAR},
+      </if>
+      <if test="createrId != null">
+        #{createrId,jdbcType=BIGINT},
+      </if>
+      <if test="remindedOr != null">
+        #{remindedOr,jdbcType=VARCHAR},
+      </if>
+      <if test="remindedType != null">
+        #{remindedType,jdbcType=VARCHAR},
+      </if>
+      <if test="cId != null">
+        #{cId,jdbcType=BIGINT},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lietou.model.Contract">
+    update t_contract
+    <set>
+      <if test="customerId != null">
+        customer_id = #{customerId,jdbcType=BIGINT},
+      </if>
+      <if test="startDate != null">
+        start_date = #{startDate,jdbcType=VARCHAR},
+      </if>
+      <if test="endDate != null">
+        end_date = #{endDate,jdbcType=VARCHAR},
+      </if>
+      <if test="invoiceTitle != null">
+        invoice_title = #{invoiceTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="feeStructure != null">
+        fee_structure = #{feeStructure,jdbcType=VARCHAR},
+      </if>
+      <if test="probation != null">
+        probation = #{probation,jdbcType=VARCHAR},
+      </if>
+      <if test="contractName != null">
+        contract_name = #{contractName,jdbcType=VARCHAR},
+      </if>
+      <if test="contractNumber != null">
+        contract_number = #{contractNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="attachmentCount != null">
+        attachment_count = #{attachmentCount,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=VARCHAR},
+      </if>
+      <if test="createrId != null">
+        creater_id = #{createrId,jdbcType=BIGINT},
+      </if>
+      <if test="remindedOr != null">
+        reminded_or = #{remindedOr,jdbcType=VARCHAR},
+      </if>
+      <if test="remindedType != null">
+        reminded_type = #{remindedType,jdbcType=VARCHAR},
+      </if>
+      <if test="cId != null">
+        c_id = #{cId,jdbcType=BIGINT},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lietou.model.Contract">
+    update t_contract
+    set customer_id = #{customerId,jdbcType=BIGINT},
+      start_date = #{startDate,jdbcType=VARCHAR},
+      end_date = #{endDate,jdbcType=VARCHAR},
+      invoice_title = #{invoiceTitle,jdbcType=VARCHAR},
+      fee_structure = #{feeStructure,jdbcType=VARCHAR},
+      probation = #{probation,jdbcType=VARCHAR},
+      contract_name = #{contractName,jdbcType=VARCHAR},
+      contract_number = #{contractNumber,jdbcType=VARCHAR},
+      attachment_count = #{attachmentCount,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=VARCHAR},
+      creater_id = #{createrId,jdbcType=BIGINT},
+      reminded_or = #{remindedOr,jdbcType=VARCHAR},
+      reminded_type = #{remindedType,jdbcType=VARCHAR},
+      c_id = #{cId,jdbcType=BIGINT},
+      remark = #{remark,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

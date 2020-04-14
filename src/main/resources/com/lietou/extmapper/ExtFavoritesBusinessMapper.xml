@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lietou.mapper.FavoritesBusinessMapper">
+	<insert id="batchAddBusiness" parameterType="com.lietou.bo.FavoritesBusinessBo">
+		insert into t_favorites_business (favorites_id, creater_id, business_id, create_time, business_type, c_id)
+	    values 
+	    <foreach collection="businessIds" item="item" index="index"
+			separator=",">
+			(#{favoritesId,jdbcType=BIGINT}, #{createrId,jdbcType=BIGINT}, #{item,jdbcType=BIGINT}, 
+      		 #{createTime,jdbcType=VARCHAR}, #{businessType,jdbcType=VARCHAR}, #{cId,jdbcType=BIGINT}
+      		)
+	    </foreach>
+	    ON DUPLICATE KEY UPDATE
+        create_time = values(create_time),creater_id = values(creater_id)
+	</insert>
+	
+	<delete id="deleteByBusiness"  parameterType="com.lietou.bo.FavoritesBusinessBo">
+		delete from t_favorites_business where favorites_id = #{favoritesId,jdbcType=BIGINT}
+		<if test="cId != null">
+			and c_id=#{cId}
+		</if>
+		and business_id in
+		<foreach collection="businessIds" item="item" index="index" open="(" separator="," close=")">
+			#{item}
+		</foreach>
+	</delete>
+	
+	<update id="batchRestTalent" parameterType="com.lietou.bo.FavoritesBusinessBo">
+		<foreach collection="businessIds" item="item" index="index">
+			update t_talent set favorites_count=(select count(1) from t_favorites_business where business_type='talent' and business_id =#{item})
+		</foreach>
+	</update>
+</mapper>

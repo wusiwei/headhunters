@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lietou.mapper.AssignDetailMapper">
+	<insert id="batchAddAssignDetail" parameterType="com.lietou.vo.InvoiceOperationVo">
+		insert into t_assign_detail 
+			(assign_id, assign_type,assign_percent, create_time, creater_id, assign_amount, assigneder_id, assigneder_name)
+	    values 
+	    <foreach collection="assignDetailList" item="item" index="index"
+			separator=",">
+		    (#{assignId,jdbcType=BIGINT}, #{item.assignType,jdbcType=VARCHAR}, 
+		      #{item.assignPercent,jdbcType=INTEGER}, #{updateTime,jdbcType=VARCHAR}, #{createrId,jdbcType=BIGINT}, 
+		       #{item.assignAmount,jdbcType=DECIMAL}, #{item.assignederId,jdbcType=BIGINT},  #{item.assignederName,jdbcType=VARCHAR})
+	    </foreach>
+	</insert>
+	
+	<update id="batchUpdateAssignDetail" parameterType="com.lietou.vo.InvoiceOperationVo">
+		<foreach collection="assignDetailList" item="item" index="index"
+			separator=";">
+			update t_assign_detail 
+				set assign_amount=#{item.assignAmount,jdbcType=DECIMAL},assign_percent= #{item.assignPercent,jdbcType=INTEGER}
+			where assign_id=#{assignId,jdbcType=BIGINT} and assign_type =#{item.assignType,jdbcType=VARCHAR}
+	    </foreach>
+	</update>
+	
+	<insert id="batchAddPerformance" parameterType="com.lietou.vo.InvoiceOperationVo">
+		insert into t_assign_detail 
+			(assign_id, assign_type,performance_percent, create_time, creater_id, performance_amount, assigneder_id, assigneder_name)
+	    values 
+	    <foreach collection="assignDetailList" item="item" index="index"
+			separator=",">
+		    (#{assignId,jdbcType=BIGINT}, #{item.assignType,jdbcType=VARCHAR}, 
+		      #{item.performancePercent,jdbcType=INTEGER}, #{updateTime,jdbcType=VARCHAR}, #{createrId,jdbcType=BIGINT}, 
+		       #{item.performanceAmount,jdbcType=DECIMAL}, #{item.assignederId,jdbcType=BIGINT},  #{item.assignederName,jdbcType=VARCHAR})
+	    </foreach>
+	</insert>
+	
+	<update id="batchUpdatePerformance" parameterType="com.lietou.vo.InvoiceOperationVo">
+		<foreach collection="assignDetailList" item="item" index="index"
+			separator=";">
+			update t_assign_detail 
+				set performance_amount=#{item.performanceAmount,jdbcType=DECIMAL},performance_percent= #{item.performancePercent,jdbcType=INTEGER}
+			where assign_id=#{assignId,jdbcType=BIGINT} and assign_type =#{item.assignType,jdbcType=VARCHAR}
+	    </foreach>
+	</update>
+</mapper>

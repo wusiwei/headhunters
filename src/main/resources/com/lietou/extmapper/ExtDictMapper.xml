@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lietou.mapper.DictMapper">
+	<select id="selectAllForIndustry" parameterType="string"
+		resultMap="BaseResultMap">
+		select a.* from t_dict a
+		where classify = #{classify,jdbcType=VARCHAR}
+		ORDER BY a.parent_id,a.d_index
+	</select>
+	
+	<resultMap id="BaseTreeResultMap" type="com.lietou.dto.DictDto">
+        <id column="id" jdbcType="BIGINT" property="id" />
+	    <result column="code" jdbcType="VARCHAR" property="code" />
+	    <result column="label" jdbcType="VARCHAR" property="label" />
+	    <result column="remark" jdbcType="VARCHAR" property="remark" />
+	    <result column="parent_id" jdbcType="BIGINT" property="parentId" />
+	    <result column="d_index" jdbcType="INTEGER" property="dIndex" />
+	    <result column="classify" jdbcType="VARCHAR" property="classify" />
+        <collection property="children" ofType="com.lietou.dto.DictDto" column="id" select="getSubTree"/>
+    </resultMap>
+ 
+    <resultMap id="SubTreeResultMap" type="com.lietou.dto.DictDto">
+        <id column="id" jdbcType="BIGINT" property="id" />
+	    <result column="code" jdbcType="VARCHAR" property="code" />
+	    <result column="label" jdbcType="VARCHAR" property="label" />
+	    <result column="remark" jdbcType="VARCHAR" property="remark" />
+	    <result column="parent_id" jdbcType="BIGINT" property="parentId" />
+	    <result column="d_index" jdbcType="INTEGER" property="dIndex" />
+	    <result column="classify" jdbcType="VARCHAR" property="classify" />
+        <collection property="children" ofType="com.zhanjia.dto.DictDto" column="id" select="getSubTree"/>
+    </resultMap>
+ 
+    <select id="getBaseTreeByClassify" resultMap="BaseTreeResultMap" parameterType="string">
+        select a.* from t_dict a
+        where a.classify = #{classify,jdbcType=VARCHAR} and a.parent_id is null
+		ORDER BY a.d_index
+    </select>
+ 
+    <select id="getSubTree" resultMap="SubTreeResultMap">
+        select a.*  from t_dict a
+        where a.parent_id = #{id}
+        ORDER BY a.d_index
+    </select>
+
+	<insert id="batchAddChildrenDict" parameterType="com.lietou.vo.DictVO">
+		insert into t_dict (code, label, remark, parent_id, d_index, classify)
+		values
+		<foreach collection="childrenDictList" item="item" index="index"
+			separator=",">
+			(#{item.code,jdbcType=VARCHAR}, #{item.label,jdbcType=VARCHAR}, #{item.remark,jdbcType=VARCHAR}, 
+		      #{parentId,jdbcType=BIGINT}, #{item.dIndex,jdbcType=INTEGER}, #{item.classify,jdbcType=VARCHAR})
+		</foreach>
+	</insert>
+	
+	<select id="countChildrenDictByIds" parameterType="com.lietou.vo.DictVO" resultType="int">
+		select count(1) from t_dict
+	    where parent_id in
+		<foreach collection="ids" item="item" index="index" open="(" separator="," close=")">
+			#{item}
+		</foreach>
+	</select>
+	
+	<delete id="deleteByIds" parameterType="com.lietou.vo.DictVO">
+		delete from t_dict
+	    where id in
+		<foreach collection="ids" item="item" index="index" open="(" separator="," close=")">
+			#{item}
+		</foreach>
+	</delete>
+</mapper>

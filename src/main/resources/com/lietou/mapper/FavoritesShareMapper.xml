@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lietou.mapper.FavoritesShareMapper">
+  <resultMap id="BaseResultMap" type="com.lietou.model.FavoritesShare">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="favorites_id" jdbcType="BIGINT" property="favoritesId" />
+    <result column="share_type" jdbcType="INTEGER" property="shareType" />
+    <result column="share_id" jdbcType="BIGINT" property="shareId" />
+    <result column="business_type" jdbcType="VARCHAR" property="businessType" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, favorites_id, share_type, share_id, business_type
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_favorites_share
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from t_favorites_share
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.lietou.model.FavoritesShare">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into t_favorites_share (favorites_id, share_type, share_id, 
+      business_type)
+    values (#{favoritesId,jdbcType=BIGINT}, #{shareType,jdbcType=INTEGER}, #{shareId,jdbcType=BIGINT}, 
+      #{businessType,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.lietou.model.FavoritesShare">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into t_favorites_share
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="favoritesId != null">
+        favorites_id,
+      </if>
+      <if test="shareType != null">
+        share_type,
+      </if>
+      <if test="shareId != null">
+        share_id,
+      </if>
+      <if test="businessType != null">
+        business_type,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="favoritesId != null">
+        #{favoritesId,jdbcType=BIGINT},
+      </if>
+      <if test="shareType != null">
+        #{shareType,jdbcType=INTEGER},
+      </if>
+      <if test="shareId != null">
+        #{shareId,jdbcType=BIGINT},
+      </if>
+      <if test="businessType != null">
+        #{businessType,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lietou.model.FavoritesShare">
+    update t_favorites_share
+    <set>
+      <if test="favoritesId != null">
+        favorites_id = #{favoritesId,jdbcType=BIGINT},
+      </if>
+      <if test="shareType != null">
+        share_type = #{shareType,jdbcType=INTEGER},
+      </if>
+      <if test="shareId != null">
+        share_id = #{shareId,jdbcType=BIGINT},
+      </if>
+      <if test="businessType != null">
+        business_type = #{businessType,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lietou.model.FavoritesShare">
+    update t_favorites_share
+    set favorites_id = #{favoritesId,jdbcType=BIGINT},
+      share_type = #{shareType,jdbcType=INTEGER},
+      share_id = #{shareId,jdbcType=BIGINT},
+      business_type = #{businessType,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lietou.mapper.TalentExperiencesMapper">
+  <resultMap id="BaseResultMap" type="com.lietou.model.TalentExperiences">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="talent_id" jdbcType="BIGINT" property="talentId" />
+    <result column="current_flag" jdbcType="BIT" property="currentFlag" />
+    <result column="company_name" jdbcType="VARCHAR" property="companyName" />
+    <result column="company_position" jdbcType="VARCHAR" property="companyPosition" />
+    <result column="company_city" jdbcType="VARCHAR" property="companyCity" />
+    <result column="dept" jdbcType="VARCHAR" property="dept" />
+    <result column="start_date" jdbcType="VARCHAR" property="startDate" />
+    <result column="end_date" jdbcType="VARCHAR" property="endDate" />
+    <result column="description" jdbcType="VARCHAR" property="description" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, talent_id, current_flag, company_name, company_position, company_city, dept, 
+    start_date, end_date, description
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_talent_experiences
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from t_talent_experiences
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.lietou.model.TalentExperiences">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into t_talent_experiences (talent_id, current_flag, company_name, 
+      company_position, company_city, dept, 
+      start_date, end_date, description
+      )
+    values (#{talentId,jdbcType=BIGINT}, #{currentFlag,jdbcType=BIT}, #{companyName,jdbcType=VARCHAR}, 
+      #{companyPosition,jdbcType=VARCHAR}, #{companyCity,jdbcType=VARCHAR}, #{dept,jdbcType=VARCHAR}, 
+      #{startDate,jdbcType=VARCHAR}, #{endDate,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.lietou.model.TalentExperiences">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into t_talent_experiences
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="talentId != null">
+        talent_id,
+      </if>
+      <if test="currentFlag != null">
+        current_flag,
+      </if>
+      <if test="companyName != null">
+        company_name,
+      </if>
+      <if test="companyPosition != null">
+        company_position,
+      </if>
+      <if test="companyCity != null">
+        company_city,
+      </if>
+      <if test="dept != null">
+        dept,
+      </if>
+      <if test="startDate != null">
+        start_date,
+      </if>
+      <if test="endDate != null">
+        end_date,
+      </if>
+      <if test="description != null">
+        description,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="talentId != null">
+        #{talentId,jdbcType=BIGINT},
+      </if>
+      <if test="currentFlag != null">
+        #{currentFlag,jdbcType=BIT},
+      </if>
+      <if test="companyName != null">
+        #{companyName,jdbcType=VARCHAR},
+      </if>
+      <if test="companyPosition != null">
+        #{companyPosition,jdbcType=VARCHAR},
+      </if>
+      <if test="companyCity != null">
+        #{companyCity,jdbcType=VARCHAR},
+      </if>
+      <if test="dept != null">
+        #{dept,jdbcType=VARCHAR},
+      </if>
+      <if test="startDate != null">
+        #{startDate,jdbcType=VARCHAR},
+      </if>
+      <if test="endDate != null">
+        #{endDate,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null">
+        #{description,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lietou.model.TalentExperiences">
+    update t_talent_experiences
+    <set>
+      <if test="talentId != null">
+        talent_id = #{talentId,jdbcType=BIGINT},
+      </if>
+      <if test="currentFlag != null">
+        current_flag = #{currentFlag,jdbcType=BIT},
+      </if>
+      <if test="companyName != null">
+        company_name = #{companyName,jdbcType=VARCHAR},
+      </if>
+      <if test="companyPosition != null">
+        company_position = #{companyPosition,jdbcType=VARCHAR},
+      </if>
+      <if test="companyCity != null">
+        company_city = #{companyCity,jdbcType=VARCHAR},
+      </if>
+      <if test="dept != null">
+        dept = #{dept,jdbcType=VARCHAR},
+      </if>
+      <if test="startDate != null">
+        start_date = #{startDate,jdbcType=VARCHAR},
+      </if>
+      <if test="endDate != null">
+        end_date = #{endDate,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null">
+        description = #{description,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lietou.model.TalentExperiences">
+    update t_talent_experiences
+    set talent_id = #{talentId,jdbcType=BIGINT},
+      current_flag = #{currentFlag,jdbcType=BIT},
+      company_name = #{companyName,jdbcType=VARCHAR},
+      company_position = #{companyPosition,jdbcType=VARCHAR},
+      company_city = #{companyCity,jdbcType=VARCHAR},
+      dept = #{dept,jdbcType=VARCHAR},
+      start_date = #{startDate,jdbcType=VARCHAR},
+      end_date = #{endDate,jdbcType=VARCHAR},
+      description = #{description,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

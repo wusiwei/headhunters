@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lietou.mapper.DictAreaMapper">
+	<resultMap id="BaseDtoMap" extends="BaseResultMap" type="com.lietou.dto.DictAreaDto">
+	</resultMap>
+	
+	<resultMap id="ProvincesAndCitiesMap" extends="BaseResultMap" type="com.lietou.dto.DictAreaDto">
+		<collection property="children" ofType="com.zhanjia.dto.DictAreaDto" column="id" select="getCitiesByProvinces"/>
+	</resultMap>
+	
+	<resultMap id="PAndChildrenMap" extends="BaseResultMap" type="com.lietou.dto.DictAreaDto">
+		<collection property="children" ofType="com.zhanjia.dto.DictAreaDto" column="id" select="getChildren"/>
+	</resultMap>
+	
+	<select id="getProvincesAndCities" resultMap="ProvincesAndCitiesMap">
+		SELECT * FROM t_dict_area WHERE pid=0 AND straight_flag !=2 ORDER BY straight_flag DESC,FIRST 
+	</select>
+	
+	<select id="getCitiesByProvinces" resultMap="BaseDtoMap">
+		SELECT * FROM t_dict_area WHERE pid = #{id}
+	</select>
+	
+	<select id="getProvincesAndCitiesArea" resultMap="PAndChildrenMap">
+		SELECT * FROM t_dict_area WHERE pid=0 AND straight_flag !=2 ORDER BY straight_flag DESC,FIRST 
+	</select>
+	
+	<select id="getChildren" resultMap="PAndChildrenMap">
+		SELECT * FROM t_dict_area WHERE pid = #{id}
+	</select>
+	
+</mapper>

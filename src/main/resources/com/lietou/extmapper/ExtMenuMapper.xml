@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lietou.mapper.MenuMapper">
+	<resultMap id="BaseTreeResultMap" type="com.lietou.dto.MenuDto" extends="BaseResultMap">
+		<result column="menu_name" jdbcType="VARCHAR" property="label" />
+        <collection property="children" ofType="com.lietou.dto.MenuDto" column="id" select="getSubMenuTree"/>
+    </resultMap>
+ 
+ 	<resultMap id="MenuDtoMap" type="com.lietou.dto.MenuDto" extends="BaseResultMap">
+    </resultMap>
+    
+    <resultMap id="SubTreeResultMap" type="com.lietou.dto.MenuDto" extends="BaseResultMap">
+    	<result column="menu_name" jdbcType="VARCHAR" property="label" />
+    </resultMap>
+    
+    <select id="getAllMenuTree" resultMap="BaseTreeResultMap">
+        select a.* from t_menu a
+        where a.parent_id = 0
+		ORDER BY a.sort_index
+    </select>
+ 
+    <select id="getSubMenuTree" resultMap="BaseTreeResultMap">
+        select a.*  from t_menu a
+        where a.parent_id = #{id}
+        ORDER BY a.sort_index
+    </select>
+    
+    <select id="getSelectedByRoleId" parameterType="com.lietou.vo.MenuVO" resultType="java.lang.Long">
+    	select menu_id from t_role_menu where role_id=#{roleId} and c_id=#{cId}
+    </select>
+    
+    <insert id="batchAddRoleMenu" parameterType="com.lietou.vo.MenuVO">
+		insert into t_role_menu (role_id, menu_id, c_id)
+		values
+		<foreach collection="menuIds" item="item" index="index"
+			separator=",">
+			(#{roleId}, #{item}, #{cId})
+		</foreach>
+	</insert>
+	
+	<delete id="deleteRoleMenu" parameterType="com.lietou.vo.MenuVO">
+		delete from t_role_menu where role_id=#{roleId} and c_id=#{cId}
+	</delete>
+	
+	<select id="getUserMenuIds" parameterType="com.lietou.vo.MenuVO" resultType="java.lang.Long">
+		select distinct menu_id from t_role_menu where role_id 
+		in (SELECT role_id FROM t_role_user WHERE user_id=#{uId} and c_id=#{cId}) and c_id=#{cId}
+	</select>
+	
+	<select id="getMenusByMenuIds" parameterType="java.util.List" resultMap="MenuDtoMap">
+		SELECT * FROM t_menu WHERE menu_flag =1 and id in
+		<foreach collection="list" index="index" item="item" open="("
+			separator="," close=")">
+			#{item}
+		</foreach>
+	    ORDER BY parent_id,sort_index
+	</select>
+	
+	<select id="getVueNameByMenuIds" parameterType="java.util.List" resultType="string">
+		SELECT vue_name FROM t_menu WHERE id in
+		<foreach collection="list" index="index" item="item" open="("
+			separator="," close=")">
+			#{item}
+		</foreach>
+	</select>
+</mapper>

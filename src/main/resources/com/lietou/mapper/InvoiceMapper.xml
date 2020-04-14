@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lietou.mapper.InvoiceMapper">
+  <resultMap id="BaseResultMap" type="com.lietou.model.Invoice">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="customer_id" jdbcType="BIGINT" property="customerId" />
+    <result column="project_id" jdbcType="BIGINT" property="projectId" />
+    <result column="cost_type" jdbcType="INTEGER" property="costType" />
+    <result column="invoice_type" jdbcType="INTEGER" property="invoiceType" />
+    <result column="invoice_number" jdbcType="VARCHAR" property="invoiceNumber" />
+    <result column="attachment_count" jdbcType="INTEGER" property="attachmentCount" />
+    <result column="money" jdbcType="INTEGER" property="money" />
+    <result column="remark_count" jdbcType="INTEGER" property="remarkCount" />
+    <result column="tax_number" jdbcType="VARCHAR" property="taxNumber" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="expect_time" jdbcType="VARCHAR" property="expectTime" />
+    <result column="create_time" jdbcType="VARCHAR" property="createTime" />
+    <result column="creater_id" jdbcType="BIGINT" property="createrId" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="content" jdbcType="VARCHAR" property="content" />
+    <result column="charged" jdbcType="INTEGER" property="charged" />
+    <result column="make_date" jdbcType="VARCHAR" property="makeDate" />
+    <result column="collection_date" jdbcType="VARCHAR" property="collectionDate" />
+    <result column="last_charged_date" jdbcType="VARCHAR" property="lastChargedDate" />
+    <result column="assign_id" jdbcType="BIGINT" property="assignId" />
+    <result column="version" jdbcType="INTEGER" property="version" />
+    <result column="refund_money" jdbcType="INTEGER" property="refundMoney" />
+    <result column="update_time" jdbcType="VARCHAR" property="updateTime" />
+    <result column="c_id" jdbcType="BIGINT" property="cId" />
+    <result column="reminded_or" jdbcType="VARCHAR" property="remindedOr" />
+    <result column="performance_flag" jdbcType="BIT" property="performanceFlag" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, customer_id, project_id, cost_type, invoice_type, invoice_number, attachment_count, 
+    money, remark_count, tax_number, remark, expect_time, create_time, creater_id, status, 
+    title, content, charged, make_date, collection_date, last_charged_date, assign_id, 
+    version, refund_money, update_time, c_id, reminded_or, performance_flag
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_invoice
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from t_invoice
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.lietou.model.Invoice">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into t_invoice (customer_id, project_id, cost_type, 
+      invoice_type, invoice_number, attachment_count, 
+      money, remark_count, tax_number, 
+      remark, expect_time, create_time, 
+      creater_id, status, title, 
+      content, charged, make_date, 
+      collection_date, last_charged_date, assign_id, 
+      version, refund_money, update_time, 
+      c_id, reminded_or, performance_flag
+      )
+    values (#{customerId,jdbcType=BIGINT}, #{projectId,jdbcType=BIGINT}, #{costType,jdbcType=INTEGER}, 
+      #{invoiceType,jdbcType=INTEGER}, #{invoiceNumber,jdbcType=VARCHAR}, #{attachmentCount,jdbcType=INTEGER}, 
+      #{money,jdbcType=INTEGER}, #{remarkCount,jdbcType=INTEGER}, #{taxNumber,jdbcType=VARCHAR}, 
+      #{remark,jdbcType=VARCHAR}, #{expectTime,jdbcType=VARCHAR}, #{createTime,jdbcType=VARCHAR}, 
+      #{createrId,jdbcType=BIGINT}, #{status,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, 
+      #{content,jdbcType=VARCHAR}, #{charged,jdbcType=INTEGER}, #{makeDate,jdbcType=VARCHAR}, 
+      #{collectionDate,jdbcType=VARCHAR}, #{lastChargedDate,jdbcType=VARCHAR}, #{assignId,jdbcType=BIGINT}, 
+      #{version,jdbcType=INTEGER}, #{refundMoney,jdbcType=INTEGER}, #{updateTime,jdbcType=VARCHAR}, 
+      #{cId,jdbcType=BIGINT}, #{remindedOr,jdbcType=VARCHAR}, #{performanceFlag,jdbcType=BIT}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.lietou.model.Invoice">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into t_invoice
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="customerId != null">
+        customer_id,
+      </if>
+      <if test="projectId != null">
+        project_id,
+      </if>
+      <if test="costType != null">
+        cost_type,
+      </if>
+      <if test="invoiceType != null">
+        invoice_type,
+      </if>
+      <if test="invoiceNumber != null">
+        invoice_number,
+      </if>
+      <if test="attachmentCount != null">
+        attachment_count,
+      </if>
+      <if test="money != null">
+        money,
+      </if>
+      <if test="remarkCount != null">
+        remark_count,
+      </if>
+      <if test="taxNumber != null">
+        tax_number,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+      <if test="expectTime != null">
+        expect_time,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="createrId != null">
+        creater_id,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="title != null">
+        title,
+      </if>
+      <if test="content != null">
+        content,
+      </if>
+      <if test="charged != null">
+        charged,
+      </if>
+      <if test="makeDate != null">
+        make_date,
+      </if>
+      <if test="collectionDate != null">
+        collection_date,
+      </if>
+      <if test="lastChargedDate != null">
+        last_charged_date,
+      </if>
+      <if test="assignId != null">
+        assign_id,
+      </if>
+      <if test="version != null">
+        version,
+      </if>
+      <if test="refundMoney != null">
+        refund_money,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="cId != null">
+        c_id,
+      </if>
+      <if test="remindedOr != null">
+        reminded_or,
+      </if>
+      <if test="performanceFlag != null">
+        performance_flag,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="customerId != null">
+        #{customerId,jdbcType=BIGINT},
+      </if>
+      <if test="projectId != null">
+        #{projectId,jdbcType=BIGINT},
+      </if>
+      <if test="costType != null">
+        #{costType,jdbcType=INTEGER},
+      </if>
+      <if test="invoiceType != null">
+        #{invoiceType,jdbcType=INTEGER},
+      </if>
+      <if test="invoiceNumber != null">
+        #{invoiceNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="attachmentCount != null">
+        #{attachmentCount,jdbcType=INTEGER},
+      </if>
+      <if test="money != null">
+        #{money,jdbcType=INTEGER},
+      </if>
+      <if test="remarkCount != null">
+        #{remarkCount,jdbcType=INTEGER},
+      </if>
+      <if test="taxNumber != null">
+        #{taxNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="expectTime != null">
+        #{expectTime,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=VARCHAR},
+      </if>
+      <if test="createrId != null">
+        #{createrId,jdbcType=BIGINT},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null">
+        #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="charged != null">
+        #{charged,jdbcType=INTEGER},
+      </if>
+      <if test="makeDate != null">
+        #{makeDate,jdbcType=VARCHAR},
+      </if>
+      <if test="collectionDate != null">
+        #{collectionDate,jdbcType=VARCHAR},
+      </if>
+      <if test="lastChargedDate != null">
+        #{lastChargedDate,jdbcType=VARCHAR},
+      </if>
+      <if test="assignId != null">
+        #{assignId,jdbcType=BIGINT},
+      </if>
+      <if test="version != null">
+        #{version,jdbcType=INTEGER},
+      </if>
+      <if test="refundMoney != null">
+        #{refundMoney,jdbcType=INTEGER},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=VARCHAR},
+      </if>
+      <if test="cId != null">
+        #{cId,jdbcType=BIGINT},
+      </if>
+      <if test="remindedOr != null">
+        #{remindedOr,jdbcType=VARCHAR},
+      </if>
+      <if test="performanceFlag != null">
+        #{performanceFlag,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lietou.model.Invoice">
+    update t_invoice
+    <set>
+      <if test="customerId != null">
+        customer_id = #{customerId,jdbcType=BIGINT},
+      </if>
+      <if test="projectId != null">
+        project_id = #{projectId,jdbcType=BIGINT},
+      </if>
+      <if test="costType != null">
+        cost_type = #{costType,jdbcType=INTEGER},
+      </if>
+      <if test="invoiceType != null">
+        invoice_type = #{invoiceType,jdbcType=INTEGER},
+      </if>
+      <if test="invoiceNumber != null">
+        invoice_number = #{invoiceNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="attachmentCount != null">
+        attachment_count = #{attachmentCount,jdbcType=INTEGER},
+      </if>
+      <if test="money != null">
+        money = #{money,jdbcType=INTEGER},
+      </if>
+      <if test="remarkCount != null">
+        remark_count = #{remarkCount,jdbcType=INTEGER},
+      </if>
+      <if test="taxNumber != null">
+        tax_number = #{taxNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="expectTime != null">
+        expect_time = #{expectTime,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=VARCHAR},
+      </if>
+      <if test="createrId != null">
+        creater_id = #{createrId,jdbcType=BIGINT},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="title != null">
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null">
+        content = #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="charged != null">
+        charged = #{charged,jdbcType=INTEGER},
+      </if>
+      <if test="makeDate != null">
+        make_date = #{makeDate,jdbcType=VARCHAR},
+      </if>
+      <if test="collectionDate != null">
+        collection_date = #{collectionDate,jdbcType=VARCHAR},
+      </if>
+      <if test="lastChargedDate != null">
+        last_charged_date = #{lastChargedDate,jdbcType=VARCHAR},
+      </if>
+      <if test="assignId != null">
+        assign_id = #{assignId,jdbcType=BIGINT},
+      </if>
+      <if test="version != null">
+        version = #{version,jdbcType=INTEGER},
+      </if>
+      <if test="refundMoney != null">
+        refund_money = #{refundMoney,jdbcType=INTEGER},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=VARCHAR},
+      </if>
+      <if test="cId != null">
+        c_id = #{cId,jdbcType=BIGINT},
+      </if>
+      <if test="remindedOr != null">
+        reminded_or = #{remindedOr,jdbcType=VARCHAR},
+      </if>
+      <if test="performanceFlag != null">
+        performance_flag = #{performanceFlag,jdbcType=BIT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lietou.model.Invoice">
+    update t_invoice
+    set customer_id = #{customerId,jdbcType=BIGINT},
+      project_id = #{projectId,jdbcType=BIGINT},
+      cost_type = #{costType,jdbcType=INTEGER},
+      invoice_type = #{invoiceType,jdbcType=INTEGER},
+      invoice_number = #{invoiceNumber,jdbcType=VARCHAR},
+      attachment_count = #{attachmentCount,jdbcType=INTEGER},
+      money = #{money,jdbcType=INTEGER},
+      remark_count = #{remarkCount,jdbcType=INTEGER},
+      tax_number = #{taxNumber,jdbcType=VARCHAR},
+      remark = #{remark,jdbcType=VARCHAR},
+      expect_time = #{expectTime,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=VARCHAR},
+      creater_id = #{createrId,jdbcType=BIGINT},
+      status = #{status,jdbcType=INTEGER},
+      title = #{title,jdbcType=VARCHAR},
+      content = #{content,jdbcType=VARCHAR},
+      charged = #{charged,jdbcType=INTEGER},
+      make_date = #{makeDate,jdbcType=VARCHAR},
+      collection_date = #{collectionDate,jdbcType=VARCHAR},
+      last_charged_date = #{lastChargedDate,jdbcType=VARCHAR},
+      assign_id = #{assignId,jdbcType=BIGINT},
+      version = #{version,jdbcType=INTEGER},
+      refund_money = #{refundMoney,jdbcType=INTEGER},
+      update_time = #{updateTime,jdbcType=VARCHAR},
+      c_id = #{cId,jdbcType=BIGINT},
+      reminded_or = #{remindedOr,jdbcType=VARCHAR},
+      performance_flag = #{performanceFlag,jdbcType=BIT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

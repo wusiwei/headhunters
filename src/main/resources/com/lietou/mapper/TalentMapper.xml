@@ -1,0 +1,642 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lietou.mapper.TalentMapper">
+  <resultMap id="BaseResultMap" type="com.lietou.model.Talent">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="type" jdbcType="VARCHAR" property="type" />
+    <result column="mfc" jdbcType="BIT" property="mfc" />
+    <result column="chinese_name" jdbcType="VARCHAR" property="chineseName" />
+    <result column="english_name" jdbcType="VARCHAR" property="englishName" />
+    <result column="industry" jdbcType="VARCHAR" property="industry" />
+    <result column="function" jdbcType="VARCHAR" property="function" />
+    <result column="mobile" jdbcType="VARCHAR" property="mobile" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="birthday" jdbcType="VARCHAR" property="birthday" />
+    <result column="location" jdbcType="BIGINT" property="location" />
+    <result column="city" jdbcType="VARCHAR" property="city" />
+    <result column="annualSalary" jdbcType="REAL" property="annualsalary" />
+    <result column="sex" jdbcType="VARCHAR" property="sex" />
+    <result column="nationality" jdbcType="BIGINT" property="nationality" />
+    <result column="school" jdbcType="VARCHAR" property="school" />
+    <result column="education" jdbcType="VARCHAR" property="education" />
+    <result column="english_level" jdbcType="VARCHAR" property="englishLevel" />
+    <result column="linkedin" jdbcType="VARCHAR" property="linkedin" />
+    <result column="qq" jdbcType="VARCHAR" property="qq" />
+    <result column="weixin" jdbcType="VARCHAR" property="weixin" />
+    <result column="marrysituation" jdbcType="VARCHAR" property="marrysituation" />
+    <result column="account" jdbcType="VARCHAR" property="account" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="tags" jdbcType="VARCHAR" property="tags" />
+    <result column="source_from" jdbcType="VARCHAR" property="sourceFrom" />
+    <result column="folder_id" jdbcType="BIGINT" property="folderId" />
+    <result column="share_flag" jdbcType="BIT" property="shareFlag" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="attachments" jdbcType="VARCHAR" property="attachments" />
+    <result column="attachment_count" jdbcType="INTEGER" property="attachmentCount" />
+    <result column="email_count" jdbcType="INTEGER" property="emailCount" />
+    <result column="favorites_count" jdbcType="INTEGER" property="favoritesCount" />
+    <result column="remark_count" jdbcType="INTEGER" property="remarkCount" />
+    <result column="shortlist_count" jdbcType="INTEGER" property="shortlistCount" />
+    <result column="todo_count" jdbcType="INTEGER" property="todoCount" />
+    <result column="floating_in_count" jdbcType="INTEGER" property="floatingInCount" />
+    <result column="floating_out_count" jdbcType="INTEGER" property="floatingOutCount" />
+    <result column="create_time" jdbcType="VARCHAR" property="createTime" />
+    <result column="creater_id" jdbcType="BIGINT" property="createrId" />
+    <result column="c_id" jdbcType="BIGINT" property="cId" />
+    <result column="update_time" jdbcType="VARCHAR" property="updateTime" />
+    <result column="status" jdbcType="VARCHAR" property="status" />
+    <result column="focus_str" jdbcType="VARCHAR" property="focusStr" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.lietou.model.Talent">
+    <result column="project_experience" jdbcType="LONGVARCHAR" property="projectExperience" />
+    <result column="advantage" jdbcType="LONGVARCHAR" property="advantage" />
+    <result column="recommend" jdbcType="LONGVARCHAR" property="recommend" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, type, mfc, chinese_name, english_name, industry, function, mobile, email, birthday, 
+    location, city, annualSalary, sex, nationality, school, education, english_level, 
+    linkedin, qq, weixin, marrysituation, account, address, tags, source_from, folder_id, 
+    share_flag, remark, attachments, attachment_count, email_count, favorites_count, 
+    remark_count, shortlist_count, todo_count, floating_in_count, floating_out_count, 
+    create_time, creater_id, c_id, update_time, status, focus_str
+  </sql>
+  <sql id="Blob_Column_List">
+    project_experience, advantage, recommend
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from t_talent
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from t_talent
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.lietou.model.Talent">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into t_talent (type, mfc, chinese_name, 
+      english_name, industry, function, 
+      mobile, email, birthday, 
+      location, city, annualSalary, 
+      sex, nationality, school, 
+      education, english_level, linkedin, 
+      qq, weixin, marrysituation, 
+      account, address, tags, 
+      source_from, folder_id, share_flag, 
+      remark, attachments, attachment_count, 
+      email_count, favorites_count, remark_count, 
+      shortlist_count, todo_count, floating_in_count, 
+      floating_out_count, create_time, creater_id, 
+      c_id, update_time, status, 
+      focus_str, project_experience, advantage, 
+      recommend)
+    values (#{type,jdbcType=VARCHAR}, #{mfc,jdbcType=BIT}, #{chineseName,jdbcType=VARCHAR}, 
+      #{englishName,jdbcType=VARCHAR}, #{industry,jdbcType=VARCHAR}, #{function,jdbcType=VARCHAR}, 
+      #{mobile,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{birthday,jdbcType=VARCHAR}, 
+      #{location,jdbcType=BIGINT}, #{city,jdbcType=VARCHAR}, #{annualsalary,jdbcType=REAL}, 
+      #{sex,jdbcType=VARCHAR}, #{nationality,jdbcType=BIGINT}, #{school,jdbcType=VARCHAR}, 
+      #{education,jdbcType=VARCHAR}, #{englishLevel,jdbcType=VARCHAR}, #{linkedin,jdbcType=VARCHAR}, 
+      #{qq,jdbcType=VARCHAR}, #{weixin,jdbcType=VARCHAR}, #{marrysituation,jdbcType=VARCHAR}, 
+      #{account,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, #{tags,jdbcType=VARCHAR}, 
+      #{sourceFrom,jdbcType=VARCHAR}, #{folderId,jdbcType=BIGINT}, #{shareFlag,jdbcType=BIT}, 
+      #{remark,jdbcType=VARCHAR}, #{attachments,jdbcType=VARCHAR}, #{attachmentCount,jdbcType=INTEGER}, 
+      #{emailCount,jdbcType=INTEGER}, #{favoritesCount,jdbcType=INTEGER}, #{remarkCount,jdbcType=INTEGER}, 
+      #{shortlistCount,jdbcType=INTEGER}, #{todoCount,jdbcType=INTEGER}, #{floatingInCount,jdbcType=INTEGER}, 
+      #{floatingOutCount,jdbcType=INTEGER}, #{createTime,jdbcType=VARCHAR}, #{createrId,jdbcType=BIGINT}, 
+      #{cId,jdbcType=BIGINT}, #{updateTime,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, 
+      #{focusStr,jdbcType=VARCHAR}, #{projectExperience,jdbcType=LONGVARCHAR}, #{advantage,jdbcType=LONGVARCHAR}, 
+      #{recommend,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.lietou.model.Talent">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into t_talent
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="type != null">
+        type,
+      </if>
+      <if test="mfc != null">
+        mfc,
+      </if>
+      <if test="chineseName != null">
+        chinese_name,
+      </if>
+      <if test="englishName != null">
+        english_name,
+      </if>
+      <if test="industry != null">
+        industry,
+      </if>
+      <if test="function != null">
+        function,
+      </if>
+      <if test="mobile != null">
+        mobile,
+      </if>
+      <if test="email != null">
+        email,
+      </if>
+      <if test="birthday != null">
+        birthday,
+      </if>
+      <if test="location != null">
+        location,
+      </if>
+      <if test="city != null">
+        city,
+      </if>
+      <if test="annualsalary != null">
+        annualSalary,
+      </if>
+      <if test="sex != null">
+        sex,
+      </if>
+      <if test="nationality != null">
+        nationality,
+      </if>
+      <if test="school != null">
+        school,
+      </if>
+      <if test="education != null">
+        education,
+      </if>
+      <if test="englishLevel != null">
+        english_level,
+      </if>
+      <if test="linkedin != null">
+        linkedin,
+      </if>
+      <if test="qq != null">
+        qq,
+      </if>
+      <if test="weixin != null">
+        weixin,
+      </if>
+      <if test="marrysituation != null">
+        marrysituation,
+      </if>
+      <if test="account != null">
+        account,
+      </if>
+      <if test="address != null">
+        address,
+      </if>
+      <if test="tags != null">
+        tags,
+      </if>
+      <if test="sourceFrom != null">
+        source_from,
+      </if>
+      <if test="folderId != null">
+        folder_id,
+      </if>
+      <if test="shareFlag != null">
+        share_flag,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+      <if test="attachments != null">
+        attachments,
+      </if>
+      <if test="attachmentCount != null">
+        attachment_count,
+      </if>
+      <if test="emailCount != null">
+        email_count,
+      </if>
+      <if test="favoritesCount != null">
+        favorites_count,
+      </if>
+      <if test="remarkCount != null">
+        remark_count,
+      </if>
+      <if test="shortlistCount != null">
+        shortlist_count,
+      </if>
+      <if test="todoCount != null">
+        todo_count,
+      </if>
+      <if test="floatingInCount != null">
+        floating_in_count,
+      </if>
+      <if test="floatingOutCount != null">
+        floating_out_count,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="createrId != null">
+        creater_id,
+      </if>
+      <if test="cId != null">
+        c_id,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="focusStr != null">
+        focus_str,
+      </if>
+      <if test="projectExperience != null">
+        project_experience,
+      </if>
+      <if test="advantage != null">
+        advantage,
+      </if>
+      <if test="recommend != null">
+        recommend,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="type != null">
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="mfc != null">
+        #{mfc,jdbcType=BIT},
+      </if>
+      <if test="chineseName != null">
+        #{chineseName,jdbcType=VARCHAR},
+      </if>
+      <if test="englishName != null">
+        #{englishName,jdbcType=VARCHAR},
+      </if>
+      <if test="industry != null">
+        #{industry,jdbcType=VARCHAR},
+      </if>
+      <if test="function != null">
+        #{function,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null">
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="birthday != null">
+        #{birthday,jdbcType=VARCHAR},
+      </if>
+      <if test="location != null">
+        #{location,jdbcType=BIGINT},
+      </if>
+      <if test="city != null">
+        #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="annualsalary != null">
+        #{annualsalary,jdbcType=REAL},
+      </if>
+      <if test="sex != null">
+        #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="nationality != null">
+        #{nationality,jdbcType=BIGINT},
+      </if>
+      <if test="school != null">
+        #{school,jdbcType=VARCHAR},
+      </if>
+      <if test="education != null">
+        #{education,jdbcType=VARCHAR},
+      </if>
+      <if test="englishLevel != null">
+        #{englishLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="linkedin != null">
+        #{linkedin,jdbcType=VARCHAR},
+      </if>
+      <if test="qq != null">
+        #{qq,jdbcType=VARCHAR},
+      </if>
+      <if test="weixin != null">
+        #{weixin,jdbcType=VARCHAR},
+      </if>
+      <if test="marrysituation != null">
+        #{marrysituation,jdbcType=VARCHAR},
+      </if>
+      <if test="account != null">
+        #{account,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="tags != null">
+        #{tags,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceFrom != null">
+        #{sourceFrom,jdbcType=VARCHAR},
+      </if>
+      <if test="folderId != null">
+        #{folderId,jdbcType=BIGINT},
+      </if>
+      <if test="shareFlag != null">
+        #{shareFlag,jdbcType=BIT},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="attachments != null">
+        #{attachments,jdbcType=VARCHAR},
+      </if>
+      <if test="attachmentCount != null">
+        #{attachmentCount,jdbcType=INTEGER},
+      </if>
+      <if test="emailCount != null">
+        #{emailCount,jdbcType=INTEGER},
+      </if>
+      <if test="favoritesCount != null">
+        #{favoritesCount,jdbcType=INTEGER},
+      </if>
+      <if test="remarkCount != null">
+        #{remarkCount,jdbcType=INTEGER},
+      </if>
+      <if test="shortlistCount != null">
+        #{shortlistCount,jdbcType=INTEGER},
+      </if>
+      <if test="todoCount != null">
+        #{todoCount,jdbcType=INTEGER},
+      </if>
+      <if test="floatingInCount != null">
+        #{floatingInCount,jdbcType=INTEGER},
+      </if>
+      <if test="floatingOutCount != null">
+        #{floatingOutCount,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=VARCHAR},
+      </if>
+      <if test="createrId != null">
+        #{createrId,jdbcType=BIGINT},
+      </if>
+      <if test="cId != null">
+        #{cId,jdbcType=BIGINT},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="focusStr != null">
+        #{focusStr,jdbcType=VARCHAR},
+      </if>
+      <if test="projectExperience != null">
+        #{projectExperience,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="advantage != null">
+        #{advantage,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="recommend != null">
+        #{recommend,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lietou.model.Talent">
+    update t_talent
+    <set>
+      <if test="type != null">
+        type = #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="mfc != null">
+        mfc = #{mfc,jdbcType=BIT},
+      </if>
+      <if test="chineseName != null">
+        chinese_name = #{chineseName,jdbcType=VARCHAR},
+      </if>
+      <if test="englishName != null">
+        english_name = #{englishName,jdbcType=VARCHAR},
+      </if>
+      <if test="industry != null">
+        industry = #{industry,jdbcType=VARCHAR},
+      </if>
+      <if test="function != null">
+        function = #{function,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null">
+        mobile = #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="birthday != null">
+        birthday = #{birthday,jdbcType=VARCHAR},
+      </if>
+      <if test="location != null">
+        location = #{location,jdbcType=BIGINT},
+      </if>
+      <if test="city != null">
+        city = #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="annualsalary != null">
+        annualSalary = #{annualsalary,jdbcType=REAL},
+      </if>
+      <if test="sex != null">
+        sex = #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="nationality != null">
+        nationality = #{nationality,jdbcType=BIGINT},
+      </if>
+      <if test="school != null">
+        school = #{school,jdbcType=VARCHAR},
+      </if>
+      <if test="education != null">
+        education = #{education,jdbcType=VARCHAR},
+      </if>
+      <if test="englishLevel != null">
+        english_level = #{englishLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="linkedin != null">
+        linkedin = #{linkedin,jdbcType=VARCHAR},
+      </if>
+      <if test="qq != null">
+        qq = #{qq,jdbcType=VARCHAR},
+      </if>
+      <if test="weixin != null">
+        weixin = #{weixin,jdbcType=VARCHAR},
+      </if>
+      <if test="marrysituation != null">
+        marrysituation = #{marrysituation,jdbcType=VARCHAR},
+      </if>
+      <if test="account != null">
+        account = #{account,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="tags != null">
+        tags = #{tags,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceFrom != null">
+        source_from = #{sourceFrom,jdbcType=VARCHAR},
+      </if>
+      <if test="folderId != null">
+        folder_id = #{folderId,jdbcType=BIGINT},
+      </if>
+      <if test="shareFlag != null">
+        share_flag = #{shareFlag,jdbcType=BIT},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="attachments != null">
+        attachments = #{attachments,jdbcType=VARCHAR},
+      </if>
+      <if test="attachmentCount != null">
+        attachment_count = #{attachmentCount,jdbcType=INTEGER},
+      </if>
+      <if test="emailCount != null">
+        email_count = #{emailCount,jdbcType=INTEGER},
+      </if>
+      <if test="favoritesCount != null">
+        favorites_count = #{favoritesCount,jdbcType=INTEGER},
+      </if>
+      <if test="remarkCount != null">
+        remark_count = #{remarkCount,jdbcType=INTEGER},
+      </if>
+      <if test="shortlistCount != null">
+        shortlist_count = #{shortlistCount,jdbcType=INTEGER},
+      </if>
+      <if test="todoCount != null">
+        todo_count = #{todoCount,jdbcType=INTEGER},
+      </if>
+      <if test="floatingInCount != null">
+        floating_in_count = #{floatingInCount,jdbcType=INTEGER},
+      </if>
+      <if test="floatingOutCount != null">
+        floating_out_count = #{floatingOutCount,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=VARCHAR},
+      </if>
+      <if test="createrId != null">
+        creater_id = #{createrId,jdbcType=BIGINT},
+      </if>
+      <if test="cId != null">
+        c_id = #{cId,jdbcType=BIGINT},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="focusStr != null">
+        focus_str = #{focusStr,jdbcType=VARCHAR},
+      </if>
+      <if test="projectExperience != null">
+        project_experience = #{projectExperience,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="advantage != null">
+        advantage = #{advantage,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="recommend != null">
+        recommend = #{recommend,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.lietou.model.Talent">
+    update t_talent
+    set type = #{type,jdbcType=VARCHAR},
+      mfc = #{mfc,jdbcType=BIT},
+      chinese_name = #{chineseName,jdbcType=VARCHAR},
+      english_name = #{englishName,jdbcType=VARCHAR},
+      industry = #{industry,jdbcType=VARCHAR},
+      function = #{function,jdbcType=VARCHAR},
+      mobile = #{mobile,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      birthday = #{birthday,jdbcType=VARCHAR},
+      location = #{location,jdbcType=BIGINT},
+      city = #{city,jdbcType=VARCHAR},
+      annualSalary = #{annualsalary,jdbcType=REAL},
+      sex = #{sex,jdbcType=VARCHAR},
+      nationality = #{nationality,jdbcType=BIGINT},
+      school = #{school,jdbcType=VARCHAR},
+      education = #{education,jdbcType=VARCHAR},
+      english_level = #{englishLevel,jdbcType=VARCHAR},
+      linkedin = #{linkedin,jdbcType=VARCHAR},
+      qq = #{qq,jdbcType=VARCHAR},
+      weixin = #{weixin,jdbcType=VARCHAR},
+      marrysituation = #{marrysituation,jdbcType=VARCHAR},
+      account = #{account,jdbcType=VARCHAR},
+      address = #{address,jdbcType=VARCHAR},
+      tags = #{tags,jdbcType=VARCHAR},
+      source_from = #{sourceFrom,jdbcType=VARCHAR},
+      folder_id = #{folderId,jdbcType=BIGINT},
+      share_flag = #{shareFlag,jdbcType=BIT},
+      remark = #{remark,jdbcType=VARCHAR},
+      attachments = #{attachments,jdbcType=VARCHAR},
+      attachment_count = #{attachmentCount,jdbcType=INTEGER},
+      email_count = #{emailCount,jdbcType=INTEGER},
+      favorites_count = #{favoritesCount,jdbcType=INTEGER},
+      remark_count = #{remarkCount,jdbcType=INTEGER},
+      shortlist_count = #{shortlistCount,jdbcType=INTEGER},
+      todo_count = #{todoCount,jdbcType=INTEGER},
+      floating_in_count = #{floatingInCount,jdbcType=INTEGER},
+      floating_out_count = #{floatingOutCount,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=VARCHAR},
+      creater_id = #{createrId,jdbcType=BIGINT},
+      c_id = #{cId,jdbcType=BIGINT},
+      update_time = #{updateTime,jdbcType=VARCHAR},
+      status = #{status,jdbcType=VARCHAR},
+      focus_str = #{focusStr,jdbcType=VARCHAR},
+      project_experience = #{projectExperience,jdbcType=LONGVARCHAR},
+      advantage = #{advantage,jdbcType=LONGVARCHAR},
+      recommend = #{recommend,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lietou.model.Talent">
+    update t_talent
+    set type = #{type,jdbcType=VARCHAR},
+      mfc = #{mfc,jdbcType=BIT},
+      chinese_name = #{chineseName,jdbcType=VARCHAR},
+      english_name = #{englishName,jdbcType=VARCHAR},
+      industry = #{industry,jdbcType=VARCHAR},
+      function = #{function,jdbcType=VARCHAR},
+      mobile = #{mobile,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      birthday = #{birthday,jdbcType=VARCHAR},
+      location = #{location,jdbcType=BIGINT},
+      city = #{city,jdbcType=VARCHAR},
+      annualSalary = #{annualsalary,jdbcType=REAL},
+      sex = #{sex,jdbcType=VARCHAR},
+      nationality = #{nationality,jdbcType=BIGINT},
+      school = #{school,jdbcType=VARCHAR},
+      education = #{education,jdbcType=VARCHAR},
+      english_level = #{englishLevel,jdbcType=VARCHAR},
+      linkedin = #{linkedin,jdbcType=VARCHAR},
+      qq = #{qq,jdbcType=VARCHAR},
+      weixin = #{weixin,jdbcType=VARCHAR},
+      marrysituation = #{marrysituation,jdbcType=VARCHAR},
+      account = #{account,jdbcType=VARCHAR},
+      address = #{address,jdbcType=VARCHAR},
+      tags = #{tags,jdbcType=VARCHAR},
+      source_from = #{sourceFrom,jdbcType=VARCHAR},
+      folder_id = #{folderId,jdbcType=BIGINT},
+      share_flag = #{shareFlag,jdbcType=BIT},
+      remark = #{remark,jdbcType=VARCHAR},
+      attachments = #{attachments,jdbcType=VARCHAR},
+      attachment_count = #{attachmentCount,jdbcType=INTEGER},
+      email_count = #{emailCount,jdbcType=INTEGER},
+      favorites_count = #{favoritesCount,jdbcType=INTEGER},
+      remark_count = #{remarkCount,jdbcType=INTEGER},
+      shortlist_count = #{shortlistCount,jdbcType=INTEGER},
+      todo_count = #{todoCount,jdbcType=INTEGER},
+      floating_in_count = #{floatingInCount,jdbcType=INTEGER},
+      floating_out_count = #{floatingOutCount,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=VARCHAR},
+      creater_id = #{createrId,jdbcType=BIGINT},
+      c_id = #{cId,jdbcType=BIGINT},
+      update_time = #{updateTime,jdbcType=VARCHAR},
+      status = #{status,jdbcType=VARCHAR},
+      focus_str = #{focusStr,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

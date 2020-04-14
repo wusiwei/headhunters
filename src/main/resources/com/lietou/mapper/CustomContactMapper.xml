@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lietou.mapper.CustomContactMapper">
+  <resultMap id="BaseResultMap" type="com.lietou.model.CustomContact">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="customer_id" jdbcType="BIGINT" property="customerId" />
+    <result column="important_degree" jdbcType="VARCHAR" property="importantDegree" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="u_position" jdbcType="VARCHAR" property="uPosition" />
+    <result column="mobile_phone" jdbcType="VARCHAR" property="mobilePhone" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="phone" jdbcType="VARCHAR" property="phone" />
+    <result column="u_qq" jdbcType="VARCHAR" property="uQq" />
+    <result column="u_wechat" jdbcType="VARCHAR" property="uWechat" />
+    <result column="sex" jdbcType="VARCHAR" property="sex" />
+    <result column="birthday" jdbcType="VARCHAR" property="birthday" />
+    <result column="domicile" jdbcType="VARCHAR" property="domicile" />
+    <result column="account_name" jdbcType="VARCHAR" property="accountName" />
+    <result column="account_password" jdbcType="VARCHAR" property="accountPassword" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="db_or" jdbcType="VARCHAR" property="dbOr" />
+    <result column="creater_id" jdbcType="BIGINT" property="createrId" />
+    <result column="create_time" jdbcType="VARCHAR" property="createTime" />
+    <result column="c_id" jdbcType="BIGINT" property="cId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, customer_id, important_degree, name, u_position, mobile_phone, email, phone, 
+    u_qq, u_wechat, sex, birthday, domicile, account_name, account_password, remark, 
+    db_or, creater_id, create_time, c_id
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_custom_contact
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from t_custom_contact
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.lietou.model.CustomContact">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into t_custom_contact (customer_id, important_degree, name, 
+      u_position, mobile_phone, email, 
+      phone, u_qq, u_wechat, 
+      sex, birthday, domicile, 
+      account_name, account_password, remark, 
+      db_or, creater_id, create_time, 
+      c_id)
+    values (#{customerId,jdbcType=BIGINT}, #{importantDegree,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
+      #{uPosition,jdbcType=VARCHAR}, #{mobilePhone,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
+      #{phone,jdbcType=VARCHAR}, #{uQq,jdbcType=VARCHAR}, #{uWechat,jdbcType=VARCHAR}, 
+      #{sex,jdbcType=VARCHAR}, #{birthday,jdbcType=VARCHAR}, #{domicile,jdbcType=VARCHAR}, 
+      #{accountName,jdbcType=VARCHAR}, #{accountPassword,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, 
+      #{dbOr,jdbcType=VARCHAR}, #{createrId,jdbcType=BIGINT}, #{createTime,jdbcType=VARCHAR}, 
+      #{cId,jdbcType=BIGINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.lietou.model.CustomContact">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into t_custom_contact
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="customerId != null">
+        customer_id,
+      </if>
+      <if test="importantDegree != null">
+        important_degree,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="uPosition != null">
+        u_position,
+      </if>
+      <if test="mobilePhone != null">
+        mobile_phone,
+      </if>
+      <if test="email != null">
+        email,
+      </if>
+      <if test="phone != null">
+        phone,
+      </if>
+      <if test="uQq != null">
+        u_qq,
+      </if>
+      <if test="uWechat != null">
+        u_wechat,
+      </if>
+      <if test="sex != null">
+        sex,
+      </if>
+      <if test="birthday != null">
+        birthday,
+      </if>
+      <if test="domicile != null">
+        domicile,
+      </if>
+      <if test="accountName != null">
+        account_name,
+      </if>
+      <if test="accountPassword != null">
+        account_password,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+      <if test="dbOr != null">
+        db_or,
+      </if>
+      <if test="createrId != null">
+        creater_id,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="cId != null">
+        c_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="customerId != null">
+        #{customerId,jdbcType=BIGINT},
+      </if>
+      <if test="importantDegree != null">
+        #{importantDegree,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="uPosition != null">
+        #{uPosition,jdbcType=VARCHAR},
+      </if>
+      <if test="mobilePhone != null">
+        #{mobilePhone,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="uQq != null">
+        #{uQq,jdbcType=VARCHAR},
+      </if>
+      <if test="uWechat != null">
+        #{uWechat,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="birthday != null">
+        #{birthday,jdbcType=VARCHAR},
+      </if>
+      <if test="domicile != null">
+        #{domicile,jdbcType=VARCHAR},
+      </if>
+      <if test="accountName != null">
+        #{accountName,jdbcType=VARCHAR},
+      </if>
+      <if test="accountPassword != null">
+        #{accountPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="dbOr != null">
+        #{dbOr,jdbcType=VARCHAR},
+      </if>
+      <if test="createrId != null">
+        #{createrId,jdbcType=BIGINT},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=VARCHAR},
+      </if>
+      <if test="cId != null">
+        #{cId,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lietou.model.CustomContact">
+    update t_custom_contact
+    <set>
+      <if test="customerId != null">
+        customer_id = #{customerId,jdbcType=BIGINT},
+      </if>
+      <if test="importantDegree != null">
+        important_degree = #{importantDegree,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="uPosition != null">
+        u_position = #{uPosition,jdbcType=VARCHAR},
+      </if>
+      <if test="mobilePhone != null">
+        mobile_phone = #{mobilePhone,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="uQq != null">
+        u_qq = #{uQq,jdbcType=VARCHAR},
+      </if>
+      <if test="uWechat != null">
+        u_wechat = #{uWechat,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        sex = #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="birthday != null">
+        birthday = #{birthday,jdbcType=VARCHAR},
+      </if>
+      <if test="domicile != null">
+        domicile = #{domicile,jdbcType=VARCHAR},
+      </if>
+      <if test="accountName != null">
+        account_name = #{accountName,jdbcType=VARCHAR},
+      </if>
+      <if test="accountPassword != null">
+        account_password = #{accountPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="dbOr != null">
+        db_or = #{dbOr,jdbcType=VARCHAR},
+      </if>
+      <if test="createrId != null">
+        creater_id = #{createrId,jdbcType=BIGINT},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=VARCHAR},
+      </if>
+      <if test="cId != null">
+        c_id = #{cId,jdbcType=BIGINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lietou.model.CustomContact">
+    update t_custom_contact
+    set customer_id = #{customerId,jdbcType=BIGINT},
+      important_degree = #{importantDegree,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
+      u_position = #{uPosition,jdbcType=VARCHAR},
+      mobile_phone = #{mobilePhone,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=VARCHAR},
+      u_qq = #{uQq,jdbcType=VARCHAR},
+      u_wechat = #{uWechat,jdbcType=VARCHAR},
+      sex = #{sex,jdbcType=VARCHAR},
+      birthday = #{birthday,jdbcType=VARCHAR},
+      domicile = #{domicile,jdbcType=VARCHAR},
+      account_name = #{accountName,jdbcType=VARCHAR},
+      account_password = #{accountPassword,jdbcType=VARCHAR},
+      remark = #{remark,jdbcType=VARCHAR},
+      db_or = #{dbOr,jdbcType=VARCHAR},
+      creater_id = #{createrId,jdbcType=BIGINT},
+      create_time = #{createTime,jdbcType=VARCHAR},
+      c_id = #{cId,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

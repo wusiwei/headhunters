@@ -1,0 +1,554 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lietou.mapper.CustomMapper">
+  <resultMap id="BaseResultMap" type="com.lietou.model.Custom">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="type" jdbcType="VARCHAR" property="type" />
+    <result column="industry" jdbcType="BIGINT" property="industry" />
+    <result column="industry1" jdbcType="BIGINT" property="industry1" />
+    <result column="industry2" jdbcType="BIGINT" property="industry2" />
+    <result column="city" jdbcType="BIGINT" property="city" />
+    <result column="custom_folder" jdbcType="BIGINT" property="customFolder" />
+    <result column="full_name" jdbcType="VARCHAR" property="fullName" />
+    <result column="short_name" jdbcType="VARCHAR" property="shortName" />
+    <result column="invoice_start" jdbcType="VARCHAR" property="invoiceStart" />
+    <result column="phone" jdbcType="VARCHAR" property="phone" />
+    <result column="web_site" jdbcType="VARCHAR" property="webSite" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="financing" jdbcType="VARCHAR" property="financing" />
+    <result column="set_up_time" jdbcType="VARCHAR" property="setUpTime" />
+    <result column="source" jdbcType="VARCHAR" property="source" />
+    <result column="salary_structure" jdbcType="VARCHAR" property="salaryStructure" />
+    <result column="product" jdbcType="VARCHAR" property="product" />
+    <result column="scale" jdbcType="VARCHAR" property="scale" />
+    <result column="production" jdbcType="VARCHAR" property="production" />
+    <result column="opponent" jdbcType="VARCHAR" property="opponent" />
+    <result column="workday" jdbcType="VARCHAR" property="workday" />
+    <result column="welfare1" jdbcType="VARCHAR" property="welfare1" />
+    <result column="welfare2" jdbcType="VARCHAR" property="welfare2" />
+    <result column="share_flag" jdbcType="BIT" property="shareFlag" />
+    <result column="create_time" jdbcType="VARCHAR" property="createTime" />
+    <result column="delete_flag" jdbcType="BIT" property="deleteFlag" />
+    <result column="customer_profile" jdbcType="VARCHAR" property="customerProfile" />
+    <result column="unnamed_profile" jdbcType="VARCHAR" property="unnamedProfile" />
+    <result column="bd_or" jdbcType="VARCHAR" property="bdOr" />
+    <result column="custom_state" jdbcType="INTEGER" property="customState" />
+    <result column="recently_time" jdbcType="VARCHAR" property="recentlyTime" />
+    <result column="contract_count" jdbcType="INTEGER" property="contractCount" />
+    <result column="invoice_count" jdbcType="INTEGER" property="invoiceCount" />
+    <result column="job_count" jdbcType="INTEGER" property="jobCount" />
+    <result column="job_lievcount" jdbcType="INTEGER" property="jobLievcount" />
+    <result column="remark_count" jdbcType="INTEGER" property="remarkCount" />
+    <result column="attachment_count" jdbcType="INTEGER" property="attachmentCount" />
+    <result column="remind_count" jdbcType="INTEGER" property="remindCount" />
+    <result column="focus_str" jdbcType="VARCHAR" property="focusStr" />
+    <result column="creater_id" jdbcType="BIGINT" property="createrId" />
+    <result column="c_id" jdbcType="BIGINT" property="cId" />
+    <result column="contact_count" jdbcType="INTEGER" property="contactCount" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, name, type, industry, industry1, industry2, city, custom_folder, full_name, short_name, 
+    invoice_start, phone, web_site, address, email, financing, set_up_time, source, salary_structure, 
+    product, scale, production, opponent, workday, welfare1, welfare2, share_flag, create_time, 
+    delete_flag, customer_profile, unnamed_profile, bd_or, custom_state, recently_time, 
+    contract_count, invoice_count, job_count, job_lievcount, remark_count, attachment_count, 
+    remind_count, focus_str, creater_id, c_id,contact_count
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_custom
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from t_custom
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.lietou.model.Custom">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into t_custom (name, type, industry, 
+      industry1, industry2, city, 
+      custom_folder, full_name, short_name, 
+      invoice_start, phone, web_site, 
+      address, email, financing, 
+      set_up_time, source, salary_structure, 
+      product, scale, production, 
+      opponent, workday, welfare1, 
+      welfare2, share_flag, create_time, 
+      delete_flag, customer_profile, unnamed_profile, 
+      bd_or, custom_state, recently_time, 
+      contract_count, invoice_count, job_count, 
+      job_lievcount, remark_count, attachment_count, 
+      remind_count, focus_str, creater_id, 
+      c_id)
+    values (#{name,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR}, #{industry,jdbcType=BIGINT}, 
+      #{industry1,jdbcType=BIGINT}, #{industry2,jdbcType=BIGINT}, #{city,jdbcType=BIGINT}, 
+      #{customFolder,jdbcType=BIGINT}, #{fullName,jdbcType=VARCHAR}, #{shortName,jdbcType=VARCHAR}, 
+      #{invoiceStart,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, #{webSite,jdbcType=VARCHAR}, 
+      #{address,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{financing,jdbcType=VARCHAR}, 
+      #{setUpTime,jdbcType=VARCHAR}, #{source,jdbcType=VARCHAR}, #{salaryStructure,jdbcType=VARCHAR}, 
+      #{product,jdbcType=VARCHAR}, #{scale,jdbcType=VARCHAR}, #{production,jdbcType=VARCHAR}, 
+      #{opponent,jdbcType=VARCHAR}, #{workday,jdbcType=VARCHAR}, #{welfare1,jdbcType=VARCHAR}, 
+      #{welfare2,jdbcType=VARCHAR}, #{shareFlag,jdbcType=BIT}, #{createTime,jdbcType=VARCHAR}, 
+      #{deleteFlag,jdbcType=BIT}, #{customerProfile,jdbcType=VARCHAR}, #{unnamedProfile,jdbcType=VARCHAR}, 
+      #{bdOr,jdbcType=VARCHAR}, #{customState,jdbcType=INTEGER}, #{recentlyTime,jdbcType=VARCHAR}, 
+      #{contractCount,jdbcType=INTEGER}, #{invoiceCount,jdbcType=INTEGER}, #{jobCount,jdbcType=INTEGER}, 
+      #{jobLievcount,jdbcType=INTEGER}, #{remarkCount,jdbcType=INTEGER}, #{attachmentCount,jdbcType=INTEGER}, 
+      #{remindCount,jdbcType=INTEGER}, #{focusStr,jdbcType=VARCHAR}, #{createrId,jdbcType=BIGINT}, 
+      #{cId,jdbcType=BIGINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.lietou.model.Custom">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into t_custom
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="name != null">
+        name,
+      </if>
+      <if test="type != null">
+        type,
+      </if>
+      <if test="industry != null">
+        industry,
+      </if>
+      <if test="industry1 != null">
+        industry1,
+      </if>
+      <if test="industry2 != null">
+        industry2,
+      </if>
+      <if test="city != null">
+        city,
+      </if>
+      <if test="customFolder != null">
+        custom_folder,
+      </if>
+      <if test="fullName != null">
+        full_name,
+      </if>
+      <if test="shortName != null">
+        short_name,
+      </if>
+      <if test="invoiceStart != null">
+        invoice_start,
+      </if>
+      <if test="phone != null">
+        phone,
+      </if>
+      <if test="webSite != null">
+        web_site,
+      </if>
+      <if test="address != null">
+        address,
+      </if>
+      <if test="email != null">
+        email,
+      </if>
+      <if test="financing != null">
+        financing,
+      </if>
+      <if test="setUpTime != null">
+        set_up_time,
+      </if>
+      <if test="source != null">
+        source,
+      </if>
+      <if test="salaryStructure != null">
+        salary_structure,
+      </if>
+      <if test="product != null">
+        product,
+      </if>
+      <if test="scale != null">
+        scale,
+      </if>
+      <if test="production != null">
+        production,
+      </if>
+      <if test="opponent != null">
+        opponent,
+      </if>
+      <if test="workday != null">
+        workday,
+      </if>
+      <if test="welfare1 != null">
+        welfare1,
+      </if>
+      <if test="welfare2 != null">
+        welfare2,
+      </if>
+      <if test="shareFlag != null">
+        share_flag,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="deleteFlag != null">
+        delete_flag,
+      </if>
+      <if test="customerProfile != null">
+        customer_profile,
+      </if>
+      <if test="unnamedProfile != null">
+        unnamed_profile,
+      </if>
+      <if test="bdOr != null">
+        bd_or,
+      </if>
+      <if test="customState != null">
+        custom_state,
+      </if>
+      <if test="recentlyTime != null">
+        recently_time,
+      </if>
+      <if test="contractCount != null">
+        contract_count,
+      </if>
+      <if test="invoiceCount != null">
+        invoice_count,
+      </if>
+      <if test="jobCount != null">
+        job_count,
+      </if>
+      <if test="jobLievcount != null">
+        job_lievcount,
+      </if>
+      <if test="remarkCount != null">
+        remark_count,
+      </if>
+      <if test="attachmentCount != null">
+        attachment_count,
+      </if>
+      <if test="remindCount != null">
+        remind_count,
+      </if>
+      <if test="focusStr != null">
+        focus_str,
+      </if>
+      <if test="createrId != null">
+        creater_id,
+      </if>
+      <if test="cId != null">
+        c_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="industry != null">
+        #{industry,jdbcType=BIGINT},
+      </if>
+      <if test="industry1 != null">
+        #{industry1,jdbcType=BIGINT},
+      </if>
+      <if test="industry2 != null">
+        #{industry2,jdbcType=BIGINT},
+      </if>
+      <if test="city != null">
+        #{city,jdbcType=BIGINT},
+      </if>
+      <if test="customFolder != null">
+        #{customFolder,jdbcType=BIGINT},
+      </if>
+      <if test="fullName != null">
+        #{fullName,jdbcType=VARCHAR},
+      </if>
+      <if test="shortName != null">
+        #{shortName,jdbcType=VARCHAR},
+      </if>
+      <if test="invoiceStart != null">
+        #{invoiceStart,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="webSite != null">
+        #{webSite,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="financing != null">
+        #{financing,jdbcType=VARCHAR},
+      </if>
+      <if test="setUpTime != null">
+        #{setUpTime,jdbcType=VARCHAR},
+      </if>
+      <if test="source != null">
+        #{source,jdbcType=VARCHAR},
+      </if>
+      <if test="salaryStructure != null">
+        #{salaryStructure,jdbcType=VARCHAR},
+      </if>
+      <if test="product != null">
+        #{product,jdbcType=VARCHAR},
+      </if>
+      <if test="scale != null">
+        #{scale,jdbcType=VARCHAR},
+      </if>
+      <if test="production != null">
+        #{production,jdbcType=VARCHAR},
+      </if>
+      <if test="opponent != null">
+        #{opponent,jdbcType=VARCHAR},
+      </if>
+      <if test="workday != null">
+        #{workday,jdbcType=VARCHAR},
+      </if>
+      <if test="welfare1 != null">
+        #{welfare1,jdbcType=VARCHAR},
+      </if>
+      <if test="welfare2 != null">
+        #{welfare2,jdbcType=VARCHAR},
+      </if>
+      <if test="shareFlag != null">
+        #{shareFlag,jdbcType=BIT},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=VARCHAR},
+      </if>
+      <if test="deleteFlag != null">
+        #{deleteFlag,jdbcType=BIT},
+      </if>
+      <if test="customerProfile != null">
+        #{customerProfile,jdbcType=VARCHAR},
+      </if>
+      <if test="unnamedProfile != null">
+        #{unnamedProfile,jdbcType=VARCHAR},
+      </if>
+      <if test="bdOr != null">
+        #{bdOr,jdbcType=VARCHAR},
+      </if>
+      <if test="customState != null">
+        #{customState,jdbcType=INTEGER},
+      </if>
+      <if test="recentlyTime != null">
+        #{recentlyTime,jdbcType=VARCHAR},
+      </if>
+      <if test="contractCount != null">
+        #{contractCount,jdbcType=INTEGER},
+      </if>
+      <if test="invoiceCount != null">
+        #{invoiceCount,jdbcType=INTEGER},
+      </if>
+      <if test="jobCount != null">
+        #{jobCount,jdbcType=INTEGER},
+      </if>
+      <if test="jobLievcount != null">
+        #{jobLievcount,jdbcType=INTEGER},
+      </if>
+      <if test="remarkCount != null">
+        #{remarkCount,jdbcType=INTEGER},
+      </if>
+      <if test="attachmentCount != null">
+        #{attachmentCount,jdbcType=INTEGER},
+      </if>
+      <if test="remindCount != null">
+        #{remindCount,jdbcType=INTEGER},
+      </if>
+      <if test="focusStr != null">
+        #{focusStr,jdbcType=VARCHAR},
+      </if>
+      <if test="createrId != null">
+        #{createrId,jdbcType=BIGINT},
+      </if>
+      <if test="cId != null">
+        #{cId,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lietou.model.Custom">
+    update t_custom
+    <set>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        type = #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="industry != null">
+        industry = #{industry,jdbcType=BIGINT},
+      </if>
+      <if test="industry1 != null">
+        industry1 = #{industry1,jdbcType=BIGINT},
+      </if>
+      <if test="industry2 != null">
+        industry2 = #{industry2,jdbcType=BIGINT},
+      </if>
+      <if test="city != null">
+        city = #{city,jdbcType=BIGINT},
+      </if>
+      <if test="customFolder != null">
+        custom_folder = #{customFolder,jdbcType=BIGINT},
+      </if>
+      <if test="fullName != null">
+        full_name = #{fullName,jdbcType=VARCHAR},
+      </if>
+      <if test="shortName != null">
+        short_name = #{shortName,jdbcType=VARCHAR},
+      </if>
+      <if test="invoiceStart != null">
+        invoice_start = #{invoiceStart,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="webSite != null">
+        web_site = #{webSite,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="financing != null">
+        financing = #{financing,jdbcType=VARCHAR},
+      </if>
+      <if test="setUpTime != null">
+        set_up_time = #{setUpTime,jdbcType=VARCHAR},
+      </if>
+      <if test="source != null">
+        source = #{source,jdbcType=VARCHAR},
+      </if>
+      <if test="salaryStructure != null">
+        salary_structure = #{salaryStructure,jdbcType=VARCHAR},
+      </if>
+      <if test="product != null">
+        product = #{product,jdbcType=VARCHAR},
+      </if>
+      <if test="scale != null">
+        scale = #{scale,jdbcType=VARCHAR},
+      </if>
+      <if test="production != null">
+        production = #{production,jdbcType=VARCHAR},
+      </if>
+      <if test="opponent != null">
+        opponent = #{opponent,jdbcType=VARCHAR},
+      </if>
+      <if test="workday != null">
+        workday = #{workday,jdbcType=VARCHAR},
+      </if>
+      <if test="welfare1 != null">
+        welfare1 = #{welfare1,jdbcType=VARCHAR},
+      </if>
+      <if test="welfare2 != null">
+        welfare2 = #{welfare2,jdbcType=VARCHAR},
+      </if>
+      <if test="shareFlag != null">
+        share_flag = #{shareFlag,jdbcType=BIT},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=VARCHAR},
+      </if>
+      <if test="deleteFlag != null">
+        delete_flag = #{deleteFlag,jdbcType=BIT},
+      </if>
+      <if test="customerProfile != null">
+        customer_profile = #{customerProfile,jdbcType=VARCHAR},
+      </if>
+      <if test="unnamedProfile != null">
+        unnamed_profile = #{unnamedProfile,jdbcType=VARCHAR},
+      </if>
+      <if test="bdOr != null">
+        bd_or = #{bdOr,jdbcType=VARCHAR},
+      </if>
+      <if test="customState != null">
+        custom_state = #{customState,jdbcType=INTEGER},
+      </if>
+      <if test="recentlyTime != null">
+        recently_time = #{recentlyTime,jdbcType=VARCHAR},
+      </if>
+      <if test="contractCount != null">
+        contract_count = #{contractCount,jdbcType=INTEGER},
+      </if>
+      <if test="invoiceCount != null">
+        invoice_count = #{invoiceCount,jdbcType=INTEGER},
+      </if>
+      <if test="jobCount != null">
+        job_count = #{jobCount,jdbcType=INTEGER},
+      </if>
+      <if test="jobLievcount != null">
+        job_lievcount = #{jobLievcount,jdbcType=INTEGER},
+      </if>
+      <if test="remarkCount != null">
+        remark_count = #{remarkCount,jdbcType=INTEGER},
+      </if>
+      <if test="attachmentCount != null">
+        attachment_count = #{attachmentCount,jdbcType=INTEGER},
+      </if>
+      <if test="remindCount != null">
+        remind_count = #{remindCount,jdbcType=INTEGER},
+      </if>
+      <if test="focusStr != null">
+        focus_str = #{focusStr,jdbcType=VARCHAR},
+      </if>
+      <if test="createrId != null">
+        creater_id = #{createrId,jdbcType=BIGINT},
+      </if>
+      <if test="cId != null">
+        c_id = #{cId,jdbcType=BIGINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lietou.model.Custom">
+    update t_custom
+    set name = #{name,jdbcType=VARCHAR},
+      type = #{type,jdbcType=VARCHAR},
+      industry = #{industry,jdbcType=BIGINT},
+      industry1 = #{industry1,jdbcType=BIGINT},
+      industry2 = #{industry2,jdbcType=BIGINT},
+      city = #{city,jdbcType=BIGINT},
+      custom_folder = #{customFolder,jdbcType=BIGINT},
+      full_name = #{fullName,jdbcType=VARCHAR},
+      short_name = #{shortName,jdbcType=VARCHAR},
+      invoice_start = #{invoiceStart,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=VARCHAR},
+      web_site = #{webSite,jdbcType=VARCHAR},
+      address = #{address,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      financing = #{financing,jdbcType=VARCHAR},
+      set_up_time = #{setUpTime,jdbcType=VARCHAR},
+      source = #{source,jdbcType=VARCHAR},
+      salary_structure = #{salaryStructure,jdbcType=VARCHAR},
+      product = #{product,jdbcType=VARCHAR},
+      scale = #{scale,jdbcType=VARCHAR},
+      production = #{production,jdbcType=VARCHAR},
+      opponent = #{opponent,jdbcType=VARCHAR},
+      workday = #{workday,jdbcType=VARCHAR},
+      welfare1 = #{welfare1,jdbcType=VARCHAR},
+      welfare2 = #{welfare2,jdbcType=VARCHAR},
+      share_flag = #{shareFlag,jdbcType=BIT},
+      create_time = #{createTime,jdbcType=VARCHAR},
+      delete_flag = #{deleteFlag,jdbcType=BIT},
+      customer_profile = #{customerProfile,jdbcType=VARCHAR},
+      unnamed_profile = #{unnamedProfile,jdbcType=VARCHAR},
+      bd_or = #{bdOr,jdbcType=VARCHAR},
+      custom_state = #{customState,jdbcType=INTEGER},
+      recently_time = #{recentlyTime,jdbcType=VARCHAR},
+      contract_count = #{contractCount,jdbcType=INTEGER},
+      invoice_count = #{invoiceCount,jdbcType=INTEGER},
+      job_count = #{jobCount,jdbcType=INTEGER},
+      job_lievcount = #{jobLievcount,jdbcType=INTEGER},
+      remark_count = #{remarkCount,jdbcType=INTEGER},
+      attachment_count = #{attachmentCount,jdbcType=INTEGER},
+      remind_count = #{remindCount,jdbcType=INTEGER},
+      focus_str = #{focusStr,jdbcType=VARCHAR},
+      creater_id = #{createrId,jdbcType=BIGINT},
+      c_id = #{cId,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

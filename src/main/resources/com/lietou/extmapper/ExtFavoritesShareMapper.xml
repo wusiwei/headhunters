@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lietou.mapper.FavoritesShareMapper">
+
+	<select id="getSharedFavoritesIds" parameterType="com.lietou.queryvo.FavoritesQueryVo" resultType="java.lang.Long">
+		select distinct favorites_id from t_favorites_share where business_type= #{businessType}
+		and ( (share_type =1 and share_id=#{createrId})
+			<if test="pIds != null">
+				or (share_type =2 and  share_id in
+				<foreach collection="pIds" item="item" index="index" open="(" separator="," close=")">
+					#{item}
+				</foreach>)
+			</if> 
+			<if test="cId != null">
+				or (share_type =3 and share_id=#{cId})
+			</if>
+		)
+	</select>
+	
+	<insert id="batchAddShare" parameterType="com.lietou.vo.FavoritesVo">
+		insert into t_favorites_share (favorites_id, share_type, share_id, business_type)
+	    values 
+	    <foreach collection="share" item="item" index="index"
+			separator=",">
+			(#{id,jdbcType=BIGINT}, #{item.shareType,jdbcType=INTEGER}, 
+			<choose>
+		        <when test="item.shareType == 3">
+		            #{cId,jdbcType=BIGINT}, 
+		        </when>
+		        <otherwise>
+		            #{item.shareId,jdbcType=BIGINT}, 
+		        </otherwise>
+		    </choose>
+      		 #{businessType,jdbcType=VARCHAR})
+	    </foreach>
+	</insert>
+	
+	<delete id="deleteByFavorites" parameterType="com.lietou.vo.FavoritesVo">
+		delete from t_favorites_share where favorites_id = #{id,jdbcType=BIGINT} and business_type=#{businessType,jdbcType=VARCHAR}
+	</delete>
+</mapper>

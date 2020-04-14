@@ -1,0 +1,520 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lietou.mapper.CustomMapper">
+	<insert id="voInsertSelective" parameterType="com.lietou.vo.CustomVo">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into t_custom
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="name != null">
+        name,
+      </if>
+      <if test="type != null">
+        type,
+      </if>
+      <if test="industry != null">
+        industry,
+      </if>
+      <if test="industry1 != null">
+        industry1,
+      </if>
+      <if test="industry2 != null">
+        industry2,
+      </if>
+      <if test="city != null">
+        city,
+      </if>
+      <if test="customFolder != null">
+        custom_folder,
+      </if>
+      <if test="fullName != null">
+        full_name,
+      </if>
+      <if test="shortName != null">
+        short_name,
+      </if>
+      <if test="invoiceStart != null">
+        invoice_start,
+      </if>
+      <if test="phone != null">
+        phone,
+      </if>
+      <if test="webSite != null">
+        web_site,
+      </if>
+      <if test="address != null">
+        address,
+      </if>
+      <if test="email != null">
+        email,
+      </if>
+      <if test="financing != null">
+        financing,
+      </if>
+      <if test="setUpTime != null">
+        set_up_time,
+      </if>
+      <if test="source != null">
+        source,
+      </if>
+      <if test="salaryStructure != null">
+        salary_structure,
+      </if>
+      <if test="product != null">
+        product,
+      </if>
+      <if test="scale != null">
+        scale,
+      </if>
+      <if test="production != null">
+        production,
+      </if>
+      <if test="opponent != null">
+        opponent,
+      </if>
+      <if test="workday != null">
+        workday,
+      </if>
+      <if test="welfare1 != null">
+        welfare1,
+      </if>
+      <if test="welfare2 != null">
+        welfare2,
+      </if>
+      <if test="shareFlag != null">
+        share_flag,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="deleteFlag != null">
+        delete_flag,
+      </if>
+      <if test="customerProfile != null">
+        customer_profile,
+      </if>
+      <if test="unnamedProfile != null">
+        unnamed_profile,
+      </if>
+      <if test="bdOr != null">
+        bd_or,
+      </if>
+      <if test="customState != null">
+        custom_state,
+      </if>
+      <if test="recentlyTime != null">
+        recently_time,
+      </if>
+      <if test="contractCount != null">
+        contract_count,
+      </if>
+      <if test="invoiceCount != null">
+        invoice_count,
+      </if>
+      <if test="jobCount != null">
+        job_count,
+      </if>
+      <if test="jobLievcount != null">
+        job_lievcount,
+      </if>
+      <if test="remarkCount != null">
+        remark_count,
+      </if>
+      <if test="attachmentCount != null">
+        attachment_count,
+      </if>
+      <if test="remindCount != null">
+        remind_count,
+      </if>
+      <if test="focusStr != null">
+        focus_str,
+      </if>
+      <if test="createrId != null">
+        creater_id,
+      </if>
+      <if test="cId != null">
+        c_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="industry != null">
+        #{industry,jdbcType=BIGINT},
+      </if>
+      <if test="industry1 != null">
+        #{industry1,jdbcType=BIGINT},
+      </if>
+      <if test="industry2 != null">
+        #{industry2,jdbcType=BIGINT},
+      </if>
+      <if test="city != null">
+        #{city,jdbcType=BIGINT},
+      </if>
+      <if test="customFolder != null">
+        #{customFolder,jdbcType=BIGINT},
+      </if>
+      <if test="fullName != null">
+        #{fullName,jdbcType=VARCHAR},
+      </if>
+      <if test="shortName != null">
+        #{shortName,jdbcType=VARCHAR},
+      </if>
+      <if test="invoiceStart != null">
+        #{invoiceStart,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="webSite != null">
+        #{webSite,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="financing != null">
+        #{financing,jdbcType=VARCHAR},
+      </if>
+      <if test="setUpTime != null">
+        #{setUpTime,jdbcType=VARCHAR},
+      </if>
+      <if test="source != null">
+        #{source,jdbcType=VARCHAR},
+      </if>
+      <if test="salaryStructure != null">
+        #{salaryStructure,jdbcType=VARCHAR},
+      </if>
+      <if test="product != null">
+        #{product,jdbcType=VARCHAR},
+      </if>
+      <if test="scale != null">
+        #{scale,jdbcType=VARCHAR},
+      </if>
+      <if test="production != null">
+        #{production,jdbcType=VARCHAR},
+      </if>
+      <if test="opponent != null">
+        #{opponent,jdbcType=VARCHAR},
+      </if>
+      <if test="workday != null">
+        #{workday,jdbcType=VARCHAR},
+      </if>
+      <if test="welfare1 != null">
+        #{welfare1,jdbcType=VARCHAR},
+      </if>
+      <if test="welfare2 != null">
+        #{welfare2,jdbcType=VARCHAR},
+      </if>
+      <if test="shareFlag != null">
+        #{shareFlag,jdbcType=BIT},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=VARCHAR},
+      </if>
+      <if test="deleteFlag != null">
+        #{deleteFlag,jdbcType=BIT},
+      </if>
+      <if test="customerProfile != null">
+        #{customerProfile,jdbcType=VARCHAR},
+      </if>
+      <if test="unnamedProfile != null">
+        #{unnamedProfile,jdbcType=VARCHAR},
+      </if>
+      <if test="bdOr != null">
+        #{bdOr,jdbcType=VARCHAR},
+      </if>
+      <if test="customState != null">
+        #{customState,jdbcType=INTEGER},
+      </if>
+      <if test="recentlyTime != null">
+        #{recentlyTime,jdbcType=VARCHAR},
+      </if>
+      <if test="contractCount != null">
+        #{contractCount,jdbcType=INTEGER},
+      </if>
+      <if test="invoiceCount != null">
+        #{invoiceCount,jdbcType=INTEGER},
+      </if>
+      <if test="jobCount != null">
+        #{jobCount,jdbcType=INTEGER},
+      </if>
+      <if test="jobLievcount != null">
+        #{jobLievcount,jdbcType=INTEGER},
+      </if>
+      <if test="remarkCount != null">
+        #{remarkCount,jdbcType=INTEGER},
+      </if>
+      <if test="attachmentCount != null">
+        #{attachmentCount,jdbcType=INTEGER},
+      </if>
+      <if test="remindCount != null">
+        #{remindCount,jdbcType=INTEGER},
+      </if>
+      <if test="focusStr != null">
+        #{focusStr,jdbcType=VARCHAR},
+      </if>
+      <if test="createrId != null">
+        #{createrId,jdbcType=BIGINT},
+      </if>
+      <if test="cId != null">
+        #{cId,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="voUpdateByPrimaryKeySelective" parameterType="com.lietou.vo.CustomVo">
+    update t_custom
+    <set>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        type = #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="industry != null">
+        industry = #{industry,jdbcType=BIGINT},
+      </if>
+      <if test="industry1 != null">
+        industry1 = #{industry1,jdbcType=BIGINT},
+      </if>
+      <if test="industry2 != null">
+        industry2 = #{industry2,jdbcType=BIGINT},
+      </if>
+      <if test="city != null">
+        city = #{city,jdbcType=BIGINT},
+      </if>
+      <if test="customFolder != null">
+        custom_folder = #{customFolder,jdbcType=BIGINT},
+      </if>
+      <if test="fullName != null">
+        full_name = #{fullName,jdbcType=VARCHAR},
+      </if>
+      <if test="shortName != null">
+        short_name = #{shortName,jdbcType=VARCHAR},
+      </if>
+      <if test="invoiceStart != null">
+        invoice_start = #{invoiceStart,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="webSite != null">
+        web_site = #{webSite,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="financing != null">
+        financing = #{financing,jdbcType=VARCHAR},
+      </if>
+      <if test="setUpTime != null">
+        set_up_time = #{setUpTime,jdbcType=VARCHAR},
+      </if>
+      <if test="source != null">
+        source = #{source,jdbcType=VARCHAR},
+      </if>
+      <if test="salaryStructure != null">
+        salary_structure = #{salaryStructure,jdbcType=VARCHAR},
+      </if>
+      <if test="product != null">
+        product = #{product,jdbcType=VARCHAR},
+      </if>
+      <if test="scale != null">
+        scale = #{scale,jdbcType=VARCHAR},
+      </if>
+      <if test="production != null">
+        production = #{production,jdbcType=VARCHAR},
+      </if>
+      <if test="opponent != null">
+        opponent = #{opponent,jdbcType=VARCHAR},
+      </if>
+      <if test="workday != null">
+        workday = #{workday,jdbcType=VARCHAR},
+      </if>
+      <if test="welfare1 != null">
+        welfare1 = #{welfare1,jdbcType=VARCHAR},
+      </if>
+      <if test="welfare2 != null">
+        welfare2 = #{welfare2,jdbcType=VARCHAR},
+      </if>
+      <if test="shareFlag != null">
+        share_flag = #{shareFlag,jdbcType=BIT},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=VARCHAR},
+      </if>
+      <if test="deleteFlag != null">
+        delete_flag = #{deleteFlag,jdbcType=BIT},
+      </if>
+      <if test="customerProfile != null">
+        customer_profile = #{customerProfile,jdbcType=VARCHAR},
+      </if>
+      <if test="unnamedProfile != null">
+        unnamed_profile = #{unnamedProfile,jdbcType=VARCHAR},
+      </if>
+      <if test="bdOr != null">
+        bd_or = #{bdOr,jdbcType=VARCHAR},
+      </if>
+      <if test="customState != null">
+        custom_state = #{customState,jdbcType=INTEGER},
+      </if>
+      <if test="recentlyTime != null">
+        recently_time = #{recentlyTime,jdbcType=VARCHAR},
+      </if>
+      <if test="contractCount != null">
+        contract_count = #{contractCount,jdbcType=INTEGER},
+      </if>
+      <if test="invoiceCount != null">
+        invoice_count = #{invoiceCount,jdbcType=INTEGER},
+      </if>
+      <if test="jobCount != null">
+        job_count = #{jobCount,jdbcType=INTEGER},
+      </if>
+      <if test="jobLievcount != null">
+        job_lievcount = #{jobLievcount,jdbcType=INTEGER},
+      </if>
+      <if test="remarkCount != null">
+        remark_count = #{remarkCount,jdbcType=INTEGER},
+      </if>
+      <if test="attachmentCount != null">
+        attachment_count = #{attachmentCount,jdbcType=INTEGER},
+      </if>
+      <if test="remindCount != null">
+        remind_count = #{remindCount,jdbcType=INTEGER},
+      </if>
+      <if test="focusStr != null">
+        focus_str = #{focusStr,jdbcType=VARCHAR},
+      </if>
+      <if test="createrId != null">
+        creater_id = #{createrId,jdbcType=BIGINT},
+      </if>
+      <if test="cId != null">
+        c_id = #{cId,jdbcType=BIGINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+    <if test="cId != null">
+        and c_id = #{cId,jdbcType=BIGINT},
+    </if>
+  </update>
+  <update id="voUpdateByPrimaryKey" parameterType="com.lietou.vo.CustomVo">
+    update t_custom
+    set name = #{name,jdbcType=VARCHAR},
+      type = #{type,jdbcType=VARCHAR},
+      industry = #{industry,jdbcType=BIGINT},
+      industry1 = #{industry1,jdbcType=BIGINT},
+      industry2 = #{industry2,jdbcType=BIGINT},
+      city = #{city,jdbcType=BIGINT},
+      custom_folder = #{customFolder,jdbcType=BIGINT},
+      full_name = #{fullName,jdbcType=VARCHAR},
+      short_name = #{shortName,jdbcType=VARCHAR},
+      invoice_start = #{invoiceStart,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=VARCHAR},
+      web_site = #{webSite,jdbcType=VARCHAR},
+      address = #{address,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      financing = #{financing,jdbcType=VARCHAR},
+      set_up_time = #{setUpTime,jdbcType=VARCHAR},
+      source = #{source,jdbcType=VARCHAR},
+      salary_structure = #{salaryStructure,jdbcType=VARCHAR},
+      product = #{product,jdbcType=VARCHAR},
+      scale = #{scale,jdbcType=VARCHAR},
+      production = #{production,jdbcType=VARCHAR},
+      opponent = #{opponent,jdbcType=VARCHAR},
+      workday = #{workday,jdbcType=VARCHAR},
+      welfare1 = #{welfare1,jdbcType=VARCHAR},
+      welfare2 = #{welfare2,jdbcType=VARCHAR},
+      share_flag = #{shareFlag,jdbcType=BIT},
+      create_time = #{createTime,jdbcType=VARCHAR},
+      delete_flag = #{deleteFlag,jdbcType=BIT},
+      customer_profile = #{customerProfile,jdbcType=VARCHAR},
+      unnamed_profile = #{unnamedProfile,jdbcType=VARCHAR},
+      bd_or = #{bdOr,jdbcType=VARCHAR},
+      custom_state = #{customState,jdbcType=INTEGER},
+      recently_time = #{recentlyTime,jdbcType=VARCHAR},
+      contract_count = #{contractCount,jdbcType=INTEGER},
+      invoice_count = #{invoiceCount,jdbcType=INTEGER},
+      job_count = #{jobCount,jdbcType=INTEGER},
+      job_lievcount = #{jobLievcount,jdbcType=INTEGER},
+      remark_count = #{remarkCount,jdbcType=INTEGER},
+      attachment_count = #{attachmentCount,jdbcType=INTEGER},
+      remind_count = #{remindCount,jdbcType=INTEGER},
+      creater_id = #{createrId,jdbcType=BIGINT},
+      c_id = #{cId,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+	<resultMap type="com.lietou.dto.CustomDto" id="DtoMap" extends="BaseResultMap">
+	</resultMap>
+	
+	<select id="getCustomList" resultMap="DtoMap" parameterType="com.lietou.vo.CustomVo">
+		SELECT * FROM t_custom a 
+		where a.delete_flag = 0 and (a.creater_id =#{createrId} or a.share_flag =1)
+			<if test="city !=null">
+				and a.city=#{city}
+			</if>
+			<if test="name !=null and name !='' ">
+				and a.name LIKE concat('%',#{name},'%')
+			</if>
+			<if test="cId != null">
+				and c_id=#{cId}
+			</if>
+		order by a.create_time desc
+		limit #{pageStartSize},#{pageSize}
+	</select>
+	<select id="countCustomList" resultType="int" parameterType="com.lietou.vo.CustomVo">
+		SELECT count(1)
+		FROM t_custom
+		where delete_flag = 0 and (creater_id =#{createrId} or share_flag =1 )
+			<if test="city !=null">
+				and city=#{city}
+			</if>
+			<if test="name !=null and name !='' ">
+				and name LIKE concat('%',#{name},'%')
+			</if>
+			<if test="cId != null">
+				and c_id=#{cId}
+			</if>
+	</select>
+	
+	<update id="modifyShortName" parameterType="com.lietou.vo.CustomVo">
+		update t_custom set short_name = #{shortName,jdbcType=VARCHAR} where id=#{id}
+		<if test="cId != null">
+			and c_id=#{cId}
+		</if>
+	</update>
+	
+	<update id="modifyFocusStr" parameterType="com.lietou.vo.CustomVo">
+		update t_custom set focus_str = CONCAT(focus_str,#{focusStr,jdbcType=VARCHAR}) where id=#{id}
+	</update>
+	
+	<update id="unFocusStr" parameterType="com.lietou.vo.CustomVo">
+		update t_custom set focus_str = replace(focus_str,#{focusStr},"") where id=#{id}
+	</update>
+	
+	<select id="getById" resultMap="DtoMap" parameterType="com.lietou.vo.CustomVo">
+		SELECT * FROM t_custom a where id=#{id} 
+		<if test="cId != null">
+			and c_id=#{cId}
+		</if>
+	</select>
+	
+	<update id="resetRemarkCount" parameterType="com.lietou.model.ResetBO">
+		update t_custom 
+		set remark_count = (select count(1) from t_remark where business_id=#{businessId} and business_type=#{businessType}
+		<if test="cId != null">
+			and c_id=#{cId}
+		</if>
+		) 
+		where id= #{businessId}
+	</update>
+</mapper>

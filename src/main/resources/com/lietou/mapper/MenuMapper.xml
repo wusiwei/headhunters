@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lietou.mapper.MenuMapper">
+  <resultMap id="BaseResultMap" type="com.lietou.model.Menu">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="path" jdbcType="VARCHAR" property="path" />
+    <result column="vue_name" jdbcType="VARCHAR" property="vueName" />
+    <result column="menu_name" jdbcType="VARCHAR" property="menuName" />
+    <result column="component" jdbcType="VARCHAR" property="component" />
+    <result column="meta" jdbcType="VARCHAR" property="meta" />
+    <result column="redirect" jdbcType="VARCHAR" property="redirect" />
+    <result column="comonent_type" jdbcType="VARCHAR" property="comonentType" />
+    <result column="hidden" jdbcType="BIT" property="hidden" />
+    <result column="sort_index" jdbcType="INTEGER" property="sortIndex" />
+    <result column="hide_children_flag" jdbcType="BIT" property="hideChildrenFlag" />
+    <result column="parent_id" jdbcType="BIGINT" property="parentId" />
+    <result column="menu_flag" jdbcType="BIT" property="menuFlag" />
+    <result column="show_vue_name" jdbcType="VARCHAR" property="showVueName" />
+    <result column="menu_show_path" jdbcType="VARCHAR" property="menuShowPath" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, path, vue_name, menu_name, component, meta, redirect, comonent_type, hidden, 
+    sort_index, hide_children_flag, parent_id, menu_flag, show_vue_name, menu_show_path
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_menu
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from t_menu
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.lietou.model.Menu">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into t_menu (path, vue_name, menu_name, 
+      component, meta, redirect, 
+      comonent_type, hidden, sort_index, 
+      hide_children_flag, parent_id, menu_flag, 
+      show_vue_name, menu_show_path)
+    values (#{path,jdbcType=VARCHAR}, #{vueName,jdbcType=VARCHAR}, #{menuName,jdbcType=VARCHAR}, 
+      #{component,jdbcType=VARCHAR}, #{meta,jdbcType=VARCHAR}, #{redirect,jdbcType=VARCHAR}, 
+      #{comonentType,jdbcType=VARCHAR}, #{hidden,jdbcType=BIT}, #{sortIndex,jdbcType=INTEGER}, 
+      #{hideChildrenFlag,jdbcType=BIT}, #{parentId,jdbcType=BIGINT}, #{menuFlag,jdbcType=BIT}, 
+      #{showVueName,jdbcType=VARCHAR}, #{menuShowPath,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.lietou.model.Menu">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into t_menu
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="path != null">
+        path,
+      </if>
+      <if test="vueName != null">
+        vue_name,
+      </if>
+      <if test="menuName != null">
+        menu_name,
+      </if>
+      <if test="component != null">
+        component,
+      </if>
+      <if test="meta != null">
+        meta,
+      </if>
+      <if test="redirect != null">
+        redirect,
+      </if>
+      <if test="comonentType != null">
+        comonent_type,
+      </if>
+      <if test="hidden != null">
+        hidden,
+      </if>
+      <if test="sortIndex != null">
+        sort_index,
+      </if>
+      <if test="hideChildrenFlag != null">
+        hide_children_flag,
+      </if>
+      <if test="parentId != null">
+        parent_id,
+      </if>
+      <if test="menuFlag != null">
+        menu_flag,
+      </if>
+      <if test="showVueName != null">
+        show_vue_name,
+      </if>
+      <if test="menuShowPath != null">
+        menu_show_path,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="path != null">
+        #{path,jdbcType=VARCHAR},
+      </if>
+      <if test="vueName != null">
+        #{vueName,jdbcType=VARCHAR},
+      </if>
+      <if test="menuName != null">
+        #{menuName,jdbcType=VARCHAR},
+      </if>
+      <if test="component != null">
+        #{component,jdbcType=VARCHAR},
+      </if>
+      <if test="meta != null">
+        #{meta,jdbcType=VARCHAR},
+      </if>
+      <if test="redirect != null">
+        #{redirect,jdbcType=VARCHAR},
+      </if>
+      <if test="comonentType != null">
+        #{comonentType,jdbcType=VARCHAR},
+      </if>
+      <if test="hidden != null">
+        #{hidden,jdbcType=BIT},
+      </if>
+      <if test="sortIndex != null">
+        #{sortIndex,jdbcType=INTEGER},
+      </if>
+      <if test="hideChildrenFlag != null">
+        #{hideChildrenFlag,jdbcType=BIT},
+      </if>
+      <if test="parentId != null">
+        #{parentId,jdbcType=BIGINT},
+      </if>
+      <if test="menuFlag != null">
+        #{menuFlag,jdbcType=BIT},
+      </if>
+      <if test="showVueName != null">
+        #{showVueName,jdbcType=VARCHAR},
+      </if>
+      <if test="menuShowPath != null">
+        #{menuShowPath,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lietou.model.Menu">
+    update t_menu
+    <set>
+      <if test="path != null">
+        path = #{path,jdbcType=VARCHAR},
+      </if>
+      <if test="vueName != null">
+        vue_name = #{vueName,jdbcType=VARCHAR},
+      </if>
+      <if test="menuName != null">
+        menu_name = #{menuName,jdbcType=VARCHAR},
+      </if>
+      <if test="component != null">
+        component = #{component,jdbcType=VARCHAR},
+      </if>
+      <if test="meta != null">
+        meta = #{meta,jdbcType=VARCHAR},
+      </if>
+      <if test="redirect != null">
+        redirect = #{redirect,jdbcType=VARCHAR},
+      </if>
+      <if test="comonentType != null">
+        comonent_type = #{comonentType,jdbcType=VARCHAR},
+      </if>
+      <if test="hidden != null">
+        hidden = #{hidden,jdbcType=BIT},
+      </if>
+      <if test="sortIndex != null">
+        sort_index = #{sortIndex,jdbcType=INTEGER},
+      </if>
+      <if test="hideChildrenFlag != null">
+        hide_children_flag = #{hideChildrenFlag,jdbcType=BIT},
+      </if>
+      <if test="parentId != null">
+        parent_id = #{parentId,jdbcType=BIGINT},
+      </if>
+      <if test="menuFlag != null">
+        menu_flag = #{menuFlag,jdbcType=BIT},
+      </if>
+      <if test="showVueName != null">
+        show_vue_name = #{showVueName,jdbcType=VARCHAR},
+      </if>
+      <if test="menuShowPath != null">
+        menu_show_path = #{menuShowPath,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lietou.model.Menu">
+    update t_menu
+    set path = #{path,jdbcType=VARCHAR},
+      vue_name = #{vueName,jdbcType=VARCHAR},
+      menu_name = #{menuName,jdbcType=VARCHAR},
+      component = #{component,jdbcType=VARCHAR},
+      meta = #{meta,jdbcType=VARCHAR},
+      redirect = #{redirect,jdbcType=VARCHAR},
+      comonent_type = #{comonentType,jdbcType=VARCHAR},
+      hidden = #{hidden,jdbcType=BIT},
+      sort_index = #{sortIndex,jdbcType=INTEGER},
+      hide_children_flag = #{hideChildrenFlag,jdbcType=BIT},
+      parent_id = #{parentId,jdbcType=BIGINT},
+      menu_flag = #{menuFlag,jdbcType=BIT},
+      show_vue_name = #{showVueName,jdbcType=VARCHAR},
+      menu_show_path = #{menuShowPath,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>
